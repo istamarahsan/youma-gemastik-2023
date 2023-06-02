@@ -1,4 +1,8 @@
-extends Node2D
+extends Node
 
-func _on_area_2d_on_interact():
-	print("hi")
+enum UpperGameState {
+	MainMenu,
+	Playing
+}
+
+var state: UpperGameState = UpperGameState.MainMenu

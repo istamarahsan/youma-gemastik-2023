@@ -1,7 +1,7 @@
 extends CollisionObject2D
 class_name Interactable
 
-signal on_interact()
+signal interacted()
 
 func interact():
-	emit_signal("on_interact")
+	emit_signal("interacted")

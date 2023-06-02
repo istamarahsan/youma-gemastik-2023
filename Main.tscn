@@ -1,24 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnb1rqsr0d173"]
+[gd_scene load_steps=4 format=3 uid="uid://bnb1rqsr0d173"]
 
 [ext_resource type="PackedScene" uid="uid://b5skgo3qsm4eu" path="res://InteractionHandler.tscn" id="1_art6w"]
 [ext_resource type="Script" path="res://Main.gd" id="1_ojrr2"]
-[ext_resource type="Script" path="res://Interactable.gd" id="3_wync3"]
+[ext_resource type="PackedScene" uid="uid://blspmdei4ixum" path="res://levels/DemoLevel.tscn" id="2_pdxia"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ptivf"]
-
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node"]
 script = ExtResource("1_ojrr2")
 
-[node name="TouchHandler" parent="." instance=ExtResource("1_art6w")]
+[node name="DemoLevel" parent="." instance=ExtResource("2_pdxia")]
 
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="Area2D" type="Area2D" parent="Node2D"]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("3_wync3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
-shape = SubResource("CapsuleShape2D_ptivf")
-
-[connection signal="on_interact" from="Node2D/Area2D" to="." method="_on_area_2d_on_interact"]
+[node name="InteractionHandler" parent="." instance=ExtResource("1_art6w")]

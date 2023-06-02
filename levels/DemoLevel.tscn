@@ -1,0 +1,158 @@
+[gd_scene load_steps=6 format=3 uid="uid://blspmdei4ixum"]
+
+[ext_resource type="Script" path="res://levels/DemoLevel.gd" id="1_x3a26"]
+[ext_resource type="Script" path="res://props/Interactable.gd" id="2_8e6pc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w7xnb"]
+radius = 33.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fckcj"]
+radius = 25.4
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7opeb"]
+radius = 48.5
+
+[node name="DemoLevel" type="Node2D"]
+script = ExtResource("1_x3a26")
+
+[node name="The Sky" type="Polygon2D" parent="."]
+color = Color(0.580392, 0.760784, 0.945098, 1)
+polygon = PackedVector2Array(-15, -51, 1948, -36, 1969, 306, -42, 310)
+
+[node name="The Sea" type="Polygon2D" parent="."]
+color = Color(0.27451, 0.521569, 0.784314, 1)
+polygon = PackedVector2Array(-23, 274, 1941, 278, 1935, 1092, -8, 1094, -23, 738)
+
+[node name="The Bottom" type="Polygon2D" parent="."]
+color = Color(0.454902, 0.145098, 0.211765, 1)
+polygon = PackedVector2Array(-2, 719, 446, 717, 602, 789, 600, 994, 676, 1092, 907, 1075, 1113, 1077, 1164, 937, 1174, 797, 1268, 751, 1403, 734, 1622, 742, 1920, 717, 1982, 719, 1988, 1124, 268, 1166, -63, 1168, -120, 746)
+
+[node name="Env 1" type="Polygon2D" parent="."]
+color = Color(0.454902, 0.145098, 0.211765, 1)
+polygon = PackedVector2Array(835, 723, 802, 827, 822, 923, 917, 875, 986, 763, 988, 673, 900, 624)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Fish" type="Node2D" parent="."]
+position = Vector2(722, 965)
+scale = Vector2(1.672, 1.672)
+
+[node name="FishInteract" type="Area2D" parent="Fish"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_8e6pc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fish/FishInteract"]
+shape = SubResource("CircleShape2D_w7xnb")
+
+[node name="Polygon2D" type="Polygon2D" parent="Fish"]
+color = Color(0.196078, 0.196078, 0.196078, 1)
+texture_scale = Vector2(0, 0)
+polygon = PackedVector2Array(24, -18, -23, -18, -23, 14, 24, 14)
+
+[node name="Label" type="Label" parent="Fish"]
+offset_left = -18.5407
+offset_top = -14.3541
+offset_right = 21.4593
+offset_bottom = 11.6459
+text = "fish"
+
+[node name="Rock" type="Node2D" parent="."]
+position = Vector2(1467, 658)
+scale = Vector2(3.916, 3.916)
+
+[node name="RockInteract" type="Area2D" parent="Rock"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_8e6pc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rock/RockInteract"]
+position = Vector2(0.255341, 0.510712)
+shape = SubResource("CircleShape2D_fckcj")
+
+[node name="Polygon2D" type="Polygon2D" parent="Rock"]
+position = Vector2(-1.02145, 3.57506)
+color = Color(0.196078, 0.196078, 0.196078, 1)
+texture_scale = Vector2(0, 0)
+polygon = PackedVector2Array(24, -18, -23, -18, -23, 14, 24, 14)
+
+[node name="Label" type="Label" parent="Rock"]
+offset_left = -19.9183
+offset_top = -11.7467
+offset_right = 20.0817
+offset_bottom = 14.2533
+text = "rock"
+
+[node name="RockTargetLocation" type="Marker2D" parent="."]
+position = Vector2(1090, 745)
+
+[node name="Area2D" type="Area2D" parent="RockTargetLocation"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_8e6pc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RockTargetLocation/Area2D"]
+shape = SubResource("CircleShape2D_7opeb")
+
+[node name="OutOfMap" type="Marker2D" parent="."]
+position = Vector2(-408, -230)
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(1920, 150)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 150.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.192157, 0.192157, 0.192157, 0.266667)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UI" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/UI"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Control/MarginContainer/UI/HBoxContainer"]
+layout_mode = 2
+text = "Fish:"
+
+[node name="FishCountValue" type="Label" parent="Control/MarginContainer/UI/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="Label" type="Label" parent="Control/MarginContainer/UI"]
+layout_mode = 2
+text = "Inventory"
+
+[node name="InventoryItems" type="HBoxContainer" parent="Control/MarginContainer/UI"]
+layout_mode = 2
+
+[connection signal="interacted" from="Fish/FishInteract" to="." method="_on_fish_interacted"]
+[connection signal="interacted" from="Rock/RockInteract" to="." method="_on_rock_interacted"]
+[connection signal="interacted" from="RockTargetLocation/Area2D" to="." method="_on_rock_target_location_interacted"]
