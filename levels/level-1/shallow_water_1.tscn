@@ -1,6 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://daurln12f3efl"]
+[gd_scene load_steps=25 format=3 uid="uid://daurln12f3efl"]
 
-[ext_resource type="Script" path="res://levels/map.gd" id="1_day46"]
+[ext_resource type="Script" path="res://levels/map.gd" id="1_e5sq0"]
 [ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://player_avatar.tscn" id="1_xhnh5"]
 [ext_resource type="Texture2D" uid="uid://fk6yxxoq7bsp" path="res://assets/2Shallow Water/Shallow Water L4.png" id="3_c7iss"]
 [ext_resource type="Texture2D" uid="uid://dycbxd3rns1xp" path="res://assets/2Shallow Water/Shallow Water L3.png" id="4_glj1a"]
@@ -48,24 +48,6 @@ value = 1
 type = 0
 name = "stone"
 
-[sub_resource type="Resource" id="Resource_1m131"]
-script = ExtResource("10_a31mg")
-value = 1
-type = 0
-name = "stone"
-
-[sub_resource type="Resource" id="Resource_hy6li"]
-script = ExtResource("10_a31mg")
-value = 1
-type = 0
-name = "stone"
-
-[sub_resource type="Resource" id="Resource_ha7mu"]
-script = ExtResource("10_a31mg")
-value = 1
-type = 0
-name = "stone"
-
 [sub_resource type="Resource" id="Resource_7ph0h"]
 script = ExtResource("8_4xo6t")
 name = "food"
@@ -76,10 +58,16 @@ script = ExtResource("12_fn8ge")
 name = "stone_placed"
 
 [node name="ShallowWater" type="Node2D" node_paths=PackedStringArray("player_avatar", "state_hook")]
-script = ExtResource("1_day46")
+script = ExtResource("1_e5sq0")
 player_avatar = NodePath("PlayerAvatar")
 state_hook = NodePath("LevelStateHook")
 metadata/_edit_lock_ = true
+
+[node name="TriggerOnIO2" parent="." node_paths=PackedStringArray("io") instance=ExtResource("9_2bd7k")]
+io = NodePath("../IO2")
+
+[node name="TriggerOnIO3" parent="." node_paths=PackedStringArray("io") instance=ExtResource("9_2bd7k")]
+io = NodePath("../IO3")
 
 [node name="PlayerAvatar" parent="." instance=ExtResource("1_xhnh5")]
 position = Vector2(1836, 318)
@@ -115,57 +103,59 @@ metadata/_edit_lock_ = true
 
 [node name="IO1" parent="." instance=ExtResource("7_3mc8e")]
 position = Vector2(498, 196)
-polygon = PackedVector2Array(60, 0, 0, -60, -60, 0, 0, 60)
+polygon = PackedVector2Array(60, 60, 60, -60, -60, -60, -60, 60)
 value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_gjns3")])
+require_sufficient = true
 oneshot = false
 size = 60
+debug = 2
 
 [node name="IO2" parent="." instance=ExtResource("7_3mc8e")]
 position = Vector2(343, 797)
-polygon = PackedVector2Array(111, 0, 0, -111, -111, 0, 0, 111)
+polygon = PackedVector2Array(111, 111, 111, -111, -111, -111, -111, 111)
 value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_8cm4f")])
+require_sufficient = true
 size = 111
-
-[node name="TriggerOnIO2" parent="." node_paths=PackedStringArray("io", "target") instance=ExtResource("9_2bd7k")]
-io = NodePath("../IO2")
-target = NodePath("../RockOriginal")
+debug = 2
 
 [node name="IO3" parent="." instance=ExtResource("7_3mc8e")]
 position = Vector2(784, 794)
-polygon = PackedVector2Array(151, 0, 0, -151, -151, 0, 0, 151)
+polygon = PackedVector2Array(151, 151, 151, -151, -151, -151, -151, 151)
 value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_0k30k")])
 flag_effects = Array[ExtResource("9_mord8")]([SubResource("Resource_vynv1")])
-value_constraints = Array[ExtResource("10_a31mg")]([SubResource("Resource_htv6i"), SubResource("Resource_1m131"), SubResource("Resource_hy6li"), SubResource("Resource_ha7mu")])
+require_sufficient = true
+value_constraints = Array[ExtResource("10_a31mg")]([SubResource("Resource_htv6i")])
 size = 151
-
-[node name="TriggerOnIO3" parent="." node_paths=PackedStringArray("io", "target") instance=ExtResource("9_2bd7k")]
-io = NodePath("../IO3")
-target = NodePath("../RockPlaced")
+debug = 2
 
 [node name="IO4" parent="." instance=ExtResource("7_3mc8e")]
 position = Vector2(1232, 924)
-polygon = PackedVector2Array(107, 0, 0, -107, -107, 0, 0, 107)
+polygon = PackedVector2Array(107, 107, 107, -107, -107, -107, -107, 107)
 value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_7ph0h")])
+require_sufficient = true
 flag_constraints = Array[ExtResource("12_fn8ge")]([SubResource("Resource_vo1by")])
 size = 107
+debug = 2
 
 [node name="LevelStateHook" type="Node" parent="."]
 script = ExtResource("13_f636k")
 
-[node name="RockOriginal" type="Sprite2D" parent="."]
+[node name="RockOriginal" type="Sprite2D" parent="." node_paths=PackedStringArray("trigger")]
 z_index = 11
 position = Vector2(350, 803)
 texture = ExtResource("14_m8vse")
 script = ExtResource("15_qgojo")
+trigger = NodePath("../TriggerOnIO2")
 metadata/_edit_lock_ = true
 
-[node name="RockPlaced" type="Sprite2D" parent="."]
+[node name="RockPlaced" type="Sprite2D" parent="." node_paths=PackedStringArray("trigger")]
 visible = false
 z_index = 11
 position = Vector2(771, 803)
 rotation = -0.618628
 texture = ExtResource("14_m8vse")
 script = ExtResource("16_hwnib")
+trigger = NodePath("../TriggerOnIO3")
 metadata/_edit_lock_ = true
 
 [connection signal="activated" from="RockOriginal" to="RockOriginal" method="_on_activated"]

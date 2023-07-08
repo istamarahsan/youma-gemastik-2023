@@ -45,6 +45,9 @@ func _on_click(name: String):
 		for constraint in object.flag_constraints:
 			if not constraint.satisfied_by(state_hook.get_state()):
 				return
+		for negative_effect in object.value_effects.filter(func(effect): effect.effect < 0):
+			if state_hook.get_state().get_value(negative_effect.name) < negative_effect.effect:
+				return
 		traveling = true
 		if object.wait_travel:
 			player_avatar.travel_to(object.position)

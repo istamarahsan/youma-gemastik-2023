@@ -17,5 +17,5 @@ func _on_level_state_hook_state_updated(state: ReadOnlyLevelState):
 			return
 	if oneshot and _has_triggered:
 		return
-	target.activate()
+	activated.emit()
 	_has_triggered = true

@@ -144,14 +144,14 @@ script = ExtResource("8_qysf0")
 
 [node name="IO1" parent="." instance=ExtResource("9_0gg1l")]
 position = Vector2(212, 708)
-polygon = PackedVector2Array(104, 0, 0, -104, -104, 0, 0, 104)
+polygon = PackedVector2Array(104, 104, 104, -104, -104, -104, -104, 104)
 oneshot = false
 size = 104
 debug = 2
 
 [node name="IO2" parent="." instance=ExtResource("9_0gg1l")]
 position = Vector2(344, 607)
-polygon = PackedVector2Array(34, 0, 0, -34, -34, 0, 0, 34)
+polygon = PackedVector2Array(34, 34, 34, -34, -34, -34, -34, 34)
 value_effects = Array[ExtResource("10_mr8ra")]([SubResource("Resource_640mr"), SubResource("Resource_qknib")])
 enabled = false
 size = 34
@@ -159,7 +159,7 @@ debug = 2
 
 [node name="IO3" parent="." instance=ExtResource("9_0gg1l")]
 position = Vector2(455, 469)
-polygon = PackedVector2Array(101, 0, 0, -101, -101, 0, 0, 101)
+polygon = PackedVector2Array(101, 101, 101, -101, -101, -101, -101, 101)
 value_effects = Array[ExtResource("10_mr8ra")]([SubResource("Resource_8uft5")])
 value_constraints = Array[ExtResource("11_agju2")]([SubResource("Resource_dku6f"), SubResource("Resource_jsqge"), SubResource("Resource_ekari"), SubResource("Resource_nj263"), SubResource("Resource_skvg8"), SubResource("Resource_belw0"), SubResource("Resource_cvv7m"), SubResource("Resource_vpetj"), SubResource("Resource_5mwca")])
 enabled = false
@@ -168,7 +168,7 @@ debug = 2
 
 [node name="IO4" parent="." instance=ExtResource("9_0gg1l")]
 position = Vector2(176, 479)
-polygon = PackedVector2Array(54, 0, 0, -54, -54, 0, 0, 54)
+polygon = PackedVector2Array(54, 54, 54, -54, -54, -54, -54, 54)
 value_effects = Array[ExtResource("10_mr8ra")]([SubResource("Resource_qonkk")])
 enabled = false
 oneshot = false
@@ -177,48 +177,45 @@ debug = 2
 
 [node name="IO5" parent="." instance=ExtResource("9_0gg1l")]
 position = Vector2(1658, 191)
-polygon = PackedVector2Array(39, 0, 0, -39, -39, 0, 0, 39)
+polygon = PackedVector2Array(39, 39, 39, -39, -39, -39, -39, 39)
 value_effects = Array[ExtResource("10_mr8ra")]([SubResource("Resource_xxmgy")])
 size = 39
 debug = 2
 
 [node name="IO6" parent="." instance=ExtResource("9_0gg1l")]
 position = Vector2(1757, 759)
-polygon = PackedVector2Array(80, 0, 0, -80, -80, 0, 0, 80)
+polygon = PackedVector2Array(80, 80, 80, -80, -80, -80, -80, 80)
 transition_to = "ShallowWater"
 enabled = false
 oneshot = false
 size = 80
 debug = 2
 
-[node name="TriggerOnInteractIO1" parent="." node_paths=PackedStringArray("io", "target") instance=ExtResource("11_8kbdk")]
+[node name="TriggerOnInteractIO1" parent="." node_paths=PackedStringArray("io") instance=ExtResource("11_8kbdk")]
 io = NodePath("../IO1")
-target = NodePath("../TransformToggleIO2")
 
-[node name="TransformToggleIO2" parent="." node_paths=PackedStringArray("target_io") instance=ExtResource("12_t3i3k")]
+[node name="TransformToggleIO2" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("12_t3i3k")]
 target_io = NodePath("../IO2")
+trigger = NodePath("../TriggerOnInteractIO1")
 metadata/_edit_lock_ = true
 
-[node name="TriggerOnInteractIO1(1)" parent="." node_paths=PackedStringArray("io", "target") instance=ExtResource("11_8kbdk")]
-io = NodePath("../IO1")
-target = NodePath("../TransformToggleIO3")
-
-[node name="TransformToggleIO3" parent="." node_paths=PackedStringArray("target_io") instance=ExtResource("12_t3i3k")]
+[node name="TransformToggleIO3" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("12_t3i3k")]
 target_io = NodePath("../IO3")
+trigger = NodePath("../TriggerOnInteractIO1")
 metadata/_edit_lock_ = true
 
-[node name="TriggerOnInteractIO3" parent="." node_paths=PackedStringArray("io", "target") instance=ExtResource("11_8kbdk")]
+[node name="TriggerOnInteractIO3" parent="." node_paths=PackedStringArray("io") instance=ExtResource("11_8kbdk")]
 io = NodePath("../IO3")
-target = NodePath("../TransformToggleIO4")
 
-[node name="TransformToggleIO4" parent="." node_paths=PackedStringArray("target_io") instance=ExtResource("12_t3i3k")]
+[node name="TransformToggleIO4" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("12_t3i3k")]
 target_io = NodePath("../IO4")
+trigger = NodePath("../TriggerOnInteractIO3")
 metadata/_edit_lock_ = true
 
-[node name="TriggerOnFood4" parent="." node_paths=PackedStringArray("target") instance=ExtResource("14_baket")]
+[node name="TriggerOnFood4" parent="." instance=ExtResource("14_baket")]
 values = Array[ExtResource("11_agju2")]([SubResource("Resource_6xmi1")])
-target = NodePath("../TransformToggleIO6")
 metadata/_edit_lock_ = true
 
-[node name="TransformToggleIO6" parent="." node_paths=PackedStringArray("target_io") instance=ExtResource("12_t3i3k")]
+[node name="TransformToggleIO6" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("12_t3i3k")]
 target_io = NodePath("../IO6")
+trigger = NodePath("../TriggerOnFood4")

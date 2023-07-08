@@ -21,8 +21,8 @@ signal interacted
 @export var value_effects: Array[IoValueEffect] = []
 @export var flag_effects: Array[IoFlagEffect] = []
 @export var transition_to: String = ""
+@export var require_sufficient: bool = true
 @export_category("Constraints")
-@export var negative_effect_constraints: bool = true
 @export var value_constraints: Array[StateValueConstraint] = []
 @export var flag_constraints: Array[StateFlagConstraint] = []
 @export_category("Properties")
@@ -44,14 +44,7 @@ var _radius: int = 25
 var state: State = State.idle
 
 func _ready():
-	if negative_effect_constraints:
-		for effect in value_effects:
-			if effect.effect < 0:
-				var new_constraint = StateValueConstraint.new()
-				new_constraint.type = StateValueConstraint.Type.Minimum
-				new_constraint.name = effect.name
-				new_constraint.value = -effect.effect
-				value_constraints.append(new_constraint)
+	pass
 
 func _process(delta):
 	if Engine.is_editor_hint():
@@ -119,4 +112,4 @@ func _draw():
 			elif state == State.active:
 				draw_circle(position / position.length_squared() if position != Vector2.ZERO else Vector2.ZERO, _radius, Color(debug_color, 0.8))
 			else:
-				draw_circle(position / position.length_squared() if position != Vector2.ZERO else Vector2.ZERO, _radius, Color(debug_color, 0.4))
+				draw_circle(position / position.length_squared() if position != Vector2.ZERO else Vector2.ZERO, _radius, Color(debug_color, 0.2))
