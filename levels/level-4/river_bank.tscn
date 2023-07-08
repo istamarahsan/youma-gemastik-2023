@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://0xylm78re26p"]
+
+[ext_resource type="Texture2D" uid="uid://c7oseid0pmfsp" path="res://assets/maps/4RiverBank/RiverBank_L6.png" id="1_be5cd"]
+[ext_resource type="Texture2D" uid="uid://b8170l6kmyf01" path="res://assets/maps/4RiverBank/RiverBank_L5.png" id="2_s80k3"]
+[ext_resource type="Texture2D" uid="uid://c02xf3jtghobq" path="res://assets/maps/4RiverBank/RiverBank_L4.png" id="3_d7fat"]
+[ext_resource type="Texture2D" uid="uid://cu2500gkirnx4" path="res://assets/maps/4RiverBank/RiverBank_L3.png" id="4_0jwae"]
+[ext_resource type="Material" uid="uid://c8fv1g2lqciw2" path="res://levels/level-4/river_bank.tres" id="4_cc8r0"]
+[ext_resource type="Texture2D" uid="uid://ibtiwldfcdxv" path="res://assets/maps/4RiverBank/RiverBank_L2.png" id="5_7sa1o"]
+[ext_resource type="Texture2D" uid="uid://dfp03lo0r214c" path="res://assets/maps/4RiverBank/RiverBank_L1.png" id="6_4jdil"]
+
+[node name="RiverBank" type="Node2D"]
+
+[node name="StaticBackground" type="Node2D" parent="."]
+
+[node name="RiverBankL6" type="Sprite2D" parent="StaticBackground"]
+texture = ExtResource("1_be5cd")
+centered = false
+
+[node name="RiverBankL5" type="Sprite2D" parent="StaticBackground"]
+texture = ExtResource("2_s80k3")
+centered = false
+
+[node name="RiverBankL4" type="Sprite2D" parent="StaticBackground"]
+material = ExtResource("4_cc8r0")
+texture = ExtResource("3_d7fat")
+centered = false
+
+[node name="RiverBankL3" type="Sprite2D" parent="StaticBackground"]
+material = ExtResource("4_cc8r0")
+texture = ExtResource("4_0jwae")
+centered = false
+
+[node name="RiverBankL2" type="Sprite2D" parent="StaticBackground"]
+material = ExtResource("4_cc8r0")
+texture = ExtResource("5_7sa1o")
+centered = false
+
+[node name="RiverBankL1" type="Sprite2D" parent="."]
+texture = ExtResource("6_4jdil")
+centered = false

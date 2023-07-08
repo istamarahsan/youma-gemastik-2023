@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6soo36kpbmc6"]
+
+[ext_resource type="Script" path="res://levels/level_state.gd" id="1_8iuob"]
+[ext_resource type="Script" path="res://levels/level.gd" id="1_kq3b3"]
+[ext_resource type="PackedScene" uid="uid://c0i5g18h7ijcj" path="res://levels/level-2/deep_water.tscn" id="3_jbq46"]
+[ext_resource type="PackedScene" uid="uid://bkwi4y23w2tky" path="res://levels/level-2/shallow_water_2.tscn" id="4_kusll"]
+
+[node name="Level2" type="Node2D" node_paths=PackedStringArray("offstage_marker", "state", "start")]
+script = ExtResource("1_kq3b3")
+offstage_marker = NodePath("OffstageMarker")
+state = NodePath("LevelState")
+start = NodePath("DeepWater")
+
+[node name="OffstageMarker" type="Node2D" parent="."]
+position = Vector2(2649, 6)
+
+[node name="LevelState" type="Node" parent="."]
+script = ExtResource("1_8iuob")
+
+[node name="DeepWater" parent="." instance=ExtResource("3_jbq46")]
+
+[node name="ShallowWater" parent="." instance=ExtResource("4_kusll")]
+position = Vector2(2646, 0)

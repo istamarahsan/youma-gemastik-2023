@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://hbpsunwiwwah"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_3228o"]
+[ext_resource type="PackedScene" uid="uid://eeo6nnifrnkt" path="res://levels/level-1/seashore.tscn" id="2_mfrhg"]
+[ext_resource type="PackedScene" uid="uid://daurln12f3efl" path="res://levels/level-1/shallow_water_1.tscn" id="3_te1yl"]
+[ext_resource type="Script" path="res://levels/level_state.gd" id="4_u6n7k"]
+
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("offstage_marker", "state", "start")]
+script = ExtResource("1_3228o")
+offstage_marker = NodePath("OffstageMarker")
+state = NodePath("LevelState")
+start = NodePath("Seashore")
+
+[node name="Seashore" parent="." instance=ExtResource("2_mfrhg")]
+
+[node name="ShallowWater" parent="." instance=ExtResource("3_te1yl")]
+visible = false
+position = Vector2(2649, 6)
+
+[node name="OffstageMarker" type="Node2D" parent="."]
+position = Vector2(2649, 6)
+
+[node name="LevelState" type="Node" parent="."]
+script = ExtResource("4_u6n7k")

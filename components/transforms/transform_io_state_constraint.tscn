@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://btlt3if6nkd7n"]
+
+[ext_resource type="Script" path="res://components/transforms/transform_io_state_constraint.gd" id="1_p74y4"]
+[ext_resource type="Script" path="res://levels/level_state_hook.gd" id="2_ympc8"]
+
+[node name="TransformIoStateConstraint" type="Node2D"]
+script = ExtResource("1_p74y4")
+
+[node name="LevelStateHook" type="Node" parent="."]
+script = ExtResource("2_ympc8")
+
+[connection signal="state_updated" from="LevelStateHook" to="." method="_on_level_state_hook_state_updated"]

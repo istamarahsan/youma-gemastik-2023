@@ -1,0 +1,172 @@
+[gd_scene load_steps=28 format=3 uid="uid://daurln12f3efl"]
+
+[ext_resource type="Script" path="res://levels/map.gd" id="1_day46"]
+[ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://player_avatar.tscn" id="1_xhnh5"]
+[ext_resource type="Texture2D" uid="uid://fk6yxxoq7bsp" path="res://assets/2Shallow Water/Shallow Water L4.png" id="3_c7iss"]
+[ext_resource type="Texture2D" uid="uid://dycbxd3rns1xp" path="res://assets/2Shallow Water/Shallow Water L3.png" id="4_glj1a"]
+[ext_resource type="Texture2D" uid="uid://dgxsi364uiqme" path="res://assets/2Shallow Water/Shallow Water L2.png" id="5_241tk"]
+[ext_resource type="Texture2D" uid="uid://cw5ixvljvog6f" path="res://assets/2Shallow Water/Shallow Water L1.png" id="6_l7o3t"]
+[ext_resource type="PackedScene" uid="uid://bieq2g32ux1jl" path="res://components/interaction-object/interaction_object.tscn" id="7_3mc8e"]
+[ext_resource type="Script" path="res://components/interaction-object/value_effect.gd" id="8_4xo6t"]
+[ext_resource type="PackedScene" uid="uid://dvuetv06ga8vf" path="res://components/triggers/on-interact/trigger_on_interact.tscn" id="9_2bd7k"]
+[ext_resource type="Script" path="res://components/interaction-object/flag_effect.gd" id="9_mord8"]
+[ext_resource type="Script" path="res://components/state_value_constraint.gd" id="10_a31mg"]
+[ext_resource type="Script" path="res://components/state_flag_constraint.gd" id="12_fn8ge"]
+[ext_resource type="Script" path="res://levels/level_state_hook.gd" id="13_f636k"]
+[ext_resource type="Texture2D" uid="uid://ceykc3als60tg" path="res://assets/2Shallow Water/Shallow Water Rock.png" id="14_m8vse"]
+[ext_resource type="Script" path="res://levels/level-1/rock_original.gd" id="15_qgojo"]
+[ext_resource type="Script" path="res://levels/level-1/rock_placed.gd" id="16_hwnib"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_rjfcd"]
+vertices = PackedVector2Array(1629, 962, 1432, 830, 1540, 806, 1693, 779, 1731, 368, 1778, 228, 1906, 113, 1899, 564, 1794, 654, 1564, 706, 1655, 432, 15, 234, 16, 13, 1132, 18, 83, 237, 317, 405, 371, 479, 1330, 90, 1116, 403, 1013, 451, 1489, 571, 1444, 296, 1347, 553, 1251, 462, 930, 534, 877, 536, 817, 600, 673, 613, 551, 641, 434, 726, 547, 724, 487, 747)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(8, 3, 2, 9, 10, 4), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(15, 14, 13), PackedInt32Array(16, 15, 13, 17, 18, 19), PackedInt32Array(10, 9, 20, 21), PackedInt32Array(21, 20, 22, 23, 17), PackedInt32Array(17, 23, 18), PackedInt32Array(16, 19, 24, 25), PackedInt32Array(16, 25, 26, 27), PackedInt32Array(16, 27, 28), PackedInt32Array(29, 16, 28, 30, 31)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1132, 18, 16, 13, 15, 234, 83, 237, 317, 405, 371, 479, 434, 726, 487, 747, 547, 724, 551, 641, 673, 613, 817, 600, 877, 536, 930, 534, 1013, 451, 1116, 403, 1251, 462, 1347, 553, 1489, 571, 1564, 706, 1540, 806, 1432, 830, 1629, 962, 1693, 779, 1794, 654, 1899, 564, 1906, 113, 1778, 228, 1731, 368, 1655, 432, 1444, 296, 1330, 90)])
+
+[sub_resource type="Resource" id="Resource_gjns3"]
+script = ExtResource("8_4xo6t")
+name = "fish"
+effect = 1
+
+[sub_resource type="Resource" id="Resource_8cm4f"]
+script = ExtResource("8_4xo6t")
+name = "stone"
+effect = 1
+
+[sub_resource type="Resource" id="Resource_0k30k"]
+script = ExtResource("8_4xo6t")
+name = "stone"
+effect = -1
+
+[sub_resource type="Resource" id="Resource_vynv1"]
+script = ExtResource("9_mord8")
+name = "stone_placed"
+action = 0
+
+[sub_resource type="Resource" id="Resource_htv6i"]
+script = ExtResource("10_a31mg")
+value = 1
+type = 0
+name = "stone"
+
+[sub_resource type="Resource" id="Resource_1m131"]
+script = ExtResource("10_a31mg")
+value = 1
+type = 0
+name = "stone"
+
+[sub_resource type="Resource" id="Resource_hy6li"]
+script = ExtResource("10_a31mg")
+value = 1
+type = 0
+name = "stone"
+
+[sub_resource type="Resource" id="Resource_ha7mu"]
+script = ExtResource("10_a31mg")
+value = 1
+type = 0
+name = "stone"
+
+[sub_resource type="Resource" id="Resource_7ph0h"]
+script = ExtResource("8_4xo6t")
+name = "food"
+effect = 1
+
+[sub_resource type="Resource" id="Resource_vo1by"]
+script = ExtResource("12_fn8ge")
+name = "stone_placed"
+
+[node name="ShallowWater" type="Node2D" node_paths=PackedStringArray("player_avatar", "state_hook")]
+script = ExtResource("1_day46")
+player_avatar = NodePath("PlayerAvatar")
+state_hook = NodePath("LevelStateHook")
+metadata/_edit_lock_ = true
+
+[node name="PlayerAvatar" parent="." instance=ExtResource("1_xhnh5")]
+position = Vector2(1836, 318)
+
+[node name="StaticBackground" type="Sprite2D" parent="."]
+z_index = -10
+z_as_relative = false
+texture = ExtResource("3_c7iss")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="StaticForeground" type="Node2D" parent="."]
+z_index = 10
+z_as_relative = false
+metadata/_edit_lock_ = true
+
+[node name="DeepWaterL3" type="Sprite2D" parent="StaticForeground"]
+texture = ExtResource("4_glj1a")
+centered = false
+
+[node name="DeepWaterL2" type="Sprite2D" parent="StaticForeground"]
+texture = ExtResource("5_241tk")
+centered = false
+
+[node name="DeepWaterL1" type="Sprite2D" parent="StaticForeground"]
+texture = ExtResource("6_l7o3t")
+centered = false
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_rjfcd")
+metadata/_edit_lock_ = true
+
+[node name="IO1" parent="." instance=ExtResource("7_3mc8e")]
+position = Vector2(498, 196)
+polygon = PackedVector2Array(60, 0, 0, -60, -60, 0, 0, 60)
+value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_gjns3")])
+oneshot = false
+size = 60
+
+[node name="IO2" parent="." instance=ExtResource("7_3mc8e")]
+position = Vector2(343, 797)
+polygon = PackedVector2Array(111, 0, 0, -111, -111, 0, 0, 111)
+value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_8cm4f")])
+size = 111
+
+[node name="TriggerOnIO2" parent="." node_paths=PackedStringArray("io", "target") instance=ExtResource("9_2bd7k")]
+io = NodePath("../IO2")
+target = NodePath("../RockOriginal")
+
+[node name="IO3" parent="." instance=ExtResource("7_3mc8e")]
+position = Vector2(784, 794)
+polygon = PackedVector2Array(151, 0, 0, -151, -151, 0, 0, 151)
+value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_0k30k")])
+flag_effects = Array[ExtResource("9_mord8")]([SubResource("Resource_vynv1")])
+value_constraints = Array[ExtResource("10_a31mg")]([SubResource("Resource_htv6i"), SubResource("Resource_1m131"), SubResource("Resource_hy6li"), SubResource("Resource_ha7mu")])
+size = 151
+
+[node name="TriggerOnIO3" parent="." node_paths=PackedStringArray("io", "target") instance=ExtResource("9_2bd7k")]
+io = NodePath("../IO3")
+target = NodePath("../RockPlaced")
+
+[node name="IO4" parent="." instance=ExtResource("7_3mc8e")]
+position = Vector2(1232, 924)
+polygon = PackedVector2Array(107, 0, 0, -107, -107, 0, 0, 107)
+value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_7ph0h")])
+flag_constraints = Array[ExtResource("12_fn8ge")]([SubResource("Resource_vo1by")])
+size = 107
+
+[node name="LevelStateHook" type="Node" parent="."]
+script = ExtResource("13_f636k")
+
+[node name="RockOriginal" type="Sprite2D" parent="."]
+z_index = 11
+position = Vector2(350, 803)
+texture = ExtResource("14_m8vse")
+script = ExtResource("15_qgojo")
+metadata/_edit_lock_ = true
+
+[node name="RockPlaced" type="Sprite2D" parent="."]
+visible = false
+z_index = 11
+position = Vector2(771, 803)
+rotation = -0.618628
+texture = ExtResource("14_m8vse")
+script = ExtResource("16_hwnib")
+metadata/_edit_lock_ = true
+
+[connection signal="activated" from="RockOriginal" to="RockOriginal" method="_on_activated"]
+[connection signal="activated" from="RockPlaced" to="RockPlaced" method="_on_activated"]
