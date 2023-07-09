@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cptnlsqj27q70"]
 
-[ext_resource type="Script" path="res://components/triggers/on-state/on_state.gd" id="1_h2xpc"]
+[ext_resource type="Script" path="res://levels/components/triggers/on-state/on_state.gd" id="1_h2xpc"]
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="2_hj1ak"]
 
 [node name="TriggerOnState" type="Node"]

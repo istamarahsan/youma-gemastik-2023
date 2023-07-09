@@ -6,12 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://dycbxd3rns1xp" path="res://assets/2Shallow Water/Shallow Water L3.png" id="4_glj1a"]
 [ext_resource type="Texture2D" uid="uid://dgxsi364uiqme" path="res://assets/2Shallow Water/Shallow Water L2.png" id="5_241tk"]
 [ext_resource type="Texture2D" uid="uid://cw5ixvljvog6f" path="res://assets/2Shallow Water/Shallow Water L1.png" id="6_l7o3t"]
-[ext_resource type="PackedScene" uid="uid://bieq2g32ux1jl" path="res://components/interaction-object/interaction_object.tscn" id="7_3mc8e"]
-[ext_resource type="Script" path="res://components/interaction-object/value_effect.gd" id="8_4xo6t"]
-[ext_resource type="PackedScene" uid="uid://dvuetv06ga8vf" path="res://components/triggers/on-interact/trigger_on_interact.tscn" id="9_2bd7k"]
-[ext_resource type="Script" path="res://components/interaction-object/flag_effect.gd" id="9_mord8"]
-[ext_resource type="Script" path="res://components/state_value_constraint.gd" id="10_a31mg"]
-[ext_resource type="Script" path="res://components/state_flag_constraint.gd" id="12_fn8ge"]
+[ext_resource type="PackedScene" uid="uid://bieq2g32ux1jl" path="res://levels/components/interaction-object/interaction_object.tscn" id="7_3mc8e"]
+[ext_resource type="Script" path="res://levels/components/interaction-object/value_effect.gd" id="8_4xo6t"]
+[ext_resource type="PackedScene" uid="uid://dvuetv06ga8vf" path="res://levels/components/triggers/on-interact/trigger_on_interact.tscn" id="9_2bd7k"]
+[ext_resource type="Script" path="res://levels/components/interaction-object/flag_effect.gd" id="9_mord8"]
+[ext_resource type="Script" path="res://levels/components/state_value_constraint.gd" id="10_a31mg"]
+[ext_resource type="Script" path="res://levels/components/state_flag_constraint.gd" id="12_fn8ge"]
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="13_f636k"]
 [ext_resource type="Texture2D" uid="uid://ceykc3als60tg" path="res://assets/2Shallow Water/Shallow Water Rock.png" id="14_m8vse"]
 [ext_resource type="Script" path="res://levels/level-1/rock_original.gd" id="15_qgojo"]
@@ -105,7 +105,6 @@ metadata/_edit_lock_ = true
 position = Vector2(498, 196)
 polygon = PackedVector2Array(60, 60, 60, -60, -60, -60, -60, 60)
 value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_gjns3")])
-require_sufficient = true
 oneshot = false
 size = 60
 debug = 2
@@ -114,7 +113,6 @@ debug = 2
 position = Vector2(343, 797)
 polygon = PackedVector2Array(111, 111, 111, -111, -111, -111, -111, 111)
 value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_8cm4f")])
-require_sufficient = true
 size = 111
 debug = 2
 
@@ -123,7 +121,6 @@ position = Vector2(784, 794)
 polygon = PackedVector2Array(151, 151, 151, -151, -151, -151, -151, 151)
 value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_0k30k")])
 flag_effects = Array[ExtResource("9_mord8")]([SubResource("Resource_vynv1")])
-require_sufficient = true
 value_constraints = Array[ExtResource("10_a31mg")]([SubResource("Resource_htv6i")])
 size = 151
 debug = 2
@@ -132,7 +129,6 @@ debug = 2
 position = Vector2(1232, 924)
 polygon = PackedVector2Array(107, 107, 107, -107, -107, -107, -107, 107)
 value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_7ph0h")])
-require_sufficient = true
 flag_constraints = Array[ExtResource("12_fn8ge")]([SubResource("Resource_vo1by")])
 size = 107
 debug = 2

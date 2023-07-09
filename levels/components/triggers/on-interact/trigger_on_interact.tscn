@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dvuetv06ga8vf"]
 
-[ext_resource type="Script" path="res://components/triggers/on-interact/on_interact.gd" id="1_wvokb"]
+[ext_resource type="Script" path="res://levels/components/triggers/on-interact/on_interact.gd" id="1_wvokb"]
 
 [node name="TriggerOnInteract" type="Node"]
 script = ExtResource("1_wvokb")

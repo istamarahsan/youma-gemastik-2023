@@ -8,12 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://2hoywc34wre4" path="res://assets/3Deep Water/Deep Water L1.png" id="6_jnlpo"]
 [ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://player_avatar.tscn" id="7_2huk7"]
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="8_qysf0"]
-[ext_resource type="PackedScene" uid="uid://bieq2g32ux1jl" path="res://components/interaction-object/interaction_object.tscn" id="9_0gg1l"]
-[ext_resource type="Script" path="res://components/interaction-object/value_effect.gd" id="10_mr8ra"]
-[ext_resource type="PackedScene" uid="uid://dvuetv06ga8vf" path="res://components/triggers/on-interact/trigger_on_interact.tscn" id="11_8kbdk"]
-[ext_resource type="Script" path="res://components/state_value_constraint.gd" id="11_agju2"]
-[ext_resource type="PackedScene" uid="uid://bowmh363flr4f" path="res://components/transforms/transform_toggle_io.tscn" id="12_t3i3k"]
-[ext_resource type="PackedScene" uid="uid://cptnlsqj27q70" path="res://components/triggers/on-state/trigger_on_state.tscn" id="14_baket"]
+[ext_resource type="PackedScene" uid="uid://bieq2g32ux1jl" path="res://levels/components/interaction-object/interaction_object.tscn" id="9_0gg1l"]
+[ext_resource type="Script" path="res://levels/components/interaction-object/value_effect.gd" id="10_mr8ra"]
+[ext_resource type="PackedScene" uid="uid://dvuetv06ga8vf" path="res://levels/components/triggers/on-interact/trigger_on_interact.tscn" id="11_8kbdk"]
+[ext_resource type="Script" path="res://levels/components/state_value_constraint.gd" id="11_agju2"]
+[ext_resource type="PackedScene" uid="uid://bowmh363flr4f" path="res://levels/components/transforms/transform_toggle_io.tscn" id="12_t3i3k"]
+[ext_resource type="PackedScene" uid="uid://cptnlsqj27q70" path="res://levels/components/triggers/on-state/trigger_on_state.tscn" id="14_baket"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sf56k"]
 vertices = PackedVector2Array(131, 724, 13, 753, 17, 376, 157, 342, 439, 614, 303, 692, 281, 357, 368, 370, 415, 362, 580, 365, 624, 624, 653, 25, 1903, 18, 1907, 833, 1353, 999, 652, 134, 624, 259, 1242, 1018, 1045, 863, 925, 825, 783, 717, 655, 669)

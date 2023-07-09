@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpsjxiqccr8ec"]
+
+[ext_resource type="Theme" uid="uid://44i6ats70703" path="res://assets/youma_theme.tres" id="1_jhwgk"]
+
+[node name="Line" type="Label"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_jhwgk")
+theme_override_font_sizes/font_size = 50
+text = "Dahulu kala di lautan luas Nusantara, seringlah terjadi perkelahian antar binatang-binatang buas."
+horizontal_alignment = 1
+autowrap_mode = 3

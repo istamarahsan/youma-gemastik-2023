@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://drpvf57nwtfou"
 path.s3tc="res://.godot/imported/Seashore_L2(Multiply).png-83b718066a17d55fc08fca8d03f3b9bb.s3tc.ctex"
+path.etc2="res://.godot/imported/Seashore_L2(Multiply).png-83b718066a17d55fc08fca8d03f3b9bb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/maps/1Seashore/Seashore_L2(Multiply).png"
-dest_files=["res://.godot/imported/Seashore_L2(Multiply).png-83b718066a17d55fc08fca8d03f3b9bb.s3tc.ctex"]
+dest_files=["res://.godot/imported/Seashore_L2(Multiply).png-83b718066a17d55fc08fca8d03f3b9bb.s3tc.ctex", "res://.godot/imported/Seashore_L2(Multiply).png-83b718066a17d55fc08fca8d03f3b9bb.etc2.ctex"]
 
 [params]
 

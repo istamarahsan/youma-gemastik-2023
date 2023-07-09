@@ -1,0 +1,56 @@
+name: "godot-ci export"
+on: push
+
+permissions: write-all
+
+jobs:
+  export:
+    name: Export
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup
+        run: mkdir -v -p ./build
+      - name: Godot Export
+        uses: firebelley/godot-export@v5.1.0
+        with:
+          # The download url of the Linux Headless Godot executable.
+          godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.0.3-stable/Godot_v4.0.3-stable_linux.x86_64.zip
+          # The url of the export templates corresponding to the Godot executable version.
+          godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.0.3-stable/Godot_v4.0.3-stable_export_templates.tpz
+          # The path relative to the root of the git repository that contains the "project.godot" file.
+          relative_project_path: .
+          # If "true", exported files will be archived into a ".zip" file.
+          archive_output: true
+          # If "true", files that are archived will be placed in a root folder within the archive.
+          archive_root_folder: true
+          # If provided, exports will be moved to this directory relative to the root of the Git repository. This setting is overridden by "use_preset_export_path".
+          relative_export_path: build
+          # If set to true, exports will be moved to directory defined in "export_presets.cfg" relative to "relative_project_path". Prioritized over "relative_export_path".
+          # use_preset_export_path: # optional
+          # The absolute path to the wine binary. If specified, Godot will use this to run rcedit to update Windows exe icons.
+          # wine_path: # optional, default is
+          # If "true" Godot will export in debug mode.
+          # export_debug: # optional
+          # If "true" the --verbose flag will be added when exporting Godot projects.
+          verbose: true
+          # Build using Godot 3 executable (NOTE: `godot_executable_download_url` and `godot_export_templates_download_url` still need to be configured to download the correct version.)
+          # use_godot_3: # optional
+          # Export project files as a .pck file.
+          # export_as_pack: # optional
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: builds
+          path: build/
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            build/LinuxX11.zip
+            build/Windows Desktop.zip
+            build/Android.zip
+          body: ${{ github.event.head_commit.message }}
+          token: ${{ secrets.WORKFLOW_TOKEN_FOR_RELEASE }}

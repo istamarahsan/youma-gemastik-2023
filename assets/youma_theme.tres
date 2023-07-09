@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://44i6ats70703"]
+
+[ext_resource type="FontFile" uid="uid://cjpapijkdk48x" path="res://assets/font/Mangkualam.otf" id="1_68ot8"]
+
+[resource]
+default_font = ExtResource("1_68ot8")
+default_font_size = 20

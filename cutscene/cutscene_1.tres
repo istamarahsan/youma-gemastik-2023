@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="NarrativeCutsceneData" load_steps=7 format=3 uid="uid://5tiwsxb1crg6"]
+
+[ext_resource type="Script" path="res://cutscene/narrative_cutscene_line.gd" id="1_omd8i"]
+[ext_resource type="Script" path="res://cutscene/narrative_cutscene.gd" id="2_d8ms1"]
+
+[sub_resource type="Resource" id="Resource_03jfw"]
+script = ExtResource("1_omd8i")
+content = "Dahulu kala di lautan luas Nusantara, seringlah terjadi perkelahian antar binatang-binatang buas."
+
+[sub_resource type="Resource" id="Resource_g3aua"]
+script = ExtResource("1_omd8i")
+content = "Para binatang ini merebut sumber makanan yang sama, yaitu ikan dan burung kecil."
+
+[sub_resource type="Resource" id="Resource_8jngr"]
+script = ExtResource("1_omd8i")
+content = "Dalam situasi penuh kompetitif ini, yang kuat akan mendominasi, dan yang cerdik akan mengelabui."
+
+[sub_resource type="Resource" id="Resource_y3m26"]
+script = ExtResource("1_omd8i")
+content = "Saksikanlah bagaimana dua makhluk teratas, seekor buaya dan seekor hiu, berburu untuk  melangsungkan hidup masing-masing."
+
+[resource]
+script = ExtResource("2_d8ms1")
+title = "Level 1"
+lines = Array[ExtResource("1_omd8i")]([SubResource("Resource_03jfw"), SubResource("Resource_g3aua"), SubResource("Resource_8jngr"), SubResource("Resource_y3m26")])

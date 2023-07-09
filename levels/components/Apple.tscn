@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5novlp81opwh"]
 
 [ext_resource type="Texture2D" uid="uid://dry7wk7uq2e4" path="res://assets/placeholder/apple.png" id="1_1goip"]
-[ext_resource type="Script" path="res://components/Apple.gd" id="2_7dd5m"]
+[ext_resource type="Script" path="res://levels/components/Apple.gd" id="2_7dd5m"]
 
 [node name="Apple" type="Node2D"]
 script = ExtResource("2_7dd5m")
