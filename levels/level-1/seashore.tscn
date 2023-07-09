@@ -1,22 +1,22 @@
 [gd_scene load_steps=33 format=3 uid="uid://eeo6nnifrnkt"]
 
 [ext_resource type="Script" path="res://levels/map.gd" id="1_n1d5h"]
-[ext_resource type="Texture2D" uid="uid://dfin5do5dkgwu" path="res://assets/1Seashore/Seashore L3.png" id="2_0yvhn"]
 [ext_resource type="Material" uid="uid://b52p7miaiion6" path="res://levels/level-1/seashore.tres" id="2_1ktss"]
-[ext_resource type="Texture2D" uid="uid://cmwq8fnptcnik" path="res://assets/1Seashore/Seashore L4.png" id="3_fsg16"]
-[ext_resource type="Texture2D" uid="uid://c2vqgamgutux8" path="res://assets/1Seashore/Seashore L5.png" id="4_af7tw"]
-[ext_resource type="Texture2D" uid="uid://bf4ghwkekte1n" path="res://assets/1Seashore/Seashore L6.png" id="5_b8yhi"]
 [ext_resource type="PackedScene" uid="uid://bieq2g32ux1jl" path="res://levels/components/interaction-object/interaction_object.tscn" id="5_ija87"]
-[ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://player_avatar.tscn" id="7_8om1h"]
+[ext_resource type="Texture2D" uid="uid://bf4ghwkekte1n" path="res://assets/maps/1Seashore/Seashore L6.png" id="6_ty1cf"]
+[ext_resource type="Texture2D" uid="uid://c2vqgamgutux8" path="res://assets/maps/1Seashore/Seashore L5.png" id="7_6gw7y"]
 [ext_resource type="Script" path="res://levels/components/interaction-object/value_effect.gd" id="7_akdx7"]
-[ext_resource type="Texture2D" uid="uid://bpcynlwmsyvq1" path="res://assets/1Seashore/Seashore L1.png" id="8_kb83g"]
-[ext_resource type="Texture2D" uid="uid://c87fuedwuwn5w" path="res://assets/1Seashore/Seashore L2.png" id="8_lf70o"]
+[ext_resource type="Texture2D" uid="uid://cmwq8fnptcnik" path="res://assets/maps/1Seashore/Seashore L4.png" id="8_a0gs0"]
+[ext_resource type="Texture2D" uid="uid://dfin5do5dkgwu" path="res://assets/maps/1Seashore/Seashore L3.png" id="9_deywh"]
 [ext_resource type="PackedScene" uid="uid://dvuetv06ga8vf" path="res://levels/components/triggers/on-interact/trigger_on_interact.tscn" id="9_e46dg"]
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="9_nf5l3"]
 [ext_resource type="PackedScene" uid="uid://bowmh363flr4f" path="res://levels/components/transforms/transform_toggle_io.tscn" id="9_u4fa6"]
 [ext_resource type="Shader" path="res://shaders/interaction_object.gdshader" id="10_hs6sg"]
+[ext_resource type="Texture2D" uid="uid://c87fuedwuwn5w" path="res://assets/maps/1Seashore/Seashore L2.png" id="10_kgn4d"]
+[ext_resource type="Texture2D" uid="uid://bpcynlwmsyvq1" path="res://assets/maps/1Seashore/Seashore L1.png" id="11_4f3fg"]
 [ext_resource type="PackedScene" uid="uid://cptnlsqj27q70" path="res://levels/components/triggers/on-state/trigger_on_state.tscn" id="11_jfx5j"]
 [ext_resource type="Script" path="res://levels/components/state_value_constraint.gd" id="12_yw3fb"]
+[ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://levels/components/player_avatar.tscn" id="16_5nvov"]
 
 [sub_resource type="Resource" id="Resource_syddx"]
 script = ExtResource("12_yw3fb")
@@ -130,7 +130,7 @@ metadata/_edit_lock_ = true
 z_index = -10
 z_as_relative = false
 use_parent_material = true
-texture = ExtResource("5_b8yhi")
+texture = ExtResource("6_ty1cf")
 centered = false
 metadata/_edit_lock_ = true
 
@@ -138,7 +138,7 @@ metadata/_edit_lock_ = true
 z_index = -10
 z_as_relative = false
 use_parent_material = true
-texture = ExtResource("4_af7tw")
+texture = ExtResource("7_6gw7y")
 centered = false
 metadata/_edit_lock_ = true
 
@@ -146,7 +146,7 @@ metadata/_edit_lock_ = true
 z_index = -10
 z_as_relative = false
 use_parent_material = true
-texture = ExtResource("3_fsg16")
+texture = ExtResource("8_a0gs0")
 centered = false
 metadata/_edit_lock_ = true
 
@@ -154,7 +154,7 @@ metadata/_edit_lock_ = true
 z_index = -10
 z_as_relative = false
 use_parent_material = true
-texture = ExtResource("2_0yvhn")
+texture = ExtResource("9_deywh")
 centered = false
 metadata/_edit_lock_ = true
 
@@ -163,14 +163,14 @@ metadata/_edit_lock_ = true
 
 [node name="SeashoreL2" type="Sprite2D" parent="FG"]
 z_index = 1
-texture = ExtResource("8_lf70o")
+texture = ExtResource("10_kgn4d")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="SeashoreL1" type="Sprite2D" parent="FG"]
 z_index = 10
 z_as_relative = false
-texture = ExtResource("8_kb83g")
+texture = ExtResource("11_4f3fg")
 centered = false
 metadata/_edit_lock_ = true
 
@@ -252,7 +252,7 @@ visible = false
 navigation_polygon = SubResource("NavigationPolygon_3qekc")
 metadata/_edit_lock_ = true
 
-[node name="PlayerAvatar" parent="." instance=ExtResource("7_8om1h")]
+[node name="PlayerAvatar" parent="." instance=ExtResource("16_5nvov")]
 material = ExtResource("2_1ktss")
 position = Vector2(815, 757)
 

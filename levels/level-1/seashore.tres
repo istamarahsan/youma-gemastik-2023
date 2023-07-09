@@ -1,8 +1,8 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b52p7miaiion6"]
 
 [ext_resource type="Shader" path="res://shaders/multiply.gdshader" id="1_rbt7u"]
-[ext_resource type="Texture2D" uid="uid://drpvf57nwtfou" path="res://assets/maps/1Seashore/Seashore_L2(Multiply).png" id="2_rj3fw"]
+[ext_resource type="Texture2D" uid="uid://doc73ipsc5nd" path="res://assets/maps/1Seashore/Seashore L2 (Multiply).png" id="2_3w2ai"]
 
 [resource]
 shader = ExtResource("1_rbt7u")
-shader_parameter/mask = ExtResource("2_rj3fw")
+shader_parameter/mask = ExtResource("2_3w2ai")

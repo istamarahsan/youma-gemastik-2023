@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://7j51xtwwo1ja"]
+[gd_scene load_steps=7 format=3 uid="uid://7j51xtwwo1ja"]
 
-[node name="Main" type="Node2D"]
+[ext_resource type="Script" path="res://main.gd" id="1_ukrwe"]
+[ext_resource type="PackedScene" uid="uid://du0nsv73aj6ow" path="res://ui/main-menu/main_menu.tscn" id="2_ebuhl"]
+[ext_resource type="PackedScene" uid="uid://d00nirxfwmfs0" path="res://game.tscn" id="3_e0anm"]
+[ext_resource type="PackedScene" uid="uid://dgtwkefcxn0qs" path="res://transition_cover.tscn" id="3_h485l"]
+[ext_resource type="Shader" path="res://shaders/transition_cover.gdshader" id="3_jnkvc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5r53t"]
+resource_local_to_scene = true
+shader = ExtResource("3_jnkvc")
+shader_parameter/opacity = 0.0
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("transition_cover")]
+script = ExtResource("1_ukrwe")
+main_menu_scene = ExtResource("2_ebuhl")
+game_scene = ExtResource("3_e0anm")
+transition_cover = NodePath("TransitionCover")
+
+[node name="TransitionCover" parent="." instance=ExtResource("3_h485l")]
+material = SubResource("ShaderMaterial_5r53t")
+time_seconds = 0.5

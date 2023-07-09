@@ -1,12 +1,12 @@
 [gd_scene load_steps=31 format=3 uid="uid://c0i5g18h7ijcj"]
 
 [ext_resource type="Script" path="res://levels/map.gd" id="1_vlrby"]
-[ext_resource type="Texture2D" uid="uid://64lal6k8dwh0" path="res://assets/3Deep Water/Deep Water L5.png" id="2_1ubvj"]
-[ext_resource type="Texture2D" uid="uid://k5edyhgk56kc" path="res://assets/3Deep Water/Deep Water L4.png" id="3_bsosn"]
-[ext_resource type="Texture2D" uid="uid://dn0yae6bcw1pt" path="res://assets/3Deep Water/Deep Water L3.png" id="4_1p7th"]
-[ext_resource type="Texture2D" uid="uid://dtfsq5ligax8f" path="res://assets/3Deep Water/Deep Water L2.png" id="5_4y8fb"]
-[ext_resource type="Texture2D" uid="uid://2hoywc34wre4" path="res://assets/3Deep Water/Deep Water L1.png" id="6_jnlpo"]
-[ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://player_avatar.tscn" id="7_2huk7"]
+[ext_resource type="Texture2D" uid="uid://64lal6k8dwh0" path="res://assets/maps/3Deep Water/Deep Water L5.png" id="2_a2iqq"]
+[ext_resource type="Texture2D" uid="uid://k5edyhgk56kc" path="res://assets/maps/3Deep Water/Deep Water L4.png" id="3_qnuns"]
+[ext_resource type="Texture2D" uid="uid://dn0yae6bcw1pt" path="res://assets/maps/3Deep Water/Deep Water L3.png" id="4_veul7"]
+[ext_resource type="Texture2D" uid="uid://dtfsq5ligax8f" path="res://assets/maps/3Deep Water/Deep Water L2.png" id="5_a31bm"]
+[ext_resource type="Texture2D" uid="uid://2hoywc34wre4" path="res://assets/maps/3Deep Water/Deep Water L1.png" id="6_vleag"]
+[ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://levels/components/player_avatar.tscn" id="7_3gmnx"]
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="8_qysf0"]
 [ext_resource type="PackedScene" uid="uid://bieq2g32ux1jl" path="res://levels/components/interaction-object/interaction_object.tscn" id="9_0gg1l"]
 [ext_resource type="Script" path="res://levels/components/interaction-object/value_effect.gd" id="10_mr8ra"]
@@ -113,30 +113,30 @@ state_hook = NodePath("LevelStateHook")
 [node name="StaticBackground" type="Node2D" parent="."]
 
 [node name="SeaFloorL5" type="Sprite2D" parent="StaticBackground"]
-texture = ExtResource("2_1ubvj")
+texture = ExtResource("2_a2iqq")
 centered = false
 
 [node name="SeaFloorL4" type="Sprite2D" parent="StaticBackground"]
-texture = ExtResource("3_bsosn")
+texture = ExtResource("3_qnuns")
 centered = false
 
 [node name="SeaFloorL3" type="Sprite2D" parent="StaticBackground"]
-texture = ExtResource("4_1p7th")
+texture = ExtResource("4_veul7")
 centered = false
 
 [node name="SeaFloorL2" type="Sprite2D" parent="StaticBackground"]
-texture = ExtResource("5_4y8fb")
+texture = ExtResource("5_a31bm")
 centered = false
 
 [node name="StaticForeground" type="Sprite2D" parent="."]
-texture = ExtResource("6_jnlpo")
+texture = ExtResource("6_vleag")
 centered = false
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_sf56k")
 
-[node name="PlayerAvatar" parent="." instance=ExtResource("7_2huk7")]
+[node name="PlayerAvatar" parent="." instance=ExtResource("7_3gmnx")]
 position = Vector2(1392, 382)
 
 [node name="LevelStateHook" type="Node" parent="."]

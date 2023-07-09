@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-TreeExtensions="*res://tree_extensions.gd"
+TreeExtensions="*res://ext/tree_extensions.gd"
 
 [display]
 
@@ -26,10 +26,9 @@ window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
-[editor]
+[filesystem]
 
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
+import/blender/enabled=false
 
 [rendering]
 

@@ -1,4 +1,4 @@
-extends Node2D
+extends Stage
 class_name Level
 
 @export var offstage_marker: Node2D
@@ -59,8 +59,8 @@ func _on_map_interaction_created(map_name: String, interaction_name: String, val
 					state.set_flag(effect.name)
 	for hook in state_hooks:
 		hook.state_updated.emit(state as ReadOnlyLevelState)
-	print(state._values)
-	print(state._flags)
+	print_debug(state._values)
+	print_debug(state._flags)
 
 func _on_transition_requested(target_name: String):
 	if target_name == current_map_name:

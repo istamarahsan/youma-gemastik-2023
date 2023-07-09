@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c8fv1g2lqciw2"]
-
-[ext_resource type="Shader" path="res://shaders/multiply.gdshader" id="1_4h4au"]
-[ext_resource type="Texture2D" uid="uid://cmpjvahhh1o0u" path="res://assets/maps/4RiverBank/RiverBank_L1(Multiply).png" id="2_o02vo"]
-
-[resource]
-shader = ExtResource("1_4h4au")
-shader_parameter/mask = ExtResource("2_o02vo")

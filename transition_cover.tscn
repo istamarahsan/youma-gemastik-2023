@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgtwkefcxn0qs"]
+
+[ext_resource type="Shader" path="res://shaders/transition_cover.gdshader" id="1_ks1rn"]
+[ext_resource type="Script" path="res://transition_cover.gd" id="2_cj5j1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ei8cn"]
+resource_local_to_scene = true
+shader = ExtResource("1_ks1rn")
+shader_parameter/opacity = 0.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ailcw"]
+size = Vector2(1920, 1080)
+
+[node name="TransitionCover" type="Sprite2D"]
+z_index = 4096
+z_as_relative = false
+material = SubResource("ShaderMaterial_ei8cn")
+texture = SubResource("PlaceholderTexture2D_ailcw")
+centered = false
+script = ExtResource("2_cj5j1")
+time_seconds = 10.0
