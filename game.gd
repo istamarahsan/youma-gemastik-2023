@@ -41,6 +41,9 @@ func _transition_and_load_next_stage():
 func _load_stage():
 	if active_stage != null and is_instance_valid(active_stage):
 		active_stage.queue_free()
+	if stage_num >= stage_set.stages.size():
+		quit_to_main_menu.emit()
+		return
 	var stage_scene = stage_set.stages[stage_num]
 	active_stage = stage_scene.instantiate() as Stage
 	add_child(active_stage)
