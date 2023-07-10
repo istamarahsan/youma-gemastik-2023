@@ -160,20 +160,20 @@ metadata/_edit_lock_ = true
 z_index = -12
 z_as_relative = false
 position = Vector2(595, 542)
-rotation = -4.07117
+rotation = -4.21914
 texture = ExtResource("8_82s7t")
 script = ExtResource("9_cets0")
 clockwise = false
 editor_rotate = false
 time_offset = 8.3
-amplitude = 0.8
+amplitude = 0.15
 metadata/_edit_lock_ = true
 
 [node name="SeashoreL6Sun1" type="Sprite2D" parent="BG"]
 z_index = -11
 z_as_relative = false
 position = Vector2(595, 542)
-rotation = -2.48134
+rotation = -6.03881
 texture = ExtResource("7_nvgx8")
 script = ExtResource("9_cets0")
 clockwise = false

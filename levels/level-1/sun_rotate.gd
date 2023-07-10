@@ -12,7 +12,7 @@ const max_amp_down: float = 100
 func _process(delta):
 	if not editor_rotate and Engine.is_editor_hint():
 		return
-	var time = (Time.get_ticks_msec() / 60.0) if not Engine.is_editor_hint() else Time.get_unix_time_from_system()
+	var time = (Time.get_ticks_msec() / 1000.0) if not Engine.is_editor_hint() else Time.get_unix_time_from_system()
 	time += time_offset
 	time = time / lerpf(min_amp_down, max_amp_down, 1-amplitude)
 	rotation = fmod(time, 2 * PI) * -1 if not clockwise else 1
