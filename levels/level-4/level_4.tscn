@@ -1,3 +1,20 @@
-[gd_scene format=3 uid="uid://cvpvhcovs18l0"]
+[gd_scene load_steps=4 format=3 uid="uid://cvpvhcovs18l0"]
 
-[node name="Level4" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://dj3y7uk2ausgm" path="res://levels/level-4/riverbank.tscn" id="1_8yxbl"]
+[ext_resource type="Script" path="res://levels/level.gd" id="1_qwk07"]
+[ext_resource type="Script" path="res://levels/level_state.gd" id="3_y6pj4"]
+
+[node name="Level4" type="Node2D" node_paths=PackedStringArray("offstage_marker", "state", "start")]
+script = ExtResource("1_qwk07")
+offstage_marker = NodePath("Offstage")
+state = NodePath("LevelState")
+start = NodePath("Riverbank")
+
+[node name="Riverbank" parent="." instance=ExtResource("1_8yxbl")]
+
+[node name="Offstage" type="Node2D" parent="."]
+position = Vector2(2140, 22)
+metadata/_edit_lock_ = true
+
+[node name="LevelState" type="Node" parent="."]
+script = ExtResource("3_y6pj4")

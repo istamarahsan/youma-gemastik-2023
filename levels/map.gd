@@ -23,17 +23,7 @@ func _ready():
 	for node in tree:
 		if node is InteractionObject:
 			var io = node as InteractionObject
-			interaction_objects_by_name[io.name] = io
-			io.pressed.connect(func(): _on_click(io.name))
-			io.interacted.connect(
-				func(): 
-					_on_interaction(
-						io.name, 
-						io.value_effects, 
-						io.flag_effects,
-						io.transition_to
-					)
-			)
+			_register_io(io)
 
 func _on_click(name: String):
 	if traveling:
@@ -51,7 +41,10 @@ func _on_click(name: String):
 				return
 		traveling = true
 		if object.wait_travel:
-			player_avatar.travel_to(object.position)
+			if object.is_moving_target:
+				player_avatar.follow_target(object)
+			else:
+				player_avatar.travel_to(object.global_position)
 			await player_avatar.arrived
 		object.show_interactions()
 		traveling = false
@@ -66,3 +59,15 @@ func _on_interaction(name: String, value_effects: Array[IoValueEffect], flag_eff
 	if transition_to != "":
 		transition_requested.emit(transition_to)
 
+func _register_io(io: InteractionObject):
+	interaction_objects_by_name[io.name] = io
+	io.pressed.connect(func(): _on_click(io.name))
+	io.interacted.connect(
+		func(): 
+			_on_interaction(
+				io.name, 
+				io.value_effects, 
+				io.flag_effects,
+				io.transition_to
+			)
+	)

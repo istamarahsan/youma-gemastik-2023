@@ -7,6 +7,12 @@ signal arrived
 
 @onready var nav: NavigationAgent2D = $NavigationAgent2D as NavigationAgent2D
 
+var target: Node2D = null
+
+func _physics_process(delta):
+	if target != null:
+		travel_to(target.global_position)
+
 func can_navigate_to(destination: Vector2) -> bool:
 	var prev = nav.target_position
 	nav.target_position = destination
@@ -17,7 +23,10 @@ func can_navigate_to(destination: Vector2) -> bool:
 
 func travel_to(destination: Vector2):
 	nav.target_position = destination
-	
+
+func follow_target(target: Node2D):
+	self.target = target
+
 func _process(delta):
 	if nav.is_navigation_finished():
 		return
@@ -28,4 +37,5 @@ func _process(delta):
 	position += velocity * delta
 
 func _on_navigation_agent_2d_navigation_finished():
+	target = null
 	arrived.emit()

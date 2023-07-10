@@ -16,6 +16,7 @@ var answer_key: Dictionary = {}
 var choices: Dictionary = {}
 
 func _ready():
+	super._ready()
 	no.visible = false
 	for step in steps:
 		var land = get_node_or_null(step.land) as SpecialMapInterationObject

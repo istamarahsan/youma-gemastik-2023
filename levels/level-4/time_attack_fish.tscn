@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://dukgh2hkr2085"]
+
+[ext_resource type="PackedScene" uid="uid://hbk5evvrhfs7" path="res://levels/components/interaction-object/physics_area_interaction_object.tscn" id="1_6xtpg"]
+[ext_resource type="Script" path="res://levels/level-4/time_attack_fish.gd" id="1_8ea5e"]
+[ext_resource type="PackedScene" uid="uid://dnvlcm83j2882" path="res://levels/components/interaction-object/io_sfx.tscn" id="3_id6x8"]
+[ext_resource type="Texture2D" uid="uid://pvvcrjwbdxny" path="res://assets/props/Ikan Topo.png" id="4_tuu1x"]
+[ext_resource type="Script" path="res://levels/props/prop_auto_fade.gd" id="5_feqys"]
+[ext_resource type="Script" path="res://levels/level-4/bin_detector.gd" id="5_i8aca"]
+[ext_resource type="PackedScene" uid="uid://fsh7ruhfyn1h" path="res://levels/components/transforms/transform_fade_prop.tscn" id="7_gb4ib"]
+[ext_resource type="PackedScene" uid="uid://dvuetv06ga8vf" path="res://levels/components/triggers/on-interact/trigger_on_interact.tscn" id="8_fak7h"]
+
+[node name="TimeAttackFish" type="Node2D" node_paths=PackedStringArray("sprite", "io")]
+script = ExtResource("1_8ea5e")
+max_speed = 500.0
+sprite = NodePath("FishSprite")
+io = NodePath("InteractionObject")
+
+[node name="InteractionObject" parent="." instance=ExtResource("1_6xtpg")]
+radius = 38
+is_moving_target = true
+
+[node name="IoSfx" parent="." node_paths=PackedStringArray("io") instance=ExtResource("3_id6x8")]
+io = NodePath("../InteractionObject")
+
+[node name="FishSprite" type="Sprite2D" parent="."]
+texture = ExtResource("4_tuu1x")
+script = ExtResource("5_feqys")
+sprite = NodePath(".")
+opacity = 1.0
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(-1, 0)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+script = ExtResource("5_i8aca")
+
+[node name="TransformFadeProp" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("7_gb4ib")]
+target = NodePath("../FishSprite")
+trigger = NodePath("../TriggerOnInteract")
+
+[node name="TriggerOnInteract" parent="." node_paths=PackedStringArray("io") instance=ExtResource("8_fak7h")]
+io = NodePath("../InteractionObject")
+
+[connection signal="bin_detected" from="RayCast2D" to="." method="_on_ray_cast_2d_bin_detected"]

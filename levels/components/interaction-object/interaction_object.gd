@@ -24,6 +24,7 @@ signal state_entered(state: State)
 @export var wait_travel: bool = true
 @export var enabled: bool = true
 @export var oneshot: bool = true
+@export var is_moving_target: bool = false
 
 var state: State = State.idle
 
