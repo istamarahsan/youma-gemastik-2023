@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://eeo6nnifrnkt"]
+[gd_scene load_steps=35 format=3 uid="uid://eeo6nnifrnkt"]
 
 [ext_resource type="Script" path="res://levels/map.gd" id="1_n1d5h"]
 [ext_resource type="Material" uid="uid://b52p7miaiion6" path="res://levels/level-1/seashore.tres" id="2_1ktss"]
@@ -17,6 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://hbk5evvrhfs7" path="res://levels/components/interaction-object/physics_area_interaction_object.tscn" id="12_m04se"]
 [ext_resource type="Script" path="res://levels/components/state_value_constraint.gd" id="12_yw3fb"]
 [ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://levels/components/player_avatar.tscn" id="16_5nvov"]
+[ext_resource type="PackedScene" uid="uid://fsh7ruhfyn1h" path="res://levels/components/transforms/transform_fade_prop.tscn" id="17_fdi4n"]
+[ext_resource type="PackedScene" uid="uid://c6elxd4jnggji" path="res://levels/props/bait.tscn" id="18_1qadj"]
+[ext_resource type="PackedScene" uid="uid://ctwycvyvof6xy" path="res://levels/props/fish.tscn" id="18_kbeds"]
+[ext_resource type="PackedScene" uid="uid://dra1nkutyjpu7" path="res://levels/props/placeholder_prop.tscn" id="19_kju14"]
 
 [sub_resource type="Resource" id="Resource_syddx"]
 script = ExtResource("12_yw3fb")
@@ -100,11 +104,20 @@ player_avatar = NodePath("PlayerAvatar")
 state_hook = NodePath("LevelStateHook")
 metadata/_edit_lock_ = true
 
+[node name="TriggerOnIO1" parent="." node_paths=PackedStringArray("io") instance=ExtResource("9_e46dg")]
+io = NodePath("../IO1")
+
 [node name="TriggerOnIO2" parent="." node_paths=PackedStringArray("io") instance=ExtResource("9_e46dg")]
 io = NodePath("../IO2")
 
+[node name="TriggerOnIO3" parent="." node_paths=PackedStringArray("io") instance=ExtResource("9_e46dg")]
+io = NodePath("../IO3")
+
 [node name="TriggerOnIO4" parent="." node_paths=PackedStringArray("io") instance=ExtResource("9_e46dg")]
 io = NodePath("../IO4")
+
+[node name="TriggerOnIO5" parent="." node_paths=PackedStringArray("io") instance=ExtResource("9_e46dg")]
+io = NodePath("../IO5")
 
 [node name="TriggerOnFood3" parent="." instance=ExtResource("11_jfx5j")]
 values = Array[ExtResource("12_yw3fb")]([SubResource("Resource_syddx")])
@@ -161,16 +174,19 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="FG" type="Node2D" parent="."]
+z_index = 50
+z_as_relative = false
 metadata/_edit_lock_ = true
 
 [node name="SeashoreL2" type="Sprite2D" parent="FG"]
-z_index = 1
+z_index = 50
+z_as_relative = false
 texture = ExtResource("10_kgn4d")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="SeashoreL1" type="Sprite2D" parent="FG"]
-z_index = 10
+z_index = 51
 z_as_relative = false
 texture = ExtResource("11_4f3fg")
 centered = false
@@ -182,6 +198,13 @@ position = Vector2(298, 644)
 radius = 30
 value_effects = Array[ExtResource("7_akdx7")]([SubResource("Resource_0p27s")])
 metadata/_edit_lock_ = true
+
+[node name="FishIO1" parent="." instance=ExtResource("18_kbeds")]
+position = Vector2(299, 644)
+
+[node name="FadeOutFishIO1" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("17_fdi4n")]
+target = NodePath("../FishIO1")
+trigger = NodePath("../TriggerOnIO1")
 
 [node name="IO2" parent="." instance=ExtResource("12_m04se")]
 material = SubResource("ShaderMaterial_rc635")
@@ -197,16 +220,37 @@ value_effects = Array[ExtResource("7_akdx7")]([SubResource("Resource_wfc4l"), Su
 enabled = false
 metadata/_edit_lock_ = true
 
+[node name="FishIO3" parent="." instance=ExtResource("18_kbeds")]
+position = Vector2(904, 650)
+opacity = 0.0
+
+[node name="FadeInFishIO3" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("17_fdi4n")]
+target = NodePath("../FishIO3")
+fade = 0
+trigger = NodePath("../TriggerOnIO2")
+
+[node name="FadeOutFishIO3" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("17_fdi4n")]
+target = NodePath("../FishIO3")
+trigger = NodePath("../TriggerOnIO3")
+
 [node name="IO4" parent="." instance=ExtResource("12_m04se")]
 material = SubResource("ShaderMaterial_olho1")
 position = Vector2(1643, 819)
-radius = 245
+radius = 292
 value_effects = Array[ExtResource("7_akdx7")]([SubResource("Resource_pm2dd")])
 value_constraints = Array[ExtResource("12_yw3fb")]([SubResource("Resource_8yr4u"), SubResource("Resource_hf4r4")])
 metadata/_edit_lock_ = true
 
+[node name="BaitIO4" parent="." instance=ExtResource("18_1qadj")]
+position = Vector2(1636, 593)
+opacity = 0.0
+
+[node name="FadeInBaitIO4" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("17_fdi4n")]
+target = NodePath("../BaitIO4")
+fade = 0
+trigger = NodePath("../TriggerOnIO4")
+
 [node name="IO5" parent="." instance=ExtResource("12_m04se")]
-z_index = 50
 position = Vector2(1791, 490)
 radius = 108
 value_effects = Array[ExtResource("7_akdx7")]([SubResource("Resource_c0p3h")])
@@ -217,9 +261,23 @@ metadata/_edit_lock_ = true
 position = Vector2(192, 151)
 radius = 101
 transition_to = "ShallowWater"
+wait_travel = false
 enabled = false
 oneshot = false
 metadata/_edit_lock_ = true
+
+[node name="PlaceholderPropBirdIO5" parent="." instance=ExtResource("19_kju14")]
+position = Vector2(1791, 489)
+opacity = 0.0
+
+[node name="FadeInBird" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("17_fdi4n")]
+target = NodePath("../PlaceholderPropBirdIO5")
+fade = 0
+trigger = NodePath("../TriggerOnIO4")
+
+[node name="FadeOutBird" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("17_fdi4n")]
+target = NodePath("../PlaceholderPropBirdIO5")
+trigger = NodePath("../TriggerOnIO5")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false

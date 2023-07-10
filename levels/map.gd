@@ -65,3 +65,4 @@ func _on_interaction(name: String, value_effects: Array[IoValueEffect], flag_eff
 	interaction_created.emit(name, value_effects, flag_effects)
 	if transition_to != "":
 		transition_requested.emit(transition_to)
+

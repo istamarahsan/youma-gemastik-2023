@@ -114,8 +114,20 @@ state_hook = NodePath("LevelStateHook")
 [node name="TriggerOnInteractIO1" parent="." node_paths=PackedStringArray("io") instance=ExtResource("11_8kbdk")]
 io = NodePath("../IO1")
 
+[node name="TriggerOnInteractIO2" parent="." node_paths=PackedStringArray("io") instance=ExtResource("11_8kbdk")]
+io = NodePath("../IO2")
+
 [node name="TriggerOnInteractIO3" parent="." node_paths=PackedStringArray("io") instance=ExtResource("11_8kbdk")]
 io = NodePath("../IO3")
+
+[node name="TriggerOnInteractIO4" parent="." node_paths=PackedStringArray("io") instance=ExtResource("11_8kbdk")]
+io = NodePath("../IO4")
+
+[node name="TriggerOnInteractIO5" parent="." node_paths=PackedStringArray("io") instance=ExtResource("11_8kbdk")]
+io = NodePath("../IO5")
+
+[node name="TriggerOnInteractIO6" parent="." node_paths=PackedStringArray("io") instance=ExtResource("11_8kbdk")]
+io = NodePath("../IO6")
 
 [node name="TriggerOnFood4" parent="." instance=ExtResource("14_baket")]
 values = Array[ExtResource("11_agju2")]([SubResource("Resource_6xmi1")])

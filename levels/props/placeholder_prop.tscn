@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dra1nkutyjpu7"]
+
+[ext_resource type="Script" path="res://levels/props/prop_auto_fade.gd" id="1_pxs8m"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nno7t"]
+size = Vector2(80, 80)
+
+[node name="PlaceholderProp" type="Node2D"]
+z_as_relative = false
+script = ExtResource("1_pxs8m")
+sprite = NodePath("Placeholder")
+opacity = 1.0
+
+[node name="Placeholder" type="Sprite2D" parent="."]
+z_index = 80
+z_as_relative = false
+texture = SubResource("PlaceholderTexture2D_nno7t")

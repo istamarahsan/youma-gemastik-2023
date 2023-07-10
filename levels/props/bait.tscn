@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6elxd4jnggji"]
+
+[ext_resource type="Texture2D" uid="uid://g3r2q7lwl0bc" path="res://assets/props/Bait.png" id="1_dpx4u"]
+[ext_resource type="Script" path="res://levels/props/prop_auto_fade.gd" id="1_gptc8"]
+
+[node name="Bait" type="Node2D"]
+z_as_relative = false
+script = ExtResource("1_gptc8")
+sprite = NodePath("BaitSprite")
+opacity = 1.0
+
+[node name="BaitSprite" type="Sprite2D" parent="."]
+z_index = 80
+z_as_relative = false
+texture = ExtResource("1_dpx4u")

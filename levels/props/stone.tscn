@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqf2u285cydmu"]
+
+[ext_resource type="Script" path="res://levels/props/prop_auto_fade.gd" id="1_dpvds"]
+[ext_resource type="Texture2D" uid="uid://ceykc3als60tg" path="res://assets/maps/2Shallow Water/Shallow Water Rock.png" id="1_gs50p"]
+
+[node name="Stone" type="Node2D"]
+z_as_relative = false
+script = ExtResource("1_dpvds")
+sprite = NodePath("StroneSprite")
+opacity = 1.0
+
+[node name="StroneSprite" type="Sprite2D" parent="."]
+z_index = 80
+z_as_relative = false
+texture = ExtResource("1_gs50p")

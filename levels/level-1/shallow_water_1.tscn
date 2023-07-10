@@ -14,10 +14,10 @@
 [ext_resource type="Script" path="res://levels/components/state_value_constraint.gd" id="10_a31mg"]
 [ext_resource type="Script" path="res://levels/components/state_flag_constraint.gd" id="12_fn8ge"]
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="13_f636k"]
-[ext_resource type="Texture2D" uid="uid://ceykc3als60tg" path="res://assets/maps/2Shallow Water/Shallow Water Rock.png" id="14_m8vse"]
 [ext_resource type="PackedScene" uid="uid://hbk5evvrhfs7" path="res://levels/components/interaction-object/physics_area_interaction_object.tscn" id="15_5eck6"]
-[ext_resource type="Script" path="res://levels/level-1/rock_original.gd" id="15_qgojo"]
-[ext_resource type="Script" path="res://levels/level-1/rock_placed.gd" id="16_hwnib"]
+[ext_resource type="PackedScene" uid="uid://fsh7ruhfyn1h" path="res://levels/components/transforms/transform_fade_prop.tscn" id="18_urb18"]
+[ext_resource type="PackedScene" uid="uid://dqf2u285cydmu" path="res://levels/props/stone.tscn" id="19_jch4k"]
+[ext_resource type="PackedScene" uid="uid://ctwycvyvof6xy" path="res://levels/props/fish.tscn" id="20_h2vcv"]
 
 [sub_resource type="Resource" id="Resource_fox2l"]
 script = ExtResource("10_a31mg")
@@ -77,11 +77,17 @@ player_avatar = NodePath("PlayerAvatar")
 state_hook = NodePath("LevelStateHook")
 metadata/_edit_lock_ = true
 
+[node name="TriggerOnIO1" parent="." node_paths=PackedStringArray("io") instance=ExtResource("9_2bd7k")]
+io = NodePath("../IO1")
+
 [node name="TriggerOnIO2" parent="." node_paths=PackedStringArray("io") instance=ExtResource("9_2bd7k")]
 io = NodePath("../IO2")
 
 [node name="TriggerOnIO3" parent="." node_paths=PackedStringArray("io") instance=ExtResource("9_2bd7k")]
 io = NodePath("../IO3")
+
+[node name="TriggerOnIO4" parent="." node_paths=PackedStringArray("io") instance=ExtResource("9_2bd7k")]
+io = NodePath("../IO4")
 
 [node name="CompletionTrigger" parent="." instance=ExtResource("3_beiic")]
 values = Array[ExtResource("10_a31mg")]([SubResource("Resource_fox2l"), SubResource("Resource_hqiap")])
@@ -125,11 +131,13 @@ metadata/_edit_lock_ = true
 position = Vector2(541, 221)
 radius = 50
 value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_2k8tk")])
+metadata/_edit_lock_ = true
 
 [node name="IO2" parent="." instance=ExtResource("15_5eck6")]
 position = Vector2(343, 797)
 radius = 95
 value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_8cm4f")])
+metadata/_edit_lock_ = true
 
 [node name="IO3" parent="." instance=ExtResource("15_5eck6")]
 position = Vector2(784, 794)
@@ -137,33 +145,47 @@ radius = 122
 value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_0k30k")])
 flag_effects = Array[ExtResource("9_mord8")]([SubResource("Resource_vynv1")])
 value_constraints = Array[ExtResource("10_a31mg")]([SubResource("Resource_htv6i")])
+metadata/_edit_lock_ = true
 
 [node name="IO4" parent="." instance=ExtResource("15_5eck6")]
 position = Vector2(1236, 931)
-radius = 106
+radius = 82
 value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_7ph0h")])
 flag_constraints = Array[ExtResource("12_fn8ge")]([SubResource("Resource_vo1by")])
+metadata/_edit_lock_ = true
 
 [node name="LevelStateHook" type="Node" parent="."]
 script = ExtResource("13_f636k")
 
-[node name="RockOriginal" type="Sprite2D" parent="." node_paths=PackedStringArray("trigger")]
-z_index = 11
-position = Vector2(350, 803)
-texture = ExtResource("14_m8vse")
-script = ExtResource("15_qgojo")
+[node name="FadeOutStone" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("18_urb18")]
+target = NodePath("../Stone")
 trigger = NodePath("../TriggerOnIO2")
-metadata/_edit_lock_ = true
 
-[node name="RockPlaced" type="Sprite2D" parent="." node_paths=PackedStringArray("trigger")]
-visible = false
-z_index = 11
-position = Vector2(771, 803)
-rotation = -0.618628
-texture = ExtResource("14_m8vse")
-script = ExtResource("16_hwnib")
+[node name="Stone" parent="." instance=ExtResource("19_jch4k")]
+position = Vector2(352, 804)
+
+[node name="FadeInStone" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("18_urb18")]
+target = NodePath("../StonePlaced")
+fade = 0
 trigger = NodePath("../TriggerOnIO3")
-metadata/_edit_lock_ = true
 
-[connection signal="activated" from="RockOriginal" to="RockOriginal" method="_on_activated"]
-[connection signal="activated" from="RockPlaced" to="RockPlaced" method="_on_activated"]
+[node name="StonePlaced" parent="." instance=ExtResource("19_jch4k")]
+position = Vector2(764, 786)
+rotation = -0.770111
+opacity = 0.0
+
+[node name="Fish" parent="." instance=ExtResource("20_h2vcv")]
+position = Vector2(1235, 928)
+rotation = 0.450295
+scale = Vector2(1.5, 1.5)
+
+[node name="FadeOutFish" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("18_urb18")]
+target = NodePath("../Fish")
+trigger = NodePath("../TriggerOnIO4")
+
+[node name="Fish2" parent="." instance=ExtResource("20_h2vcv")]
+position = Vector2(541, 220)
+
+[node name="FadeOutFish2" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("18_urb18")]
+target = NodePath("../Fish2")
+trigger = NodePath("../TriggerOnIO1")
