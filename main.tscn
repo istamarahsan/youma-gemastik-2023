@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://7j51xtwwo1ja"]
+[gd_scene load_steps=8 format=3 uid="uid://7j51xtwwo1ja"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ukrwe"]
 [ext_resource type="PackedScene" uid="uid://du0nsv73aj6ow" path="res://ui/main-menu/main_menu.tscn" id="2_ebuhl"]
 [ext_resource type="PackedScene" uid="uid://d00nirxfwmfs0" path="res://game.tscn" id="3_e0anm"]
 [ext_resource type="PackedScene" uid="uid://dgtwkefcxn0qs" path="res://transition_cover.tscn" id="3_h485l"]
 [ext_resource type="Shader" path="res://shaders/transition_cover.gdshader" id="3_jnkvc"]
+[ext_resource type="PackedScene" uid="uid://gsbacgd3cfab" path="res://ui/settings/settings.tscn" id="4_m2d4q"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4hocu"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y2il1"]
 resource_local_to_scene = true
 shader = ExtResource("3_jnkvc")
 shader_parameter/opacity = 0.0
@@ -15,8 +16,9 @@ shader_parameter/opacity = 0.0
 script = ExtResource("1_ukrwe")
 main_menu_scene = ExtResource("2_ebuhl")
 game_scene = ExtResource("3_e0anm")
+settings_scene = ExtResource("4_m2d4q")
 transition_cover = NodePath("TransitionCover")
 
 [node name="TransitionCover" parent="." instance=ExtResource("3_h485l")]
-material = SubResource("ShaderMaterial_4hocu")
+material = SubResource("ShaderMaterial_y2il1")
 time_seconds = 0.5

@@ -9,9 +9,11 @@ enum UpperState {
 
 @export var main_menu_scene: PackedScene
 @export var game_scene: PackedScene
+@export var settings_scene: PackedScene
 @export var transition_cover: TransitionCover
 
 var main_menu: MainMenu
+var settings: SettingsMenu
 var game: Game
 var state: UpperState
 
@@ -39,14 +41,22 @@ func _on_main_menu_play():
 	main_menu.queue_free()
 	game = game_scene.instantiate() as Game
 	_hook_up_game(game)
-	
 	add_child(game)
 	transition_cover.open()
 	
 func _on_main_menu_settings():
 	if state != UpperState.MainMenu:
 		return
-	pass
+	state = UpperState.Settings
+	settings = settings_scene.instantiate() as SettingsMenu
+	add_child(settings)
+	main_menu.queue_free()
+	await settings.back
+	state = UpperState.MainMenu
+	settings.queue_free()
+	main_menu = main_menu_scene.instantiate() as MainMenu
+	_hook_up_main_menu(main_menu)
+	add_child(main_menu)
 
 func _on_main_menu_credits():
 	if state != UpperState.MainMenu:

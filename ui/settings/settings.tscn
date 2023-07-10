@@ -4,12 +4,9 @@
 [ext_resource type="Theme" uid="uid://44i6ats70703" path="res://assets/youma_theme.tres" id="1_p6h1r"]
 
 [node name="Settings" type="Control"]
+custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_maa11")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
@@ -62,3 +59,10 @@ size_flags_horizontal = 4
 theme = ExtResource("1_p6h1r")
 max_value = 1.0
 step = 0.01
+
+[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_p6h1r")
+theme_override_font_sizes/font_size = 40
+text = "Balik"
