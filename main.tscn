@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dgtwkefcxn0qs" path="res://transition_cover.tscn" id="3_h485l"]
 [ext_resource type="Shader" path="res://shaders/transition_cover.gdshader" id="3_jnkvc"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pmcmp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4hocu"]
 resource_local_to_scene = true
 shader = ExtResource("3_jnkvc")
 shader_parameter/opacity = 0.0
@@ -18,5 +18,5 @@ game_scene = ExtResource("3_e0anm")
 transition_cover = NodePath("TransitionCover")
 
 [node name="TransitionCover" parent="." instance=ExtResource("3_h485l")]
-material = SubResource("ShaderMaterial_pmcmp")
+material = SubResource("ShaderMaterial_4hocu")
 time_seconds = 0.5

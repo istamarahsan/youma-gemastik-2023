@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 TreeExtensions="*res://ext/tree_extensions.gd"
 InputExtensions="*res://ext/input.gd"
+AudioManagerSingleton="*res://audio/audio_manager.gd"
 
 [display]
 
