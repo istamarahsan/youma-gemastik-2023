@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://dj3y7uk2ausgm"]
+
+[ext_resource type="Texture2D" uid="uid://bms4y7aqc81lw" path="res://assets/maps/4RiverBank/River Bank L6.png" id="1_bvx0w"]
+[ext_resource type="Texture2D" uid="uid://hhksd4ku8fao" path="res://assets/maps/4RiverBank/River Bank L5.png" id="2_4wbof"]
+[ext_resource type="Texture2D" uid="uid://c840376itxml3" path="res://assets/maps/4RiverBank/River Bank L4.png" id="3_40tqm"]
+[ext_resource type="Texture2D" uid="uid://dmtkk7hdoom4o" path="res://assets/maps/4RiverBank/River Bank L3.png" id="4_phqw6"]
+[ext_resource type="Texture2D" uid="uid://6uag1cpbqpx6" path="res://assets/maps/4RiverBank/River Bank L2.png" id="5_b43al"]
+[ext_resource type="Texture2D" uid="uid://bhcp64xwm6l8k" path="res://assets/maps/4RiverBank/River Bank L1.png" id="6_3kdpg"]
+[ext_resource type="Texture2D" uid="uid://c431ykiiobg1" path="res://assets/maps/4RiverBank/River Bank L1 (Overlay).png" id="7_tvtli"]
+[ext_resource type="Shader" path="res://shaders/overlay_screen.gdshader" id="8_urkj8"]
+[ext_resource type="Script" path="res://levels/props/bob.gd" id="9_dve35"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5d4sj"]
+shader = ExtResource("8_urkj8")
+shader_parameter/degree = 1.0
+
+[node name="Riverbank" type="Node2D"]
+
+[node name="BG" type="Node2D" parent="."]
+
+[node name="RiverBankL6" type="Sprite2D" parent="BG"]
+z_index = -100
+z_as_relative = false
+texture = ExtResource("1_bvx0w")
+centered = false
+
+[node name="RiverBankL5" type="Sprite2D" parent="BG"]
+z_index = -99
+z_as_relative = false
+texture = ExtResource("2_4wbof")
+centered = false
+
+[node name="RiverBankL4" type="Sprite2D" parent="BG"]
+z_index = -98
+z_as_relative = false
+texture = ExtResource("3_40tqm")
+centered = false
+
+[node name="RiverBankL3" type="Sprite2D" parent="BG"]
+z_index = -97
+z_as_relative = false
+texture = ExtResource("4_phqw6")
+centered = false
+
+[node name="RiverBankL2" type="Sprite2D" parent="BG"]
+z_index = -96
+z_as_relative = false
+texture = ExtResource("5_b43al")
+centered = false
+
+[node name="RiverBankL1" type="Sprite2D" parent="BG" node_paths=PackedStringArray("sprite")]
+z_index = -95
+z_as_relative = false
+position = Vector2(0, 5)
+texture = ExtResource("6_3kdpg")
+centered = false
+script = ExtResource("9_dve35")
+sprite = NodePath(".")
+max_offset = 5.0
+amplitude = 0.2
+
+[node name="River" type="Sprite2D" parent="." node_paths=PackedStringArray("sprite")]
+z_index = 1
+z_as_relative = false
+material = SubResource("ShaderMaterial_5d4sj")
+position = Vector2(0, 5)
+texture = ExtResource("7_tvtli")
+centered = false
+script = ExtResource("9_dve35")
+sprite = NodePath(".")
+max_offset = 5.0
+amplitude = 0.2
