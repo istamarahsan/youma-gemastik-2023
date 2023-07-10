@@ -24,24 +24,30 @@ func _ready():
 			continue
 		answer_key[land.name] = step.correct_choice
 		land.baya_chosen.connect(func():
-			choices[land.name] = Choice.Baya
-			land.enabled = false
-			_validate_state()
+			_handle_action(land, Choice.Baya)
 			)
 		land.sura_chosen.connect(func():
-			choices[land.name] = Choice.Sura
-			land.enabled = false 
-			_validate_state()
+			_handle_action(land, Choice.Sura)
 			)
 
-func _validate_state():
+func _handle_action(land: SpecialMapInterationObject, action: Choice):
+	choices[land.name] = action
+	if _is_state_valid():
+		land.enabled = false
+		if _is_map_complete():
+			completion_announcer.completed.emit()
+	else:
+		_no()
+		_reset_state()
+
+func _is_state_valid() -> bool:
 	for land_name in choices.keys():
-		if choices[land_name] != answer_key.get(land_name, null):
-			_no()
-			_reset_state()
-			return
-	if answer_key.keys().all(func(key): return choices.has(key)):
-		completion_announcer.completed.emit()
+		if choices.get(land_name, null) != null and choices[land_name] != answer_key.get(land_name, null):
+			return false
+	return true
+
+func _is_map_complete() -> bool:
+	return _is_state_valid() and answer_key.keys().all(func(key): return choices.has(key))
 
 func _reset_state():
 	choices = {}

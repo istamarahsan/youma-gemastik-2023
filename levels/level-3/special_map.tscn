@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bgcldpxasfmfj"]
+[gd_scene load_steps=20 format=3 uid="uid://bgcldpxasfmfj"]
 
 [ext_resource type="Script" path="res://levels/level-3/special_map.gd" id="1_ylxfk"]
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="2_g6qxi"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cxrj8e363ur5o" path="res://assets/maps/Map/Land 2.png" id="7_pjsrc"]
 [ext_resource type="Texture2D" uid="uid://cdryisi1m1g75" path="res://assets/maps/Map/Land 3.png" id="8_8tqln"]
 [ext_resource type="PackedScene" uid="uid://glots66q8cwp" path="res://levels/level-3/map_action_select_menu.tscn" id="8_d16d1"]
+[ext_resource type="Shader" path="res://levels/level-3/special_map_object.gdshader" id="9_movqu"]
 [ext_resource type="Theme" uid="uid://44i6ats70703" path="res://assets/youma_theme.tres" id="11_g27gg"]
 
 [sub_resource type="Resource" id="Resource_tchgn"]
@@ -30,9 +31,24 @@ land = NodePath("Land3")
 correct_choice = 1
 metadata/_editor_prop_ptr_land = NodePath("Land3")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j1lfw"]
+resource_local_to_scene = true
+shader = ExtResource("9_movqu")
+shader_parameter/degree = 0.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ha5qn"]
 radius = 83.0
 height = 678.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y5ubi"]
+resource_local_to_scene = true
+shader = ExtResource("9_movqu")
+shader_parameter/degree = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0uuwd"]
+resource_local_to_scene = true
+shader = ExtResource("9_movqu")
+shader_parameter/degree = 0.0
 
 [node name="SpecialMap" type="Node2D" node_paths=PackedStringArray("completion_announcer", "state_hook")]
 script = ExtResource("1_ylxfk")
@@ -52,11 +68,13 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Land1" type="Sprite2D" parent="." node_paths=PackedStringArray("area2D", "action_menu")]
+material = SubResource("ShaderMaterial_j1lfw")
 position = Vector2(1261, 220)
 texture = ExtResource("6_xv33b")
 script = ExtResource("6_jbi6i")
 area2D = NodePath("../Land1TouchClickArea")
 action_menu = NodePath("MapActionSelectMenu")
+grayout_time = 0.7
 metadata/_edit_lock_ = true
 
 [node name="MapActionSelectMenu" parent="Land1" instance=ExtResource("8_d16d1")]
@@ -80,11 +98,13 @@ shape = SubResource("CapsuleShape2D_ha5qn")
 metadata/_edit_lock_ = true
 
 [node name="Land2" type="Sprite2D" parent="." node_paths=PackedStringArray("area2D", "action_menu")]
+material = SubResource("ShaderMaterial_y5ubi")
 position = Vector2(1270, 684)
 texture = ExtResource("7_pjsrc")
 script = ExtResource("6_jbi6i")
 area2D = NodePath("../Land2TouchClickArea")
 action_menu = NodePath("MapActionSelectMenu2")
+grayout_time = 1.0
 metadata/_edit_lock_ = true
 
 [node name="MapActionSelectMenu2" parent="Land2" instance=ExtResource("8_d16d1")]
@@ -104,11 +124,13 @@ polygon = PackedVector2Array(997, 477, 918, 547, 922, 688, 844, 729, 822, 826, 9
 metadata/_edit_lock_ = true
 
 [node name="Land3" type="Sprite2D" parent="." node_paths=PackedStringArray("area2D", "action_menu")]
+material = SubResource("ShaderMaterial_0uuwd")
 position = Vector2(562, 474)
 texture = ExtResource("8_8tqln")
 script = ExtResource("6_jbi6i")
 area2D = NodePath("../Land3TouchClickArea")
 action_menu = NodePath("MapActionSelectMenu3")
+grayout_time = 1.0
 metadata/_edit_lock_ = true
 
 [node name="MapActionSelectMenu3" parent="Land3" instance=ExtResource("8_d16d1")]
