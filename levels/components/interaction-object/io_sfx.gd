@@ -6,6 +6,8 @@ extends Node
 @onready var confirm_sfx: AudioStreamPlayer = $Confirm as AudioStreamPlayer
 
 func _ready():
+	if io == null:
+		return
 	io.pressed.connect(_on_io_pressed)
 	io.interacted.connect(_on_io_interact)
 	

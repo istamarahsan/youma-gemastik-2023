@@ -2,6 +2,12 @@
 extends InteractionObject
 class_name ControlAreaInteractionObject
 
+enum DebugOption {
+	none,
+	editor_only,
+	full
+}
+
 @export_range(1, 1000, 1) var size: int:
 	get:
 		return _radius

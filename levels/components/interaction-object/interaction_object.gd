@@ -8,14 +8,9 @@ enum State {
 	showing = 2
 }
 
-enum DebugOption {
-	none,
-	editor_only,
-	full
-}
-
 signal pressed
 signal interacted
+signal state_entered(state: State)
 
 @export_category("Effects")
 @export var value_effects: Array[IoValueEffect] = []
@@ -39,16 +34,19 @@ func set_enabled(yes: bool):
 func show_idle():
 	state = State.idle
 	_show_idle()
+	state_entered.emit(State.idle)
 
 func show_active():
 	state = State.active
 	_show_active()
+	state_entered.emit(State.active)
 
 func show_interactions():
 	state = State.showing
 	if oneshot:
 		set_enabled(false)
 	_show_interactions()
+	state_entered.emit(State.showing)
 
 func _set_enabled(yes: bool):
 	pass
