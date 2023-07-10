@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctwycvyvof6xy"]
+[gd_scene load_steps=4 format=3 uid="uid://ctwycvyvof6xy"]
 
 [ext_resource type="Texture2D" uid="uid://pvvcrjwbdxny" path="res://assets/props/Ikan Topo.png" id="1_8ls5k"]
 [ext_resource type="Script" path="res://levels/props/fish.gd" id="1_iu4ld"]
+[ext_resource type="Script" path="res://levels/props/bob.gd" id="3_03g4o"]
 
 [node name="Fish" type="Node2D"]
 z_as_relative = false
@@ -14,3 +15,8 @@ opacity = 1.0
 z_index = 80
 z_as_relative = false
 texture = ExtResource("1_8ls5k")
+
+[node name="SpriteBobEffect" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("3_03g4o")
+sprite = NodePath("../FishSprite")
+max_offset = 5.0

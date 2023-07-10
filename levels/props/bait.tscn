@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6elxd4jnggji"]
+[gd_scene load_steps=4 format=3 uid="uid://c6elxd4jnggji"]
 
 [ext_resource type="Texture2D" uid="uid://g3r2q7lwl0bc" path="res://assets/props/Bait.png" id="1_dpx4u"]
-[ext_resource type="Script" path="res://levels/props/prop_auto_fade.gd" id="1_gptc8"]
+[ext_resource type="Script" path="res://levels/props/bait.gd" id="1_xcv34"]
+[ext_resource type="Script" path="res://levels/props/bob.gd" id="3_fwsr0"]
 
 [node name="Bait" type="Node2D"]
 z_as_relative = false
-script = ExtResource("1_gptc8")
+script = ExtResource("1_xcv34")
+bob = true
 sprite = NodePath("BaitSprite")
 opacity = 1.0
 
@@ -13,3 +15,9 @@ opacity = 1.0
 z_index = 80
 z_as_relative = false
 texture = ExtResource("1_dpx4u")
+
+[node name="SpriteBobEffect" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("3_fwsr0")
+sprite = NodePath("../BaitSprite")
+max_offset = 5.0
+time_offset = 0.3
