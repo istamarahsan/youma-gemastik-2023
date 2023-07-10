@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c0i5g18h7ijcj"]
+[gd_scene load_steps=35 format=3 uid="uid://c0i5g18h7ijcj"]
 
 [ext_resource type="Script" path="res://levels/map.gd" id="1_vlrby"]
 [ext_resource type="Texture2D" uid="uid://64lal6k8dwh0" path="res://assets/maps/3Deep Water/Deep Water L5.png" id="2_a2iqq"]
@@ -15,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://hbk5evvrhfs7" path="res://levels/components/interaction-object/physics_area_interaction_object.tscn" id="11_i0q5o"]
 [ext_resource type="PackedScene" uid="uid://bowmh363flr4f" path="res://levels/components/transforms/transform_toggle_io.tscn" id="12_t3i3k"]
 [ext_resource type="PackedScene" uid="uid://cptnlsqj27q70" path="res://levels/components/triggers/on-state/trigger_on_state.tscn" id="14_baket"]
+[ext_resource type="PackedScene" uid="uid://ctwycvyvof6xy" path="res://levels/props/fish.tscn" id="14_pptoa"]
+[ext_resource type="PackedScene" uid="uid://fsh7ruhfyn1h" path="res://levels/components/transforms/transform_fade_prop.tscn" id="15_qutwo"]
+[ext_resource type="PackedScene" uid="uid://c6elxd4jnggji" path="res://levels/props/bait.tscn" id="16_40nim"]
 
 [sub_resource type="Resource" id="Resource_6xmi1"]
 script = ExtResource("11_agju2")
@@ -146,6 +149,7 @@ metadata/_edit_lock_ = true
 [node name="TransformToggleIO4" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("12_t3i3k")]
 target_io = NodePath("../IO4")
 trigger = NodePath("../TriggerOnInteractIO3")
+delay_seconds = 1.0
 metadata/_edit_lock_ = true
 
 [node name="TransformToggleIO6" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("12_t3i3k")]
@@ -181,31 +185,90 @@ centered = false
 position = Vector2(212, 708)
 radius = 103
 oneshot = false
+metadata/_edit_lock_ = true
 
 [node name="IO2" parent="." instance=ExtResource("11_i0q5o")]
 position = Vector2(344, 607)
 radius = 35
 value_effects = Array[ExtResource("10_mr8ra")]([SubResource("Resource_640mr"), SubResource("Resource_qknib")])
 enabled = false
+metadata/_edit_lock_ = true
+
+[node name="FishIO2" parent="." instance=ExtResource("14_pptoa")]
+position = Vector2(346, 605)
+opacity = 0.0
+metadata/_edit_lock_ = true
+
+[node name="FadeInFishIO2" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("15_qutwo")]
+target = NodePath("../FishIO2")
+fade = 0
+trigger = NodePath("../TriggerOnInteractIO1")
+metadata/_edit_lock_ = true
+
+[node name="FadeOutFishIO2" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("15_qutwo")]
+target = NodePath("../FishIO2")
+trigger = NodePath("../TriggerOnInteractIO2")
+metadata/_edit_lock_ = true
 
 [node name="IO3" parent="." instance=ExtResource("11_i0q5o")]
-position = Vector2(455, 469)
-radius = 104
+position = Vector2(470, 481)
+radius = 134
 value_effects = Array[ExtResource("10_mr8ra")]([SubResource("Resource_8uft5")])
 value_constraints = Array[ExtResource("11_agju2")]([SubResource("Resource_dku6f"), SubResource("Resource_jsqge"), SubResource("Resource_ekari"), SubResource("Resource_nj263"), SubResource("Resource_skvg8"), SubResource("Resource_belw0"), SubResource("Resource_cvv7m"), SubResource("Resource_vpetj"), SubResource("Resource_5mwca")])
 enabled = false
+metadata/_edit_lock_ = true
+
+[node name="BaitIO3" parent="." instance=ExtResource("16_40nim")]
+position = Vector2(456, 472)
+opacity = 0.0
+metadata/_edit_lock_ = true
+
+[node name="FadeInBaitIO3" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("15_qutwo")]
+target = NodePath("../BaitIO3")
+fade = 0
+trigger = NodePath("../TriggerOnInteractIO3")
 
 [node name="IO4" parent="." instance=ExtResource("11_i0q5o")]
 position = Vector2(176, 479)
-radius = 57
+radius = 124
 value_effects = Array[ExtResource("10_mr8ra")]([SubResource("Resource_qonkk")])
 enabled = false
-oneshot = false
+metadata/_edit_lock_ = true
+
+[node name="FishIO4" parent="." instance=ExtResource("14_pptoa")]
+position = Vector2(177, 479)
+rotation = -0.282743
+scale = Vector2(3.295, 3.295)
+flip = true
+opacity = 0.0
+metadata/_edit_lock_ = true
+
+[node name="FadeInFishIO4" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("15_qutwo")]
+target = NodePath("../FishIO4")
+fade = 0
+trigger = NodePath("../TriggerOnInteractIO3")
+delay_seconds = 1.0
+metadata/_edit_lock_ = true
+
+[node name="FadeInFishIO5" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("15_qutwo")]
+target = NodePath("../FishIO4")
+trigger = NodePath("../TriggerOnInteractIO4")
+metadata/_edit_lock_ = true
 
 [node name="IO5" parent="." instance=ExtResource("11_i0q5o")]
 position = Vector2(1658, 191)
 radius = 46
 value_effects = Array[ExtResource("10_mr8ra")]([SubResource("Resource_xxmgy")])
+metadata/_edit_lock_ = true
+
+[node name="FishIO5" parent="." instance=ExtResource("14_pptoa")]
+position = Vector2(1658, 191)
+metadata/_edit_lock_ = true
+
+[node name="FadeOutFishIO5" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("15_qutwo")]
+target = NodePath("../FishIO5")
+trigger = NodePath("../TriggerOnInteractIO5")
+metadata/_edit_lock_ = true
 
 [node name="IO6" parent="." instance=ExtResource("11_i0q5o")]
 position = Vector2(1757, 759)
@@ -213,6 +276,7 @@ radius = 90
 transition_to = "ShallowWater"
 enabled = false
 oneshot = false
+metadata/_edit_lock_ = true
 
 [node name="LevelStateHook" type="Node" parent="."]
 script = ExtResource("8_qysf0")

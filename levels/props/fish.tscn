@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctwycvyvof6xy"]
 
 [ext_resource type="Texture2D" uid="uid://pvvcrjwbdxny" path="res://assets/props/Ikan Topo.png" id="1_8ls5k"]
-[ext_resource type="Script" path="res://levels/props/prop_auto_fade.gd" id="1_vyofw"]
+[ext_resource type="Script" path="res://levels/props/fish.gd" id="1_iu4ld"]
 
 [node name="Fish" type="Node2D"]
 z_as_relative = false
-script = ExtResource("1_vyofw")
+script = ExtResource("1_iu4ld")
 sprite = NodePath("FishSprite")
 fade_seconds = 0.8
 opacity = 1.0
