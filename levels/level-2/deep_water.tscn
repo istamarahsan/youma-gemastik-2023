@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c0i5g18h7ijcj"]
+[gd_scene load_steps=36 format=3 uid="uid://c0i5g18h7ijcj"]
 
 [ext_resource type="Script" path="res://levels/map.gd" id="1_vlrby"]
 [ext_resource type="Texture2D" uid="uid://64lal6k8dwh0" path="res://assets/maps/3Deep Water/Deep Water L5.png" id="2_a2iqq"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://levels/components/interaction-object/value_effect.gd" id="10_mr8ra"]
 [ext_resource type="PackedScene" uid="uid://dvuetv06ga8vf" path="res://levels/components/triggers/on-interact/trigger_on_interact.tscn" id="11_8kbdk"]
 [ext_resource type="Script" path="res://levels/components/state_value_constraint.gd" id="11_agju2"]
+[ext_resource type="Script" path="res://levels/props/bob.gd" id="11_by6d2"]
 [ext_resource type="PackedScene" uid="uid://hbk5evvrhfs7" path="res://levels/components/interaction-object/physics_area_interaction_object.tscn" id="11_i0q5o"]
 [ext_resource type="PackedScene" uid="uid://bowmh363flr4f" path="res://levels/components/transforms/transform_toggle_io.tscn" id="12_t3i3k"]
 [ext_resource type="PackedScene" uid="uid://cptnlsqj27q70" path="res://levels/components/triggers/on-state/trigger_on_state.tscn" id="14_baket"]
@@ -165,17 +166,31 @@ trigger = NodePath("../TriggerOnFood4")
 texture = ExtResource("2_a2iqq")
 centered = false
 
-[node name="SeaFloorL4" type="Sprite2D" parent="StaticBackground"]
+[node name="SeaFloorL4" type="Sprite2D" parent="StaticBackground" node_paths=PackedStringArray("sprite")]
+position = Vector2(0, 5)
 texture = ExtResource("3_qnuns")
 centered = false
+script = ExtResource("11_by6d2")
+sprite = NodePath(".")
+max_offset = 5.0
+time_offset = 1.0
 
-[node name="SeaFloorL3" type="Sprite2D" parent="StaticBackground"]
+[node name="SeaFloorL3" type="Sprite2D" parent="StaticBackground" node_paths=PackedStringArray("sprite")]
+position = Vector2(0, 5)
 texture = ExtResource("4_veul7")
 centered = false
+script = ExtResource("11_by6d2")
+sprite = NodePath(".")
+max_offset = 5.0
+time_offset = 1.0
 
-[node name="SeaFloorL2" type="Sprite2D" parent="StaticBackground"]
+[node name="SeaFloorL2" type="Sprite2D" parent="StaticBackground" node_paths=PackedStringArray("sprite")]
+position = Vector2(0, 5)
 texture = ExtResource("5_a31bm")
 centered = false
+script = ExtResource("11_by6d2")
+sprite = NodePath(".")
+max_offset = 5.0
 
 [node name="StaticForeground" type="Sprite2D" parent="."]
 texture = ExtResource("6_vleag")
