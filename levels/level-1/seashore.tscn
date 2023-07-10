@@ -164,6 +164,7 @@ rotation = -6.10861
 texture = ExtResource("8_82s7t")
 script = ExtResource("9_cets0")
 clockwise = false
+editor_rotate = false
 time_offset = 8.3
 amplitude = 0.8
 metadata/_edit_lock_ = true
@@ -176,6 +177,7 @@ rotation = -5.7228
 texture = ExtResource("7_nvgx8")
 script = ExtResource("9_cets0")
 clockwise = false
+editor_rotate = false
 amplitude = 0.7
 metadata/_edit_lock_ = true
 
