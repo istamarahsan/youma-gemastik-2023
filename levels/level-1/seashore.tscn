@@ -1,8 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://eeo6nnifrnkt"]
+[gd_scene load_steps=31 format=3 uid="uid://eeo6nnifrnkt"]
 
 [ext_resource type="Script" path="res://levels/map.gd" id="1_n1d5h"]
 [ext_resource type="Material" uid="uid://b52p7miaiion6" path="res://levels/level-1/seashore.tres" id="2_1ktss"]
-[ext_resource type="PackedScene" uid="uid://bieq2g32ux1jl" path="res://levels/components/interaction-object/interaction_object.tscn" id="5_ija87"]
 [ext_resource type="Texture2D" uid="uid://bf4ghwkekte1n" path="res://assets/maps/1Seashore/Seashore L6.png" id="6_ty1cf"]
 [ext_resource type="Texture2D" uid="uid://c2vqgamgutux8" path="res://assets/maps/1Seashore/Seashore L5.png" id="7_6gw7y"]
 [ext_resource type="Script" path="res://levels/components/interaction-object/value_effect.gd" id="7_akdx7"]
@@ -15,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c87fuedwuwn5w" path="res://assets/maps/1Seashore/Seashore L2.png" id="10_kgn4d"]
 [ext_resource type="Texture2D" uid="uid://bpcynlwmsyvq1" path="res://assets/maps/1Seashore/Seashore L1.png" id="11_4f3fg"]
 [ext_resource type="PackedScene" uid="uid://cptnlsqj27q70" path="res://levels/components/triggers/on-state/trigger_on_state.tscn" id="11_jfx5j"]
+[ext_resource type="PackedScene" uid="uid://hbk5evvrhfs7" path="res://levels/components/interaction-object/physics_area_interaction_object.tscn" id="12_m04se"]
 [ext_resource type="Script" path="res://levels/components/state_value_constraint.gd" id="12_yw3fb"]
 [ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://levels/components/player_avatar.tscn" id="16_5nvov"]
 
@@ -84,24 +84,10 @@ value = 1
 type = 0
 name = "bait"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ij322"]
-resource_local_to_scene = true
-shader = ExtResource("10_hs6sg")
-shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/state = 0
-shader_parameter/outline_width = 1.0
-
-[sub_resource type="Resource" id="Resource_e5rvk"]
+[sub_resource type="Resource" id="Resource_c0p3h"]
 script = ExtResource("7_akdx7")
 name = "food"
 effect = 1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nhhgm"]
-resource_local_to_scene = true
-shader = ExtResource("10_hs6sg")
-shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/state = 0
-shader_parameter/outline_width = 1.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3qekc"]
 vertices = PackedVector2Array(1318, 597, 1377, 586, 1287, 737, 1219, 583, 1040, 600, 1126, 583, 878, 1063, 10, 1059, 8, 602, 63, 593, 140, 589, 195, 589, 236, 602, 278, 604, 371, 580, 439, 597, 523, 600, 616, 579, 684, 588, 773, 606, 1008, 921, 833, 602, 864, 592, 954, 594)
@@ -112,6 +98,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(195, 589, 140, 589, 63,
 script = ExtResource("1_n1d5h")
 player_avatar = NodePath("PlayerAvatar")
 state_hook = NodePath("LevelStateHook")
+metadata/_edit_lock_ = true
 
 [node name="TriggerOnIO2" parent="." node_paths=PackedStringArray("io") instance=ExtResource("9_e46dg")]
 io = NodePath("../IO2")
@@ -121,6 +108,21 @@ io = NodePath("../IO4")
 
 [node name="TriggerOnFood3" parent="." instance=ExtResource("11_jfx5j")]
 values = Array[ExtResource("12_yw3fb")]([SubResource("Resource_syddx")])
+
+[node name="TransformEnableIO3" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("9_u4fa6")]
+target_io = NodePath("../IO3")
+trigger = NodePath("../TriggerOnIO2")
+metadata/_edit_lock_ = true
+
+[node name="TransformEnableIO5" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("9_u4fa6")]
+target_io = NodePath("../IO5")
+trigger = NodePath("../TriggerOnIO4")
+metadata/_edit_lock_ = true
+
+[node name="TransformEnableIO6" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("9_u4fa6")]
+target_io = NodePath("../IO6")
+trigger = NodePath("../TriggerOnFood3")
+metadata/_edit_lock_ = true
 
 [node name="BG" type="Node2D" parent="."]
 material = ExtResource("2_1ktss")
@@ -174,77 +176,49 @@ texture = ExtResource("11_4f3fg")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="IO1" parent="." instance=ExtResource("5_ija87")]
+[node name="IO1" parent="." instance=ExtResource("12_m04se")]
 material = SubResource("ShaderMaterial_gme8q")
-position = Vector2(297, 645)
-polygon = PackedVector2Array(23, 23, 23, -23, -23, -23, -23, 23)
+position = Vector2(298, 644)
+radius = 30
 value_effects = Array[ExtResource("7_akdx7")]([SubResource("Resource_0p27s")])
-size = 23
-debug = 2
-debug_color = Color(0.85098, 0.85098, 0.85098, 1)
 metadata/_edit_lock_ = true
 
-[node name="IO2" parent="." instance=ExtResource("5_ija87")]
+[node name="IO2" parent="." instance=ExtResource("12_m04se")]
 material = SubResource("ShaderMaterial_rc635")
-position = Vector2(1146, 829)
-polygon = PackedVector2Array(149, 149, 149, -149, -149, -149, -149, 149)
-oneshot = false
-size = 149
-debug = 2
+position = Vector2(1137, 827)
+radius = 120
 metadata/_edit_lock_ = true
 
-[node name="TransformEnableIO3" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("9_u4fa6")]
-target_io = NodePath("../IO3")
-trigger = NodePath("../TriggerOnIO2")
-
-[node name="IO3" parent="." instance=ExtResource("5_ija87")]
+[node name="IO3" parent="." instance=ExtResource("12_m04se")]
 material = SubResource("ShaderMaterial_jcki7")
-position = Vector2(920, 697)
+position = Vector2(904, 650)
+radius = 36
 value_effects = Array[ExtResource("7_akdx7")]([SubResource("Resource_wfc4l"), SubResource("Resource_8d1hl")])
 enabled = false
-debug = 2
-debug_color = Color(0.85098, 0.85098, 0.85098, 1)
-
-[node name="IO4" parent="." instance=ExtResource("5_ija87")]
-material = SubResource("ShaderMaterial_olho1")
-position = Vector2(1637, 803)
-polygon = PackedVector2Array(263, 263, 263, -263, -263, -263, -263, 263)
-value_effects = Array[ExtResource("7_akdx7")]([SubResource("Resource_pm2dd")])
-value_constraints = Array[ExtResource("12_yw3fb")]([SubResource("Resource_8yr4u"), SubResource("Resource_hf4r4")])
-size = 263
-debug = 2
-debug_color = Color(0.85098, 0.85098, 0.85098, 1)
 metadata/_edit_lock_ = true
 
-[node name="TransformEnableIO5" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("9_u4fa6")]
-target_io = NodePath("../IO5")
-trigger = NodePath("../TriggerOnIO4")
+[node name="IO4" parent="." instance=ExtResource("12_m04se")]
+material = SubResource("ShaderMaterial_olho1")
+position = Vector2(1643, 819)
+radius = 245
+value_effects = Array[ExtResource("7_akdx7")]([SubResource("Resource_pm2dd")])
+value_constraints = Array[ExtResource("12_yw3fb")]([SubResource("Resource_8yr4u"), SubResource("Resource_hf4r4")])
+metadata/_edit_lock_ = true
 
-[node name="IO5" parent="." instance=ExtResource("5_ija87")]
-material = SubResource("ShaderMaterial_ij322")
-position = Vector2(1772, 490)
-polygon = PackedVector2Array(50, 50, 50, -50, -50, -50, -50, 50)
-value_effects = Array[ExtResource("7_akdx7")]([SubResource("Resource_e5rvk")])
+[node name="IO5" parent="." instance=ExtResource("12_m04se")]
+z_index = 50
+position = Vector2(1791, 490)
+radius = 108
+value_effects = Array[ExtResource("7_akdx7")]([SubResource("Resource_c0p3h")])
 enabled = false
-size = 50
-debug = 2
-debug_color = Color(0.85098, 0.85098, 0.85098, 1)
+metadata/_edit_lock_ = true
 
-[node name="TransformEnableIO6" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("9_u4fa6")]
-target_io = NodePath("../IO6")
-trigger = NodePath("../TriggerOnFood3")
-
-[node name="IO6" parent="." instance=ExtResource("5_ija87")]
-material = SubResource("ShaderMaterial_nhhgm")
-position = Vector2(186, 161)
-polygon = PackedVector2Array(50, 50, 50, -50, -50, -50, -50, 50)
+[node name="IO6" parent="." instance=ExtResource("12_m04se")]
+position = Vector2(192, 151)
+radius = 101
 transition_to = "ShallowWater"
-wait_travel = false
 enabled = false
 oneshot = false
-size = 50
-debug = 2
-debug_color = Color(0.85098, 0.85098, 0.85098, 1)
 metadata/_edit_lock_ = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]

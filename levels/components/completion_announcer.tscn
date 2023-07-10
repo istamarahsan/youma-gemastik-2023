@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfpf153epxhnw"]
+
+[ext_resource type="Script" path="res://levels/components/completion_announcer.gd" id="1_msj6n"]
+
+[node name="CompletionAnnouncer" type="Node"]
+script = ExtResource("1_msj6n")

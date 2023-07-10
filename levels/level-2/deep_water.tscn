@@ -1,24 +1,26 @@
-[gd_scene load_steps=31 format=3 uid="uid://c0i5g18h7ijcj"]
+[gd_scene load_steps=32 format=3 uid="uid://c0i5g18h7ijcj"]
 
 [ext_resource type="Script" path="res://levels/map.gd" id="1_vlrby"]
 [ext_resource type="Texture2D" uid="uid://64lal6k8dwh0" path="res://assets/maps/3Deep Water/Deep Water L5.png" id="2_a2iqq"]
 [ext_resource type="Texture2D" uid="uid://k5edyhgk56kc" path="res://assets/maps/3Deep Water/Deep Water L4.png" id="3_qnuns"]
 [ext_resource type="Texture2D" uid="uid://dn0yae6bcw1pt" path="res://assets/maps/3Deep Water/Deep Water L3.png" id="4_veul7"]
 [ext_resource type="Texture2D" uid="uid://dtfsq5ligax8f" path="res://assets/maps/3Deep Water/Deep Water L2.png" id="5_a31bm"]
+[ext_resource type="PackedScene" uid="uid://bfpf153epxhnw" path="res://levels/components/completion_announcer.tscn" id="6_qb4vq"]
 [ext_resource type="Texture2D" uid="uid://2hoywc34wre4" path="res://assets/maps/3Deep Water/Deep Water L1.png" id="6_vleag"]
 [ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://levels/components/player_avatar.tscn" id="7_3gmnx"]
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="8_qysf0"]
-[ext_resource type="PackedScene" uid="uid://bieq2g32ux1jl" path="res://levels/components/interaction-object/interaction_object.tscn" id="9_0gg1l"]
 [ext_resource type="Script" path="res://levels/components/interaction-object/value_effect.gd" id="10_mr8ra"]
 [ext_resource type="PackedScene" uid="uid://dvuetv06ga8vf" path="res://levels/components/triggers/on-interact/trigger_on_interact.tscn" id="11_8kbdk"]
 [ext_resource type="Script" path="res://levels/components/state_value_constraint.gd" id="11_agju2"]
+[ext_resource type="PackedScene" uid="uid://hbk5evvrhfs7" path="res://levels/components/interaction-object/physics_area_interaction_object.tscn" id="11_i0q5o"]
 [ext_resource type="PackedScene" uid="uid://bowmh363flr4f" path="res://levels/components/transforms/transform_toggle_io.tscn" id="12_t3i3k"]
 [ext_resource type="PackedScene" uid="uid://cptnlsqj27q70" path="res://levels/components/triggers/on-state/trigger_on_state.tscn" id="14_baket"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_sf56k"]
-vertices = PackedVector2Array(131, 724, 13, 753, 17, 376, 157, 342, 439, 614, 303, 692, 281, 357, 368, 370, 415, 362, 580, 365, 624, 624, 653, 25, 1903, 18, 1907, 833, 1353, 999, 652, 134, 624, 259, 1242, 1018, 1045, 863, 925, 825, 783, 717, 655, 669)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 0, 3, 6, 7), PackedInt32Array(4, 7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14, 15), PackedInt32Array(16, 15, 14, 17, 18), PackedInt32Array(16, 18, 19, 20, 9), PackedInt32Array(10, 9, 20, 21)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(624, 259, 580, 365, 415, 362, 368, 370, 281, 357, 157, 342, 17, 376, 13, 753, 131, 724, 303, 692, 439, 614, 624, 624, 655, 669, 783, 717, 925, 825, 1045, 863, 1242, 1018, 1353, 999, 1907, 833, 1903, 18, 653, 25, 652, 134)])
+[sub_resource type="Resource" id="Resource_6xmi1"]
+script = ExtResource("11_agju2")
+value = 4
+type = 0
+name = "food"
 
 [sub_resource type="Resource" id="Resource_640mr"]
 script = ExtResource("10_mr8ra")
@@ -99,16 +101,47 @@ script = ExtResource("10_mr8ra")
 name = "food"
 effect = 1
 
-[sub_resource type="Resource" id="Resource_6xmi1"]
-script = ExtResource("11_agju2")
-value = 4
-type = 0
-name = "food"
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_sf56k"]
+vertices = PackedVector2Array(131, 724, 13, 753, 17, 376, 157, 342, 439, 614, 303, 692, 281, 357, 368, 370, 415, 362, 580, 365, 624, 624, 653, 25, 1903, 18, 1907, 833, 1353, 999, 652, 134, 624, 259, 1242, 1018, 1045, 863, 925, 825, 783, 717, 655, 669)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 0, 3, 6, 7), PackedInt32Array(4, 7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14, 15), PackedInt32Array(16, 15, 14, 17, 18), PackedInt32Array(16, 18, 19, 20, 9), PackedInt32Array(10, 9, 20, 21)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(624, 259, 580, 365, 415, 362, 368, 370, 281, 357, 157, 342, 17, 376, 13, 753, 131, 724, 303, 692, 439, 614, 624, 624, 655, 669, 783, 717, 925, 825, 1045, 863, 1242, 1018, 1353, 999, 1907, 833, 1903, 18, 653, 25, 652, 134)])
 
 [node name="DeepWater" type="Node2D" node_paths=PackedStringArray("player_avatar", "state_hook")]
 script = ExtResource("1_vlrby")
 player_avatar = NodePath("PlayerAvatar")
 state_hook = NodePath("LevelStateHook")
+
+[node name="TriggerOnInteractIO1" parent="." node_paths=PackedStringArray("io") instance=ExtResource("11_8kbdk")]
+io = NodePath("../IO1")
+
+[node name="TriggerOnInteractIO3" parent="." node_paths=PackedStringArray("io") instance=ExtResource("11_8kbdk")]
+io = NodePath("../IO3")
+
+[node name="TriggerOnFood4" parent="." instance=ExtResource("14_baket")]
+values = Array[ExtResource("11_agju2")]([SubResource("Resource_6xmi1")])
+metadata/_edit_lock_ = true
+
+[node name="TransformToggleIO2" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("12_t3i3k")]
+target_io = NodePath("../IO2")
+trigger = NodePath("../TriggerOnInteractIO1")
+metadata/_edit_lock_ = true
+
+[node name="TransformToggleIO3" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("12_t3i3k")]
+target_io = NodePath("../IO3")
+trigger = NodePath("../TriggerOnInteractIO1")
+metadata/_edit_lock_ = true
+
+[node name="TransformToggleIO4" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("12_t3i3k")]
+target_io = NodePath("../IO4")
+trigger = NodePath("../TriggerOnInteractIO3")
+metadata/_edit_lock_ = true
+
+[node name="TransformToggleIO6" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("12_t3i3k")]
+target_io = NodePath("../IO6")
+trigger = NodePath("../TriggerOnFood4")
+
+[node name="CompletionAnnouncer" parent="." node_paths=PackedStringArray("trigger") instance=ExtResource("6_qb4vq")]
+trigger = NodePath("../TriggerOnFood4")
 
 [node name="StaticBackground" type="Node2D" parent="."]
 
@@ -132,90 +165,49 @@ centered = false
 texture = ExtResource("6_vleag")
 centered = false
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
-navigation_polygon = SubResource("NavigationPolygon_sf56k")
+[node name="IO1" parent="." instance=ExtResource("11_i0q5o")]
+position = Vector2(212, 708)
+radius = 103
+oneshot = false
 
-[node name="PlayerAvatar" parent="." instance=ExtResource("7_3gmnx")]
-position = Vector2(1392, 382)
+[node name="IO2" parent="." instance=ExtResource("11_i0q5o")]
+position = Vector2(344, 607)
+radius = 35
+value_effects = Array[ExtResource("10_mr8ra")]([SubResource("Resource_640mr"), SubResource("Resource_qknib")])
+enabled = false
+
+[node name="IO3" parent="." instance=ExtResource("11_i0q5o")]
+position = Vector2(455, 469)
+radius = 104
+value_effects = Array[ExtResource("10_mr8ra")]([SubResource("Resource_8uft5")])
+value_constraints = Array[ExtResource("11_agju2")]([SubResource("Resource_dku6f"), SubResource("Resource_jsqge"), SubResource("Resource_ekari"), SubResource("Resource_nj263"), SubResource("Resource_skvg8"), SubResource("Resource_belw0"), SubResource("Resource_cvv7m"), SubResource("Resource_vpetj"), SubResource("Resource_5mwca")])
+enabled = false
+
+[node name="IO4" parent="." instance=ExtResource("11_i0q5o")]
+position = Vector2(176, 479)
+radius = 57
+value_effects = Array[ExtResource("10_mr8ra")]([SubResource("Resource_qonkk")])
+enabled = false
+oneshot = false
+
+[node name="IO5" parent="." instance=ExtResource("11_i0q5o")]
+position = Vector2(1658, 191)
+radius = 46
+value_effects = Array[ExtResource("10_mr8ra")]([SubResource("Resource_xxmgy")])
+
+[node name="IO6" parent="." instance=ExtResource("11_i0q5o")]
+position = Vector2(1757, 759)
+radius = 90
+transition_to = "ShallowWater"
+enabled = false
+oneshot = false
 
 [node name="LevelStateHook" type="Node" parent="."]
 script = ExtResource("8_qysf0")
 
-[node name="IO1" parent="." instance=ExtResource("9_0gg1l")]
-position = Vector2(212, 708)
-polygon = PackedVector2Array(104, 104, 104, -104, -104, -104, -104, 104)
-oneshot = false
-size = 104
-debug = 2
+[node name="PlayerAvatar" parent="." instance=ExtResource("7_3gmnx")]
+position = Vector2(1392, 382)
 
-[node name="IO2" parent="." instance=ExtResource("9_0gg1l")]
-position = Vector2(344, 607)
-polygon = PackedVector2Array(34, 34, 34, -34, -34, -34, -34, 34)
-value_effects = Array[ExtResource("10_mr8ra")]([SubResource("Resource_640mr"), SubResource("Resource_qknib")])
-enabled = false
-size = 34
-debug = 2
-
-[node name="IO3" parent="." instance=ExtResource("9_0gg1l")]
-position = Vector2(455, 469)
-polygon = PackedVector2Array(101, 101, 101, -101, -101, -101, -101, 101)
-value_effects = Array[ExtResource("10_mr8ra")]([SubResource("Resource_8uft5")])
-value_constraints = Array[ExtResource("11_agju2")]([SubResource("Resource_dku6f"), SubResource("Resource_jsqge"), SubResource("Resource_ekari"), SubResource("Resource_nj263"), SubResource("Resource_skvg8"), SubResource("Resource_belw0"), SubResource("Resource_cvv7m"), SubResource("Resource_vpetj"), SubResource("Resource_5mwca")])
-enabled = false
-size = 101
-debug = 2
-
-[node name="IO4" parent="." instance=ExtResource("9_0gg1l")]
-position = Vector2(176, 479)
-polygon = PackedVector2Array(54, 54, 54, -54, -54, -54, -54, 54)
-value_effects = Array[ExtResource("10_mr8ra")]([SubResource("Resource_qonkk")])
-enabled = false
-oneshot = false
-size = 54
-debug = 2
-
-[node name="IO5" parent="." instance=ExtResource("9_0gg1l")]
-position = Vector2(1658, 191)
-polygon = PackedVector2Array(39, 39, 39, -39, -39, -39, -39, 39)
-value_effects = Array[ExtResource("10_mr8ra")]([SubResource("Resource_xxmgy")])
-size = 39
-debug = 2
-
-[node name="IO6" parent="." instance=ExtResource("9_0gg1l")]
-position = Vector2(1757, 759)
-polygon = PackedVector2Array(80, 80, 80, -80, -80, -80, -80, 80)
-transition_to = "ShallowWater"
-enabled = false
-oneshot = false
-size = 80
-debug = 2
-
-[node name="TriggerOnInteractIO1" parent="." node_paths=PackedStringArray("io") instance=ExtResource("11_8kbdk")]
-io = NodePath("../IO1")
-
-[node name="TransformToggleIO2" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("12_t3i3k")]
-target_io = NodePath("../IO2")
-trigger = NodePath("../TriggerOnInteractIO1")
-metadata/_edit_lock_ = true
-
-[node name="TransformToggleIO3" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("12_t3i3k")]
-target_io = NodePath("../IO3")
-trigger = NodePath("../TriggerOnInteractIO1")
-metadata/_edit_lock_ = true
-
-[node name="TriggerOnInteractIO3" parent="." node_paths=PackedStringArray("io") instance=ExtResource("11_8kbdk")]
-io = NodePath("../IO3")
-
-[node name="TransformToggleIO4" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("12_t3i3k")]
-target_io = NodePath("../IO4")
-trigger = NodePath("../TriggerOnInteractIO3")
-metadata/_edit_lock_ = true
-
-[node name="TriggerOnFood4" parent="." instance=ExtResource("14_baket")]
-values = Array[ExtResource("11_agju2")]([SubResource("Resource_6xmi1")])
-metadata/_edit_lock_ = true
-
-[node name="TransformToggleIO6" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("12_t3i3k")]
-target_io = NodePath("../IO6")
-trigger = NodePath("../TriggerOnFood4")
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_sf56k")

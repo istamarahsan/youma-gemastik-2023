@@ -1,12 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://daurln12f3efl"]
+[gd_scene load_steps=29 format=3 uid="uid://daurln12f3efl"]
 
 [ext_resource type="Script" path="res://levels/map.gd" id="1_e5sq0"]
 [ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://levels/components/player_avatar.tscn" id="1_xhnh5"]
+[ext_resource type="PackedScene" uid="uid://cptnlsqj27q70" path="res://levels/components/triggers/on-state/trigger_on_state.tscn" id="3_beiic"]
 [ext_resource type="Texture2D" uid="uid://fk6yxxoq7bsp" path="res://assets/maps/2Shallow Water/Shallow Water L4.png" id="3_c7iss"]
 [ext_resource type="Texture2D" uid="uid://dycbxd3rns1xp" path="res://assets/maps/2Shallow Water/Shallow Water L3.png" id="4_glj1a"]
 [ext_resource type="Texture2D" uid="uid://dgxsi364uiqme" path="res://assets/maps/2Shallow Water/Shallow Water L2.png" id="5_241tk"]
+[ext_resource type="PackedScene" uid="uid://bfpf153epxhnw" path="res://levels/components/completion_announcer.tscn" id="5_c7u27"]
 [ext_resource type="Texture2D" uid="uid://cw5ixvljvog6f" path="res://assets/maps/2Shallow Water/Shallow Water L1.png" id="6_l7o3t"]
-[ext_resource type="PackedScene" uid="uid://bieq2g32ux1jl" path="res://levels/components/interaction-object/interaction_object.tscn" id="7_3mc8e"]
 [ext_resource type="Script" path="res://levels/components/interaction-object/value_effect.gd" id="8_4xo6t"]
 [ext_resource type="PackedScene" uid="uid://dvuetv06ga8vf" path="res://levels/components/triggers/on-interact/trigger_on_interact.tscn" id="9_2bd7k"]
 [ext_resource type="Script" path="res://levels/components/interaction-object/flag_effect.gd" id="9_mord8"]
@@ -14,15 +15,28 @@
 [ext_resource type="Script" path="res://levels/components/state_flag_constraint.gd" id="12_fn8ge"]
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="13_f636k"]
 [ext_resource type="Texture2D" uid="uid://ceykc3als60tg" path="res://assets/maps/2Shallow Water/Shallow Water Rock.png" id="14_m8vse"]
+[ext_resource type="PackedScene" uid="uid://hbk5evvrhfs7" path="res://levels/components/interaction-object/physics_area_interaction_object.tscn" id="15_5eck6"]
 [ext_resource type="Script" path="res://levels/level-1/rock_original.gd" id="15_qgojo"]
 [ext_resource type="Script" path="res://levels/level-1/rock_placed.gd" id="16_hwnib"]
+
+[sub_resource type="Resource" id="Resource_fox2l"]
+script = ExtResource("10_a31mg")
+value = 4
+type = 0
+name = "food"
+
+[sub_resource type="Resource" id="Resource_hqiap"]
+script = ExtResource("10_a31mg")
+value = 1
+type = 0
+name = "fish"
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_rjfcd"]
 vertices = PackedVector2Array(1629, 962, 1432, 830, 1540, 806, 1693, 779, 1731, 368, 1778, 228, 1906, 113, 1899, 564, 1794, 654, 1564, 706, 1655, 432, 15, 234, 16, 13, 1132, 18, 83, 237, 317, 405, 371, 479, 1330, 90, 1116, 403, 1013, 451, 1489, 571, 1444, 296, 1347, 553, 1251, 462, 930, 534, 877, 536, 817, 600, 673, 613, 551, 641, 434, 726, 547, 724, 487, 747)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(8, 3, 2, 9, 10, 4), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(15, 14, 13), PackedInt32Array(16, 15, 13, 17, 18, 19), PackedInt32Array(10, 9, 20, 21), PackedInt32Array(21, 20, 22, 23, 17), PackedInt32Array(17, 23, 18), PackedInt32Array(16, 19, 24, 25), PackedInt32Array(16, 25, 26, 27), PackedInt32Array(16, 27, 28), PackedInt32Array(29, 16, 28, 30, 31)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1132, 18, 16, 13, 15, 234, 83, 237, 317, 405, 371, 479, 434, 726, 487, 747, 547, 724, 551, 641, 673, 613, 817, 600, 877, 536, 930, 534, 1013, 451, 1116, 403, 1251, 462, 1347, 553, 1489, 571, 1564, 706, 1540, 806, 1432, 830, 1629, 962, 1693, 779, 1794, 654, 1899, 564, 1906, 113, 1778, 228, 1731, 368, 1655, 432, 1444, 296, 1330, 90)])
 
-[sub_resource type="Resource" id="Resource_gjns3"]
+[sub_resource type="Resource" id="Resource_2k8tk"]
 script = ExtResource("8_4xo6t")
 name = "fish"
 effect = 1
@@ -69,6 +83,12 @@ io = NodePath("../IO2")
 [node name="TriggerOnIO3" parent="." node_paths=PackedStringArray("io") instance=ExtResource("9_2bd7k")]
 io = NodePath("../IO3")
 
+[node name="CompletionTrigger" parent="." instance=ExtResource("3_beiic")]
+values = Array[ExtResource("10_a31mg")]([SubResource("Resource_fox2l"), SubResource("Resource_hqiap")])
+
+[node name="CompletionAnnouncer" parent="." node_paths=PackedStringArray("trigger") instance=ExtResource("5_c7u27")]
+trigger = NodePath("../CompletionTrigger")
+
 [node name="PlayerAvatar" parent="." instance=ExtResource("1_xhnh5")]
 position = Vector2(1836, 318)
 
@@ -101,37 +121,28 @@ visible = false
 navigation_polygon = SubResource("NavigationPolygon_rjfcd")
 metadata/_edit_lock_ = true
 
-[node name="IO1" parent="." instance=ExtResource("7_3mc8e")]
-position = Vector2(498, 196)
-polygon = PackedVector2Array(60, 60, 60, -60, -60, -60, -60, 60)
-value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_gjns3")])
-oneshot = false
-size = 60
-debug = 2
+[node name="IO1" parent="." instance=ExtResource("15_5eck6")]
+position = Vector2(541, 221)
+radius = 50
+value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_2k8tk")])
 
-[node name="IO2" parent="." instance=ExtResource("7_3mc8e")]
+[node name="IO2" parent="." instance=ExtResource("15_5eck6")]
 position = Vector2(343, 797)
-polygon = PackedVector2Array(111, 111, 111, -111, -111, -111, -111, 111)
+radius = 95
 value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_8cm4f")])
-size = 111
-debug = 2
 
-[node name="IO3" parent="." instance=ExtResource("7_3mc8e")]
+[node name="IO3" parent="." instance=ExtResource("15_5eck6")]
 position = Vector2(784, 794)
-polygon = PackedVector2Array(151, 151, 151, -151, -151, -151, -151, 151)
+radius = 122
 value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_0k30k")])
 flag_effects = Array[ExtResource("9_mord8")]([SubResource("Resource_vynv1")])
 value_constraints = Array[ExtResource("10_a31mg")]([SubResource("Resource_htv6i")])
-size = 151
-debug = 2
 
-[node name="IO4" parent="." instance=ExtResource("7_3mc8e")]
-position = Vector2(1232, 924)
-polygon = PackedVector2Array(107, 107, 107, -107, -107, -107, -107, 107)
+[node name="IO4" parent="." instance=ExtResource("15_5eck6")]
+position = Vector2(1236, 931)
+radius = 106
 value_effects = Array[ExtResource("8_4xo6t")]([SubResource("Resource_7ph0h")])
 flag_constraints = Array[ExtResource("12_fn8ge")]([SubResource("Resource_vo1by")])
-size = 107
-debug = 2
 
 [node name="LevelStateHook" type="Node" parent="."]
 script = ExtResource("13_f636k")

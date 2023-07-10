@@ -4,6 +4,7 @@ class_name Map
 signal interaction_created(interaction: String, value_effects: Array[IoValueEffect], flag_effects: Array[IoFlagEffect])
 signal transition_requested(to: String)
 signal map_clicked(position: Vector2)
+signal complete
 
 @export var player_avatar: PlayerAvatar
 @export var state_hook: LevelStateHook
@@ -45,7 +46,7 @@ func _on_click(name: String):
 		for constraint in object.flag_constraints:
 			if not constraint.satisfied_by(state_hook.get_state()):
 				return
-		for negative_effect in object.value_effects.filter(func(effect): effect.effect < 0):
+		for negative_effect in object.value_effects.filter(func(effect): return effect.effect < 0):
 			if state_hook.get_state().get_value(negative_effect.name) < negative_effect.effect:
 				return
 		traveling = true

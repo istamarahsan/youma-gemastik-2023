@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://glots66q8cwp"]
+
+[ext_resource type="Script" path="res://levels/level-3/map_action_select_menu.gd" id="1_51jvs"]
+[ext_resource type="Theme" uid="uid://44i6ats70703" path="res://assets/youma_theme.tres" id="1_jv376"]
+
+[node name="MapActionSelectMenu" type="Control"]
+layout_mode = 3
+anchor_right = 0.354
+anchor_bottom = 0.202
+offset_right = 0.320007
+offset_bottom = -0.160004
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_jv376")
+script = ExtResource("1_51jvs")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_jv376")
+theme_override_constants/separation = 50
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Sura" type="Button" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_jv376")
+theme_override_font_sizes/font_size = 50
+text = "Sura"
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Baya" type="Button" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_jv376")
+theme_override_font_sizes/font_size = 50
+text = "Baya"
+
+[connection signal="button_up" from="HBoxContainer/MarginContainer/Sura" to="." method="_on_sura_button_up"]
+[connection signal="button_up" from="HBoxContainer/MarginContainer2/Baya" to="." method="_on_baya_button_up"]

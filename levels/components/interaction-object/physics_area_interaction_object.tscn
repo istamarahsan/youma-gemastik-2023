@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://hbk5evvrhfs7"]
+
+[ext_resource type="Script" path="res://levels/components/interaction-object/physics_area_interaction_object.gd" id="1_hwv3p"]
+[ext_resource type="PackedScene" uid="uid://dnvlcm83j2882" path="res://levels/components/interaction-object/io_sfx.tscn" id="2_1xca3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bci4x"]
+resource_local_to_scene = true
+radius = 25.0
+
+[node name="InteractionObject" type="Node2D"]
+z_index = 100
+z_as_relative = false
+script = ExtResource("1_hwv3p")
+radius = 25
+
+[node name="InteractionArea" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+
+[node name="AreaShape" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_bci4x")
+
+[node name="IoSfx" parent="." node_paths=PackedStringArray("io") instance=ExtResource("2_1xca3")]
+io = NodePath("..")

@@ -1,13 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d00nirxfwmfs0"]
+[gd_scene load_steps=6 format=3 uid="uid://d00nirxfwmfs0"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_yodcq"]
 [ext_resource type="Resource" uid="uid://b40mguy7ahpdq" path="res://stage_set_main.tres" id="2_8ou3x"]
-[ext_resource type="Texture2D" uid="uid://c32m4qpb166x7" path="res://assets/maps/0Frame/Frame Behind.png" id="3_6iitg"]
-[ext_resource type="Texture2D" uid="uid://b01vb4lpj8gsr" path="res://assets/maps/0Frame/Frame.png" id="4_8a22s"]
 [ext_resource type="PackedScene" uid="uid://dgtwkefcxn0qs" path="res://transition_cover.tscn" id="5_n1f1a"]
 [ext_resource type="Shader" path="res://shaders/transition_cover.gdshader" id="6_ykqvb"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vnxcg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ex8rr"]
 resource_local_to_scene = true
 shader = ExtResource("6_ykqvb")
 shader_parameter/opacity = 0.0
@@ -17,17 +15,6 @@ script = ExtResource("1_yodcq")
 stage_set = ExtResource("2_8ou3x")
 transition_cover = NodePath("TransitionCover")
 
-[node name="FrameBehind" type="Sprite2D" parent="."]
-z_index = 99
-z_as_relative = false
-texture = ExtResource("3_6iitg")
-centered = false
-
-[node name="Frame" type="Sprite2D" parent="."]
-z_index = 100
-z_as_relative = false
-texture = ExtResource("4_8a22s")
-centered = false
-
 [node name="TransitionCover" parent="." instance=ExtResource("5_n1f1a")]
-material = SubResource("ShaderMaterial_vnxcg")
+material = SubResource("ShaderMaterial_ex8rr")
+time_seconds = 2.0

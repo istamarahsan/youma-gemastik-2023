@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://doqfki6lxrqht"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_33nxs"]
+[ext_resource type="Script" path="res://levels/level_state.gd" id="2_fx6y4"]
+[ext_resource type="PackedScene" uid="uid://bgcldpxasfmfj" path="res://levels/level-3/special_map.tscn" id="3_xm8x3"]
+[ext_resource type="Texture2D" uid="uid://txf4xgmdo5jr" path="res://assets/maps/Map/Map Frame.png" id="4_66lm3"]
+
+[node name="Level3" type="Node2D" node_paths=PackedStringArray("offstage_marker", "state", "start")]
+script = ExtResource("1_33nxs")
+offstage_marker = NodePath("Offstage")
+state = NodePath("LevelState")
+start = NodePath("SpecialMap")
+
+[node name="Offstage" type="Node2D" parent="."]
+position = Vector2(2411, -189)
+
+[node name="LevelState" type="Node" parent="."]
+script = ExtResource("2_fx6y4")
+
+[node name="SpecialMap" parent="." instance=ExtResource("3_xm8x3")]
+
+[node name="MapFrame" type="Sprite2D" parent="."]
+texture = ExtResource("4_66lm3")
+centered = false

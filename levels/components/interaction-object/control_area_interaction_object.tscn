@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bieq2g32ux1jl"]
+
+[ext_resource type="Script" path="res://levels/components/interaction-object/control_area_interaction_object.gd" id="1_5kkmq"]
+[ext_resource type="AudioStream" uid="uid://cbwyps10880wo" path="res://assets/placeholder/phoenix-compendium/ui_menu_focus.wav" id="2_0aymj"]
+[ext_resource type="AudioStream" uid="uid://bkltp0vvulae5" path="res://assets/placeholder/phoenix-compendium/ui_menu_ok.wav" id="3_yahde"]
+
+[node name="InteractionObject" type="Node2D"]
+z_index = 100
+z_as_relative = false
+script = ExtResource("1_5kkmq")
+size = 25
+
+[node name="Area" type="Polygon2D" parent="."]
+z_index = 100
+z_as_relative = false
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(25, 25, 25, -25, -25, -25, -25, 25)
+
+[node name="InputHandler" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Active" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0aymj")
+
+[node name="Showing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yahde")
+
+[connection signal="gui_input" from="InputHandler" to="." method="_on_input_handler_gui_input"]

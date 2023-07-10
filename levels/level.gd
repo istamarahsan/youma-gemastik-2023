@@ -34,6 +34,8 @@ func _ready():
 		if node is LevelStateHook:
 			node._state = state
 			state_hooks.append(node)
+		if node is CompletionAnnouncer:
+			node.completed.connect(_on_map_completion_announced)
 
 func _move_offstage(item: Node2D):
 	item.position = offstage_marker.position
@@ -42,6 +44,9 @@ func _move_offstage(item: Node2D):
 func _move_onstage(item: Node2D):
 	item.position = Vector2(0, 0)
 	item.visible = true
+
+func _on_map_completion_announced():
+	completed.emit()
 
 func _on_map_interaction_created(map_name: String, interaction_name: String, values: Array[IoValueEffect], flags: Array[IoFlagEffect]):
 	for effect in values:

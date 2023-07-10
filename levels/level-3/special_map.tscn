@@ -1,0 +1,145 @@
+[gd_scene load_steps=16 format=3 uid="uid://bgcldpxasfmfj"]
+
+[ext_resource type="Script" path="res://levels/level-3/special_map.gd" id="1_ylxfk"]
+[ext_resource type="Script" path="res://levels/level_state_hook.gd" id="2_g6qxi"]
+[ext_resource type="Script" path="res://levels/level-3/special_map_step.gd" id="2_ll7w6"]
+[ext_resource type="PackedScene" uid="uid://bfpf153epxhnw" path="res://levels/components/completion_announcer.tscn" id="3_0a00x"]
+[ext_resource type="Texture2D" uid="uid://w814127xsngr" path="res://assets/maps/Map/Map Background.png" id="3_7i2qh"]
+[ext_resource type="Script" path="res://levels/level-3/map_interaction_object.gd" id="6_jbi6i"]
+[ext_resource type="Texture2D" uid="uid://c1fnxf1x1ulrf" path="res://assets/maps/Map/Land 1.png" id="6_xv33b"]
+[ext_resource type="Texture2D" uid="uid://cxrj8e363ur5o" path="res://assets/maps/Map/Land 2.png" id="7_pjsrc"]
+[ext_resource type="Texture2D" uid="uid://cdryisi1m1g75" path="res://assets/maps/Map/Land 3.png" id="8_8tqln"]
+[ext_resource type="PackedScene" uid="uid://glots66q8cwp" path="res://levels/level-3/map_action_select_menu.tscn" id="8_d16d1"]
+[ext_resource type="Theme" uid="uid://44i6ats70703" path="res://assets/youma_theme.tres" id="11_g27gg"]
+
+[sub_resource type="Resource" id="Resource_tchgn"]
+script = ExtResource("2_ll7w6")
+land = NodePath("Land1")
+correct_choice = 1
+metadata/_editor_prop_ptr_land = NodePath("Land1")
+
+[sub_resource type="Resource" id="Resource_j2af8"]
+script = ExtResource("2_ll7w6")
+land = NodePath("Land2")
+correct_choice = 0
+metadata/_editor_prop_ptr_land = NodePath("Land2")
+
+[sub_resource type="Resource" id="Resource_glj7c"]
+script = ExtResource("2_ll7w6")
+land = NodePath("Land3")
+correct_choice = 1
+metadata/_editor_prop_ptr_land = NodePath("Land3")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ha5qn"]
+radius = 83.0
+height = 678.0
+
+[node name="SpecialMap" type="Node2D" node_paths=PackedStringArray("completion_announcer", "state_hook")]
+script = ExtResource("1_ylxfk")
+completion_announcer = NodePath("CompletionAnnouncer")
+steps = Array[ExtResource("2_ll7w6")]([SubResource("Resource_tchgn"), SubResource("Resource_j2af8"), SubResource("Resource_glj7c")])
+state_hook = NodePath("LevelStateHook")
+metadata/_edit_lock_ = true
+
+[node name="LevelStateHook" type="Node" parent="."]
+script = ExtResource("2_g6qxi")
+
+[node name="CompletionAnnouncer" parent="." instance=ExtResource("3_0a00x")]
+
+[node name="BG" type="Sprite2D" parent="."]
+texture = ExtResource("3_7i2qh")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Land1" type="Sprite2D" parent="." node_paths=PackedStringArray("area2D", "action_menu")]
+position = Vector2(1261, 220)
+texture = ExtResource("6_xv33b")
+script = ExtResource("6_jbi6i")
+area2D = NodePath("../Land1TouchClickArea")
+action_menu = NodePath("MapActionSelectMenu")
+metadata/_edit_lock_ = true
+
+[node name="MapActionSelectMenu" parent="Land1" instance=ExtResource("8_d16d1")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -171.0
+offset_top = -55.0
+offset_right = -774.0
+offset_bottom = -311.0
+
+[node name="Land1TouchClickArea" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Land1TouchClickArea"]
+position = Vector2(1272, 223)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ha5qn")
+metadata/_edit_lock_ = true
+
+[node name="Land2" type="Sprite2D" parent="." node_paths=PackedStringArray("area2D", "action_menu")]
+position = Vector2(1270, 684)
+texture = ExtResource("7_pjsrc")
+script = ExtResource("6_jbi6i")
+area2D = NodePath("../Land2TouchClickArea")
+action_menu = NodePath("MapActionSelectMenu2")
+metadata/_edit_lock_ = true
+
+[node name="MapActionSelectMenu2" parent="Land2" instance=ExtResource("8_d16d1")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -199.0
+offset_top = -76.0
+offset_right = -991.0
+offset_bottom = -736.0
+
+[node name="Land2TouchClickArea" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Land2TouchClickArea"]
+polygon = PackedVector2Array(997, 477, 918, 547, 922, 688, 844, 729, 822, 826, 946, 841, 1122, 799, 1222, 804, 1280, 850, 1429, 901, 1547, 949, 1656, 946, 1709, 991, 1817, 1010, 1836, 976, 1746, 950, 1689, 854, 1710, 720, 1742, 603, 1716, 552, 1588, 516, 1552, 477, 1472, 517, 1188, 543)
+metadata/_edit_lock_ = true
+
+[node name="Land3" type="Sprite2D" parent="." node_paths=PackedStringArray("area2D", "action_menu")]
+position = Vector2(562, 474)
+texture = ExtResource("8_8tqln")
+script = ExtResource("6_jbi6i")
+area2D = NodePath("../Land3TouchClickArea")
+action_menu = NodePath("MapActionSelectMenu3")
+metadata/_edit_lock_ = true
+
+[node name="MapActionSelectMenu3" parent="Land3" instance=ExtResource("8_d16d1")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -197.0
+offset_top = -22.0
+offset_right = -884.0
+offset_bottom = -852.0
+
+[node name="Land3TouchClickArea" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Land3TouchClickArea"]
+polygon = PackedVector2Array(452, 89, 348, 381, 211, 327, 184, 410, 267, 550, 196, 668, 77, 735, 450, 827, 554, 789, 736, 809, 787, 676, 875, 644, 839, 524, 964, 432, 906, 301, 828, 152, 630, 161)
+metadata/_edit_lock_ = true
+
+[node name="NO" type="Label" parent="."]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = ExtResource("11_g27gg")
+theme_override_font_sizes/font_size = 413
+text = "NO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NOTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="NOTimer" to="." method="_on_no_timer_timeout"]
