@@ -10,6 +10,11 @@ var enabled: bool = true
 signal sura_chosen
 signal baya_chosen
 
+func _unhandled_input(event):
+	if InputExtensions.input_is_left_click_or_touch(event):
+		showing_menu = false
+		action_menu.hide()
+
 func _ready():
 	if area2D == null or action_menu == null:
 		return
