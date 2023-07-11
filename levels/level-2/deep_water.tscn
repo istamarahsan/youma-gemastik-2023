@@ -1,11 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://c0i5g18h7ijcj"]
+[gd_scene load_steps=35 format=3 uid="uid://c0i5g18h7ijcj"]
 
 [ext_resource type="Script" path="res://levels/map.gd" id="1_vlrby"]
 [ext_resource type="Texture2D" uid="uid://64lal6k8dwh0" path="res://assets/maps/3Deep Water/Deep Water L5.png" id="2_a2iqq"]
 [ext_resource type="Texture2D" uid="uid://k5edyhgk56kc" path="res://assets/maps/3Deep Water/Deep Water L4.png" id="3_qnuns"]
 [ext_resource type="Texture2D" uid="uid://dn0yae6bcw1pt" path="res://assets/maps/3Deep Water/Deep Water L3.png" id="4_veul7"]
 [ext_resource type="Texture2D" uid="uid://dtfsq5ligax8f" path="res://assets/maps/3Deep Water/Deep Water L2.png" id="5_a31bm"]
-[ext_resource type="PackedScene" uid="uid://bfpf153epxhnw" path="res://levels/components/completion_announcer.tscn" id="6_qb4vq"]
 [ext_resource type="Texture2D" uid="uid://2hoywc34wre4" path="res://assets/maps/3Deep Water/Deep Water L1.png" id="6_vleag"]
 [ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://levels/components/player_avatar.tscn" id="7_3gmnx"]
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="8_qysf0"]
@@ -155,9 +154,6 @@ metadata/_edit_lock_ = true
 
 [node name="TransformToggleIO6" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("12_t3i3k")]
 target_io = NodePath("../IO6")
-trigger = NodePath("../TriggerOnFood4")
-
-[node name="CompletionAnnouncer" parent="." node_paths=PackedStringArray("trigger") instance=ExtResource("6_qb4vq")]
 trigger = NodePath("../TriggerOnFood4")
 
 [node name="StaticBackground" type="Node2D" parent="."]
