@@ -20,9 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://ctwycvyvof6xy" path="res://levels/props/fish.tscn" id="20_h2vcv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_bqsnq"]
-vertices = PackedVector2Array(1505, 1032, 772, 911, 951, 813, 1448, 844, 1536, 819, 1663, 777, 1612, 693, 1767, 626, 1631, 473, 1743, 451, 1257, 435, 1043, 534, 376, 397, 84, 212, 85, 48, 1113, 68, 1305, 139, 1428, 321, 1755, 386, 1854, 401, 1862, 551, 1499, 525, 601, 825, 437, 736)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4), PackedInt32Array(5, 0, 4, 6), PackedInt32Array(7, 5, 6, 8, 9), PackedInt32Array(10, 11, 12, 13, 14, 15, 16, 17), PackedInt32Array(9, 18, 19, 20, 7), PackedInt32Array(8, 6, 21, 17), PackedInt32Array(17, 21, 10), PackedInt32Array(12, 11, 22, 23)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1113, 68, 85, 48, 84, 212, 376, 397, 437, 736, 601, 825, 1043, 534, 1257, 435, 1499, 525, 1612, 693, 1536, 819, 1448, 844, 951, 813, 772, 911, 1505, 1032, 1663, 777, 1767, 626, 1862, 551, 1854, 401, 1755, 386, 1743, 451, 1631, 473, 1428, 321, 1305, 139)])
+vertices = PackedVector2Array(1505, 1032, 772, 911, 951, 813, 1403, 879, 1565, 861, 1645, 741, 1629, 729, 1257, 435, 1043, 534, 376, 397, 84, 212, 85, 48, 1113, 68, 1305, 139, 1428, 321, 1743, 451, 1755, 386, 1854, 401, 1862, 551, 1767, 626, 1631, 473, 1508, 522, 601, 825, 437, 736)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4), PackedInt32Array(5, 0, 4, 6), PackedInt32Array(7, 8, 9, 10, 11, 12, 13, 14), PackedInt32Array(15, 16, 17, 18, 19), PackedInt32Array(20, 15, 19, 5, 6, 21), PackedInt32Array(14, 20, 21, 7), PackedInt32Array(9, 8, 22, 23)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1113, 68, 85, 48, 84, 212, 376, 397, 437, 736, 601, 825, 1043, 534, 1257, 435, 1508, 522, 1629, 729, 1565, 861, 1403, 879, 951, 813, 772, 911, 1505, 1032, 1645, 741, 1767, 626, 1862, 551, 1854, 401, 1755, 386, 1743, 451, 1631, 473, 1428, 321, 1305, 139)])
 
 [sub_resource type="Resource" id="Resource_fox2l"]
 script = ExtResource("10_a31mg")

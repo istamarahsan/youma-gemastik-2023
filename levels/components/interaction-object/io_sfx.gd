@@ -9,21 +9,24 @@ extends Node
 func _ready():
 	if io == null:
 		return
+	io.pressed.connect(_on_io_pressed)
 	io.interacted.connect(_on_io_interact)
 	io.state_entered.connect(_on_io_state_entered)
 	io.failed.connect(_on_io_failed)
+
+func _on_io_pressed():
+	if io.state == InteractionObject.State.active:
+		_on_io_pressed_when_active()
 
 func _on_io_state_entered(state: InteractionObject.State):
 	match state:
 		InteractionObject.State.active:
 			_on_io_active()
-		InteractionObject.State.showing:
-			_on_io_showing()
 
 func _on_io_active():
 	click_sfx.play()
 
-func _on_io_showing():
+func _on_io_pressed_when_active():
 	click_sfx.play()
 
 func _on_io_interact():
