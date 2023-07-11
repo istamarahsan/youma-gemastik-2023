@@ -49,8 +49,13 @@ func _on_map_completion_announced():
 	completed.emit()
 
 func _on_map_interaction_created(map_name: String, interaction_name: String, values: Array[IoValueEffect], flags: Array[IoFlagEffect]):
+	var value_deltas: Dictionary = {}
 	for effect in values:
+		var prev = state.get_value(effect.name)
 		state.set_value(effect.name, state.get_value(effect.name) + effect.effect)
+		var post = state.get_value(effect.name)
+		if post != prev:
+			value_deltas[effect.name] = post - prev
 	for effect in flags:
 		match effect.action:
 			IoFlagEffect.FlagAction.Enable:
@@ -61,9 +66,15 @@ func _on_map_interaction_created(map_name: String, interaction_name: String, val
 				if state.has_flag(effect.name):
 					state.remove_flag(effect.name)
 				else:
-					state.set_flag(effect.name)
+					state.set_flag(effect.name) 
 	for hook in state_hooks:
 		hook.state_updated.emit(state as ReadOnlyLevelState)
+		hook.state_updated_delta.emit(
+			state as ReadOnlyLevelState, 
+			value_deltas, 
+			[]
+			)
+	print_debug(value_deltas)
 	print_debug(state._values)
 	print_debug(state._flags)
 

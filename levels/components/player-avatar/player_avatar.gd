@@ -6,6 +6,7 @@ signal arrived
 @export_range(100, 500, 1) var speed: float = 500
 @export var sprite: Sprite2D
 @export var nav: NavigationAgent2D
+@export var inventory_emitter: InventoryPopupEmitter
 
 var target: Node2D = null
 
@@ -15,6 +16,9 @@ func _ready():
 func _physics_process(delta):
 	if target != null:
 		travel_to(target.global_position)
+
+func show_bait():
+	inventory_emitter.show_bait()
 
 func can_navigate_to(destination: Vector2) -> bool:
 	var prev = nav.target_position
