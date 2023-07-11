@@ -40,14 +40,17 @@ func _on_click(name: String):
 		var object = interaction_objects_by_name[active_interaction_object_name] as InteractionObject
 		for constraint in object.value_constraints:
 			if not constraint.satisfied_by(state_hook.get_state()):
+				active_interaction_object_name = ""
 				object.show_failed_then_return_idle()
 				return
 		for constraint in object.flag_constraints:
 			if not constraint.satisfied_by(state_hook.get_state()):
+				active_interaction_object_name = ""
 				object.show_failed_then_return_idle()
 				return
 		for negative_effect in object.value_effects.filter(func(effect): return effect.effect < 0):
 			if state_hook.get_state().get_value(negative_effect.name) < negative_effect.effect:
+				active_interaction_object_name = ""
 				object.show_failed_then_return_idle()
 				return
 		traveling = true

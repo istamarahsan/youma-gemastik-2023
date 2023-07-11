@@ -42,6 +42,8 @@ shader = ExtResource("10_hs6sg")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/state = 0
 shader_parameter/outline_width = 1.0
+shader_parameter/radius = 0.8
+shader_parameter/rotation_speed = 200.0
 
 [sub_resource type="Resource" id="Resource_0p27s"]
 script = ExtResource("7_akdx7")
@@ -54,6 +56,8 @@ shader = ExtResource("10_hs6sg")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/state = 0
 shader_parameter/outline_width = 1.0
+shader_parameter/radius = 0.8
+shader_parameter/rotation_speed = 200.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jcki7"]
 resource_local_to_scene = true
@@ -61,6 +65,8 @@ shader = ExtResource("10_hs6sg")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/state = 0
 shader_parameter/outline_width = 1.0
+shader_parameter/radius = 0.8
+shader_parameter/rotation_speed = 200.0
 
 [sub_resource type="Resource" id="Resource_wfc4l"]
 script = ExtResource("7_akdx7")
@@ -78,6 +84,8 @@ shader = ExtResource("10_hs6sg")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/state = 0
 shader_parameter/outline_width = 1.0
+shader_parameter/radius = 0.8
+shader_parameter/rotation_speed = 200.0
 
 [sub_resource type="Resource" id="Resource_pm2dd"]
 script = ExtResource("7_akdx7")
@@ -243,7 +251,7 @@ metadata/_edit_lock_ = true
 [node name="IO1" parent="." instance=ExtResource("12_m04se")]
 material = SubResource("ShaderMaterial_gme8q")
 position = Vector2(298, 644)
-radius = 30
+radius = 42
 value_effects = Array[ExtResource("7_akdx7")]([SubResource("Resource_0p27s")])
 metadata/_edit_lock_ = true
 
@@ -263,7 +271,7 @@ metadata/_edit_lock_ = true
 [node name="IO3" parent="." instance=ExtResource("12_m04se")]
 material = SubResource("ShaderMaterial_jcki7")
 position = Vector2(904, 650)
-radius = 36
+radius = 57
 value_effects = Array[ExtResource("7_akdx7")]([SubResource("Resource_wfc4l"), SubResource("Resource_8d1hl")])
 enabled = false
 metadata/_edit_lock_ = true
@@ -284,7 +292,7 @@ trigger = NodePath("../TriggerOnIO3")
 [node name="IO4" parent="." instance=ExtResource("12_m04se")]
 material = SubResource("ShaderMaterial_olho1")
 position = Vector2(1643, 819)
-radius = 292
+radius = 222
 value_effects = Array[ExtResource("7_akdx7")]([SubResource("Resource_pm2dd")])
 value_constraints = Array[ExtResource("12_yw3fb")]([SubResource("Resource_8yr4u"), SubResource("Resource_hf4r4")])
 metadata/_edit_lock_ = true

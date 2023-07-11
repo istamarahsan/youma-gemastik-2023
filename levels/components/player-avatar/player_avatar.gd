@@ -24,6 +24,8 @@ signal arrived
 var target: Node2D = null
 
 func _ready():
+	if Engine.is_editor_hint():
+		return
 	nav.navigation_finished.connect(_on_navigation_agent_2d_navigation_finished)
 
 func _physics_process(delta):

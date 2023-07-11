@@ -202,7 +202,7 @@ metadata/_edit_lock_ = true
 
 [node name="IO2" parent="." instance=ExtResource("11_i0q5o")]
 position = Vector2(344, 607)
-radius = 35
+radius = 44
 value_effects = Array[ExtResource("10_mr8ra")]([SubResource("Resource_640mr"), SubResource("Resource_qknib")])
 enabled = false
 metadata/_edit_lock_ = true

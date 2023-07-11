@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://watkq5tuymfe"]
+
+[ext_resource type="Shader" path="res://shaders/interaction_object.gdshader" id="1_3kmc5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_equd4"]
+resource_local_to_scene = true
+shader = ExtResource("1_3kmc5")
+shader_parameter/color = Color(1, 0.843137, 0, 1)
+shader_parameter/state = 0
+shader_parameter/outline_width = 0.004
+shader_parameter/radius = 0.45
+shader_parameter/rotation_speed = 200.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dskng"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jtq3l"]
+resource_local_to_scene = true
+width = 200
+height = 200
+noise = SubResource("FastNoiseLite_dskng")
+
+[node name="IOHighlight" type="Sprite2D"]
+material = SubResource("ShaderMaterial_equd4")
+texture = SubResource("NoiseTexture2D_jtq3l")

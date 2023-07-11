@@ -1,11 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://hbk5evvrhfs7"]
+[gd_scene load_steps=9 format=3 uid="uid://hbk5evvrhfs7"]
 
 [ext_resource type="Script" path="res://levels/components/interaction-object/physics_area_interaction_object.gd" id="1_hwv3p"]
 [ext_resource type="PackedScene" uid="uid://dnvlcm83j2882" path="res://levels/components/interaction-object/io_sfx.tscn" id="2_1xca3"]
+[ext_resource type="PackedScene" uid="uid://watkq5tuymfe" path="res://levels/components/interaction-object/interaction_object_shader_highlight.tscn" id="3_v81n0"]
+[ext_resource type="Shader" path="res://shaders/interaction_object.gdshader" id="4_tlxpu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bci4x"]
 resource_local_to_scene = true
 radius = 25.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uutm0"]
+resource_local_to_scene = true
+shader = ExtResource("4_tlxpu")
+shader_parameter/color = Color(1, 0.843137, 0, 1)
+shader_parameter/state = 0
+shader_parameter/outline_width = 0.004
+shader_parameter/radius = 0.45
+shader_parameter/rotation_speed = 200.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qoaxm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l4yxc"]
+resource_local_to_scene = true
+width = 50
+height = 50
+noise = SubResource("FastNoiseLite_qoaxm")
 
 [node name="InteractionObject" type="Node2D"]
 z_index = 100
@@ -22,3 +41,10 @@ shape = SubResource("CircleShape2D_bci4x")
 
 [node name="IoSfx" parent="." node_paths=PackedStringArray("io") instance=ExtResource("2_1xca3")]
 io = NodePath("..")
+
+[node name="IOHighlight" parent="." instance=ExtResource("3_v81n0")]
+visible = false
+material = SubResource("ShaderMaterial_uutm0")
+texture = SubResource("NoiseTexture2D_l4yxc")
+
+[connection signal="state_entered" from="." to="." method="_on_state_entered"]
