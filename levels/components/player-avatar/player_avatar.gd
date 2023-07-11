@@ -3,11 +3,14 @@ class_name PlayerAvatar
 
 signal arrived
 
-@export_range(100, 500, 1) var speed: float = 200
-
-@onready var nav: NavigationAgent2D = $NavigationAgent2D as NavigationAgent2D
+@export_range(100, 500, 1) var speed: float = 500
+@export var sprite: Sprite2D
+@export var nav: NavigationAgent2D
 
 var target: Node2D = null
+
+func _ready():
+	nav.navigation_finished.connect(_on_navigation_agent_2d_navigation_finished)
 
 func _physics_process(delta):
 	if target != null:
@@ -35,6 +38,7 @@ func _process(delta):
 	var velocity = direction * speed
 	
 	position += velocity * delta
+	sprite.flip_h = direction.dot(Vector2.LEFT) < 0
 
 func _on_navigation_agent_2d_navigation_finished():
 	target = null

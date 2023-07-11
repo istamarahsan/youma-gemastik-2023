@@ -1,7 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://daurln12f3efl"]
 
 [ext_resource type="Script" path="res://levels/map.gd" id="1_e5sq0"]
-[ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://levels/components/player_avatar.tscn" id="1_xhnh5"]
 [ext_resource type="PackedScene" uid="uid://cptnlsqj27q70" path="res://levels/components/triggers/on-state/trigger_on_state.tscn" id="3_beiic"]
 [ext_resource type="Texture2D" uid="uid://fk6yxxoq7bsp" path="res://assets/maps/2Shallow Water/Shallow Water L4.png" id="3_c7iss"]
 [ext_resource type="Texture2D" uid="uid://dycbxd3rns1xp" path="res://assets/maps/2Shallow Water/Shallow Water L3.png" id="4_glj1a"]
@@ -15,14 +14,15 @@
 [ext_resource type="Script" path="res://levels/components/state_flag_constraint.gd" id="12_fn8ge"]
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="13_f636k"]
 [ext_resource type="PackedScene" uid="uid://hbk5evvrhfs7" path="res://levels/components/interaction-object/physics_area_interaction_object.tscn" id="15_5eck6"]
+[ext_resource type="PackedScene" uid="uid://c08xeo4k3wefv" path="res://levels/components/player-avatar/baya_avatar.tscn" id="18_nla5l"]
 [ext_resource type="PackedScene" uid="uid://fsh7ruhfyn1h" path="res://levels/components/transforms/transform_fade_prop.tscn" id="18_urb18"]
 [ext_resource type="PackedScene" uid="uid://dqf2u285cydmu" path="res://levels/props/stone.tscn" id="19_jch4k"]
 [ext_resource type="PackedScene" uid="uid://ctwycvyvof6xy" path="res://levels/props/fish.tscn" id="20_h2vcv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_bqsnq"]
-vertices = PackedVector2Array(1505, 1032, 772, 911, 951, 813, 1448, 844, 1743, 451, 1792, 310, 1878, 248, 1867, 551, 1767, 626, 1612, 693, 1631, 473, 1663, 777, 1536, 819, 1499, 525, 1428, 321, 1305, 139, 1257, 435, 1113, 68, 376, 397, 84, 212, 85, 48, 1043, 534, 601, 825, 437, 736)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(9, 10, 4, 8, 11), PackedInt32Array(0, 3, 12), PackedInt32Array(11, 0, 12, 9), PackedInt32Array(10, 9, 13, 14), PackedInt32Array(15, 14, 13, 16, 17), PackedInt32Array(18, 19, 20, 17, 16, 21), PackedInt32Array(18, 21, 22, 23)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1113, 68, 85, 48, 84, 212, 376, 397, 437, 736, 601, 825, 1043, 534, 1257, 435, 1499, 525, 1612, 693, 1536, 819, 1448, 844, 951, 813, 772, 911, 1505, 1032, 1663, 777, 1767, 626, 1867, 551, 1878, 248, 1792, 310, 1743, 451, 1631, 473, 1428, 321, 1305, 139)])
+vertices = PackedVector2Array(1505, 1032, 772, 911, 951, 813, 1448, 844, 1536, 819, 1663, 777, 1612, 693, 1767, 626, 1631, 473, 1743, 451, 1257, 435, 1043, 534, 376, 397, 84, 212, 85, 48, 1113, 68, 1305, 139, 1428, 321, 1755, 386, 1854, 401, 1862, 551, 1499, 525, 601, 825, 437, 736)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4), PackedInt32Array(5, 0, 4, 6), PackedInt32Array(7, 5, 6, 8, 9), PackedInt32Array(10, 11, 12, 13, 14, 15, 16, 17), PackedInt32Array(9, 18, 19, 20, 7), PackedInt32Array(8, 6, 21, 17), PackedInt32Array(17, 21, 10), PackedInt32Array(12, 11, 22, 23)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1113, 68, 85, 48, 84, 212, 376, 397, 437, 736, 601, 825, 1043, 534, 1257, 435, 1499, 525, 1612, 693, 1536, 819, 1448, 844, 951, 813, 772, 911, 1505, 1032, 1663, 777, 1767, 626, 1862, 551, 1854, 401, 1755, 386, 1743, 451, 1631, 473, 1428, 321, 1305, 139)])
 
 [sub_resource type="Resource" id="Resource_fox2l"]
 script = ExtResource("10_a31mg")
@@ -73,7 +73,7 @@ name = "stone_placed"
 
 [node name="ShallowWater" type="Node2D" node_paths=PackedStringArray("player_avatar", "state_hook")]
 script = ExtResource("1_e5sq0")
-player_avatar = NodePath("PlayerAvatar")
+player_avatar = NodePath("Baya")
 state_hook = NodePath("LevelStateHook")
 metadata/_edit_lock_ = true
 
@@ -99,9 +99,6 @@ values = Array[ExtResource("10_a31mg")]([SubResource("Resource_fox2l"), SubResou
 [node name="CompletionAnnouncer" parent="." node_paths=PackedStringArray("trigger") instance=ExtResource("5_c7u27")]
 trigger = NodePath("../CompletionTrigger")
 
-[node name="PlayerAvatar" parent="." instance=ExtResource("1_xhnh5")]
-position = Vector2(1836, 318)
-
 [node name="StaticBackground" type="Sprite2D" parent="."]
 z_index = -10
 z_as_relative = false
@@ -115,6 +112,8 @@ z_as_relative = false
 metadata/_edit_lock_ = true
 
 [node name="DeepWaterL3" type="Sprite2D" parent="StaticForeground"]
+z_index = -1
+z_as_relative = false
 texture = ExtResource("4_glj1a")
 centered = false
 
@@ -188,3 +187,6 @@ position = Vector2(541, 220)
 [node name="FadeOutFish2" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("18_urb18")]
 target = NodePath("../Fish2")
 trigger = NodePath("../TriggerOnIO1")
+
+[node name="Baya" parent="." instance=ExtResource("18_nla5l")]
+position = Vector2(1784, 510)

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dn0yae6bcw1pt" path="res://assets/maps/3Deep Water/Deep Water L3.png" id="4_veul7"]
 [ext_resource type="Texture2D" uid="uid://dtfsq5ligax8f" path="res://assets/maps/3Deep Water/Deep Water L2.png" id="5_a31bm"]
 [ext_resource type="Texture2D" uid="uid://2hoywc34wre4" path="res://assets/maps/3Deep Water/Deep Water L1.png" id="6_vleag"]
-[ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://levels/components/player_avatar.tscn" id="7_3gmnx"]
+[ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://levels/components/player-avatar/placeholder_avatar.tscn" id="7_3gmnx"]
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="8_qysf0"]
 [ext_resource type="Script" path="res://levels/components/interaction-object/value_effect.gd" id="10_mr8ra"]
 [ext_resource type="PackedScene" uid="uid://dvuetv06ga8vf" path="res://levels/components/triggers/on-interact/trigger_on_interact.tscn" id="11_8kbdk"]

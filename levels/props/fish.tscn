@@ -12,7 +12,7 @@ fade_seconds = 0.8
 opacity = 1.0
 
 [node name="FishSprite" type="Sprite2D" parent="."]
-z_index = 80
+z_index = -1
 z_as_relative = false
 texture = ExtResource("1_8ls5k")
 

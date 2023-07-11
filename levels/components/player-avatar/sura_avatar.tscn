@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdo0vs8v01f00"]
+
+[ext_resource type="Script" path="res://levels/components/player-avatar/player_avatar.gd" id="1_sxst7"]
+[ext_resource type="Texture2D" uid="uid://bh4crkw3ynxgv" path="res://assets/Hiu.png" id="2_3utck"]
+
+[node name="Sura" type="Node2D" node_paths=PackedStringArray("sprite", "nav")]
+z_as_relative = false
+script = ExtResource("1_sxst7")
+sprite = NodePath("SuraSprite")
+nav = NodePath("NavigationAgent2D")
+
+[node name="SuraSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_3utck")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

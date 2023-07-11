@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmxug32uvmx3p"]
+
+[ext_resource type="Script" path="res://levels/components/player-avatar/player_avatar.gd" id="1_7gvsn"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7phwk"]
+size = Vector2(50, 50)
+
+[node name="PlayerAvatar" type="Node2D" node_paths=PackedStringArray("sprite", "nav")]
+script = ExtResource("1_7gvsn")
+sprite = NodePath("Sprite2D")
+nav = NodePath("NavigationAgent2D")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_7phwk")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

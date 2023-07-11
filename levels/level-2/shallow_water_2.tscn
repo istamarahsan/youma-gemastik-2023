@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cptnlsqj27q70" path="res://levels/components/triggers/on-state/trigger_on_state.tscn" id="3_af7el"]
 [ext_resource type="Script" path="res://levels/components/state_value_constraint.gd" id="4_yhurv"]
 [ext_resource type="PackedScene" uid="uid://bfpf153epxhnw" path="res://levels/components/completion_announcer.tscn" id="5_negr8"]
-[ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://levels/components/player_avatar.tscn" id="6_dn4vv"]
+[ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://levels/components/player-avatar/placeholder_avatar.tscn" id="6_dn4vv"]
 [ext_resource type="Texture2D" uid="uid://fk6yxxoq7bsp" path="res://assets/maps/2Shallow Water/Shallow Water L4.png" id="7_2d3jm"]
 [ext_resource type="Texture2D" uid="uid://dycbxd3rns1xp" path="res://assets/maps/2Shallow Water/Shallow Water L3.png" id="8_hrccc"]
 [ext_resource type="Texture2D" uid="uid://dgxsi364uiqme" path="res://assets/maps/2Shallow Water/Shallow Water L2.png" id="9_0qoot"]

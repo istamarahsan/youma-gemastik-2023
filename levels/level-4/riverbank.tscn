@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c431ykiiobg1" path="res://assets/maps/4RiverBank/River Bank L1 (Overlay).png" id="7_tvtli"]
 [ext_resource type="Shader" path="res://shaders/overlay_screen.gdshader" id="8_urkj8"]
 [ext_resource type="Script" path="res://levels/props/bob.gd" id="9_dve35"]
-[ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://levels/components/player_avatar.tscn" id="12_504bm"]
+[ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://levels/components/player-avatar/placeholder_avatar.tscn" id="12_504bm"]
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="13_beo5v"]
 [ext_resource type="PackedScene" uid="uid://dt385jgnnpvbw" path="res://levels/level-4/time_attack_spawner.tscn" id="13_kb7ji"]
 

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c08xeo4k3wefv"]
+
+[ext_resource type="Script" path="res://levels/components/player-avatar/player_avatar.gd" id="1_oaomu"]
+[ext_resource type="Texture2D" uid="uid://bee71nxgqps5y" path="res://assets/Buaya.png" id="2_nddq5"]
+
+[node name="Baya" type="Node2D" node_paths=PackedStringArray("sprite", "nav")]
+script = ExtResource("1_oaomu")
+sprite = NodePath("BayaSprite")
+nav = NodePath("NavigationAgent2D")
+
+[node name="BayaSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_nddq5")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

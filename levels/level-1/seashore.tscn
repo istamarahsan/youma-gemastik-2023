@@ -1,7 +1,6 @@
-[gd_scene load_steps=42 format=3 uid="uid://eeo6nnifrnkt"]
+[gd_scene load_steps=41 format=3 uid="uid://eeo6nnifrnkt"]
 
 [ext_resource type="Script" path="res://levels/map.gd" id="1_n1d5h"]
-[ext_resource type="Material" uid="uid://b52p7miaiion6" path="res://levels/level-1/seashore.tres" id="2_1ktss"]
 [ext_resource type="Texture2D" uid="uid://c2vqgamgutux8" path="res://assets/maps/1Seashore/Seashore L5.png" id="7_6gw7y"]
 [ext_resource type="Script" path="res://levels/components/interaction-object/value_effect.gd" id="7_akdx7"]
 [ext_resource type="Texture2D" uid="uid://cpnlh8kdadx1f" path="res://assets/maps/1Seashore/Seashore L6 Sun 1.png" id="7_nvgx8"]
@@ -20,13 +19,13 @@
 [ext_resource type="PackedScene" uid="uid://cptnlsqj27q70" path="res://levels/components/triggers/on-state/trigger_on_state.tscn" id="11_jfx5j"]
 [ext_resource type="PackedScene" uid="uid://hbk5evvrhfs7" path="res://levels/components/interaction-object/physics_area_interaction_object.tscn" id="12_m04se"]
 [ext_resource type="Script" path="res://levels/components/state_value_constraint.gd" id="12_yw3fb"]
-[ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://levels/components/player_avatar.tscn" id="16_5nvov"]
 [ext_resource type="Shader" path="res://shaders/multiply_screen.gdshader" id="16_ao3v0"]
 [ext_resource type="Texture2D" uid="uid://doc73ipsc5nd" path="res://assets/maps/1Seashore/Seashore L2 (Multiply).png" id="16_bpxkk"]
 [ext_resource type="PackedScene" uid="uid://fsh7ruhfyn1h" path="res://levels/components/transforms/transform_fade_prop.tscn" id="17_fdi4n"]
 [ext_resource type="PackedScene" uid="uid://c6elxd4jnggji" path="res://levels/props/bait.tscn" id="18_1qadj"]
 [ext_resource type="PackedScene" uid="uid://ctwycvyvof6xy" path="res://levels/props/fish.tscn" id="18_kbeds"]
 [ext_resource type="PackedScene" uid="uid://dra1nkutyjpu7" path="res://levels/props/placeholder_prop.tscn" id="19_kju14"]
+[ext_resource type="PackedScene" uid="uid://c08xeo4k3wefv" path="res://levels/components/player-avatar/baya_avatar.tscn" id="28_ggljc"]
 
 [sub_resource type="Resource" id="Resource_syddx"]
 script = ExtResource("12_yw3fb")
@@ -109,7 +108,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(195, 589, 140, 589, 63,
 
 [node name="Seashore" type="Node2D" node_paths=PackedStringArray("player_avatar", "state_hook")]
 script = ExtResource("1_n1d5h")
-player_avatar = NodePath("PlayerAvatar")
+player_avatar = NodePath("Baya")
 state_hook = NodePath("LevelStateHook")
 metadata/_edit_lock_ = true
 
@@ -216,7 +215,7 @@ time_offset = 2.0
 metadata/_edit_lock_ = true
 
 [node name="SeaOverlay" type="Sprite2D" parent="."]
-z_index = 1
+z_index = -5
 z_as_relative = false
 material = SubResource("ShaderMaterial_5ojp5")
 texture = ExtResource("16_bpxkk")
@@ -334,9 +333,8 @@ visible = false
 navigation_polygon = SubResource("NavigationPolygon_3qekc")
 metadata/_edit_lock_ = true
 
-[node name="PlayerAvatar" parent="." instance=ExtResource("16_5nvov")]
-material = ExtResource("2_1ktss")
-position = Vector2(815, 757)
-
 [node name="LevelStateHook" type="Node" parent="."]
 script = ExtResource("9_nf5l3")
+
+[node name="Baya" parent="." instance=ExtResource("28_ggljc")]
+position = Vector2(763, 824)
