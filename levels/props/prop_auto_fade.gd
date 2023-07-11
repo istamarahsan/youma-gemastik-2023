@@ -13,7 +13,7 @@ class_name PropAutoFade
 	get:
 		var node = get_node_or_null(sprite) as Sprite2D
 		if node == null:
-			return
+			return 1.0
 		return node.modulate.a
 @onready var _sprite: Sprite2D = get_node(sprite) as Sprite2D
 var fading: bool = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://eeo6nnifrnkt"]
+[gd_scene load_steps=42 format=3 uid="uid://eeo6nnifrnkt"]
 
 [ext_resource type="Script" path="res://levels/map.gd" id="1_n1d5h"]
 [ext_resource type="Texture2D" uid="uid://c2vqgamgutux8" path="res://assets/maps/1Seashore/Seashore L5.png" id="7_6gw7y"]
@@ -25,11 +25,12 @@
 [ext_resource type="PackedScene" uid="uid://c6elxd4jnggji" path="res://levels/props/bait.tscn" id="18_1qadj"]
 [ext_resource type="PackedScene" uid="uid://ctwycvyvof6xy" path="res://levels/props/fish.tscn" id="18_kbeds"]
 [ext_resource type="PackedScene" uid="uid://ceyub4korjcca" path="res://levels/props/bird.tscn" id="25_jtswl"]
+[ext_resource type="PackedScene" uid="uid://bd3jic85x0tn5" path="res://levels/props/arrow_left.tscn" id="27_7dntg"]
 [ext_resource type="PackedScene" uid="uid://c08xeo4k3wefv" path="res://levels/components/player-avatar/baya_avatar.tscn" id="28_ggljc"]
 
 [sub_resource type="Resource" id="Resource_syddx"]
 script = ExtResource("12_yw3fb")
-value = 0
+value = 3
 type = 0
 name = "food"
 
@@ -339,6 +340,15 @@ metadata/_edit_lock_ = true
 target = NodePath("../Bird")
 trigger = NodePath("../TriggerOnIO5")
 metadata/_edit_lock_ = true
+
+[node name="Arrow" parent="." instance=ExtResource("27_7dntg")]
+position = Vector2(192, 113)
+opacity = 0.0
+
+[node name="TransformFadeProp" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("17_fdi4n")]
+target = NodePath("../Arrow")
+fade = 0
+trigger = NodePath("../TriggerOnFood3")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_3qekc")

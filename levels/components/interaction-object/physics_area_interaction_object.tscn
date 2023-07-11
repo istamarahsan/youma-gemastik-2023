@@ -9,7 +9,7 @@
 resource_local_to_scene = true
 radius = 25.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uutm0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3giv3"]
 resource_local_to_scene = true
 shader = ExtResource("4_tlxpu")
 shader_parameter/color = Color(1, 0.843137, 0, 1)
@@ -20,7 +20,7 @@ shader_parameter/rotation_speed = 200.0
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_qoaxm"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l4yxc"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_33wn5"]
 resource_local_to_scene = true
 width = 50
 height = 50
@@ -44,7 +44,7 @@ io = NodePath("..")
 
 [node name="IOHighlight" parent="." instance=ExtResource("3_v81n0")]
 visible = false
-material = SubResource("ShaderMaterial_uutm0")
-texture = SubResource("NoiseTexture2D_l4yxc")
+material = SubResource("ShaderMaterial_3giv3")
+texture = SubResource("NoiseTexture2D_33wn5")
 
 [connection signal="state_entered" from="." to="." method="_on_state_entered"]

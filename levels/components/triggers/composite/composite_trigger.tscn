@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpwrjxm5n2l7w"]
+
+[ext_resource type="Script" path="res://levels/components/triggers/composite/composite_trigger.gd" id="1_5yahd"]
+
+[node name="CompositeTrigger" type="Node"]
+script = ExtResource("1_5yahd")

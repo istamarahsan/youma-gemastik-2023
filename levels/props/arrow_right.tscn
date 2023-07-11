@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhnuyqp4c752v"]
+
+[ext_resource type="Script" path="res://levels/props/prop_auto_fade.gd" id="1_t1y86"]
+[ext_resource type="Texture2D" uid="uid://bnck31kwfjc65" path="res://assets/props/Arrow (Right).png" id="2_x0d24"]
+
+[node name="Arrow" type="Node2D"]
+script = ExtResource("1_t1y86")
+sprite = NodePath("Sprite2D")
+opacity = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_x0d24")

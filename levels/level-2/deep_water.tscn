@@ -1,10 +1,12 @@
-[gd_scene load_steps=35 format=3 uid="uid://c0i5g18h7ijcj"]
+[gd_scene load_steps=41 format=3 uid="uid://c0i5g18h7ijcj"]
 
 [ext_resource type="Script" path="res://levels/map.gd" id="1_vlrby"]
 [ext_resource type="Texture2D" uid="uid://64lal6k8dwh0" path="res://assets/maps/3Deep Water/Deep Water L5.png" id="2_a2iqq"]
 [ext_resource type="Texture2D" uid="uid://k5edyhgk56kc" path="res://assets/maps/3Deep Water/Deep Water L4.png" id="3_qnuns"]
 [ext_resource type="Texture2D" uid="uid://dn0yae6bcw1pt" path="res://assets/maps/3Deep Water/Deep Water L3.png" id="4_veul7"]
 [ext_resource type="Texture2D" uid="uid://dtfsq5ligax8f" path="res://assets/maps/3Deep Water/Deep Water L2.png" id="5_a31bm"]
+[ext_resource type="Script" path="res://levels/components/state_flag_constraint.gd" id="5_xk1uw"]
+[ext_resource type="PackedScene" uid="uid://cpwrjxm5n2l7w" path="res://levels/components/triggers/composite/composite_trigger.tscn" id="6_mqacy"]
 [ext_resource type="Texture2D" uid="uid://2hoywc34wre4" path="res://assets/maps/3Deep Water/Deep Water L1.png" id="6_vleag"]
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="8_qysf0"]
 [ext_resource type="Script" path="res://levels/components/interaction-object/value_effect.gd" id="10_mr8ra"]
@@ -17,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://ctwycvyvof6xy" path="res://levels/props/fish.tscn" id="14_pptoa"]
 [ext_resource type="PackedScene" uid="uid://fsh7ruhfyn1h" path="res://levels/components/transforms/transform_fade_prop.tscn" id="15_qutwo"]
 [ext_resource type="PackedScene" uid="uid://c6elxd4jnggji" path="res://levels/props/bait.tscn" id="16_40nim"]
+[ext_resource type="Script" path="res://levels/components/interaction-object/flag_effect.gd" id="18_squj7"]
+[ext_resource type="PackedScene" uid="uid://dhnuyqp4c752v" path="res://levels/props/arrow_right.tscn" id="19_3lkv2"]
 [ext_resource type="PackedScene" uid="uid://cdo0vs8v01f00" path="res://levels/components/player-avatar/sura_avatar.tscn" id="19_4i3cf"]
 
 [sub_resource type="Resource" id="Resource_6xmi1"]
@@ -24,6 +28,10 @@ script = ExtResource("11_agju2")
 value = 4
 type = 0
 name = "food"
+
+[sub_resource type="Resource" id="Resource_k6uxd"]
+script = ExtResource("5_xk1uw")
+name = "big_fish_eaten"
 
 [sub_resource type="Resource" id="Resource_640mr"]
 script = ExtResource("10_mr8ra")
@@ -99,6 +107,11 @@ script = ExtResource("10_mr8ra")
 name = "food"
 effect = 2
 
+[sub_resource type="Resource" id="Resource_wqaw0"]
+script = ExtResource("18_squj7")
+name = "big_fish_eaten"
+action = 0
+
 [sub_resource type="Resource" id="Resource_xxmgy"]
 script = ExtResource("10_mr8ra")
 name = "food"
@@ -136,6 +149,13 @@ io = NodePath("../IO6")
 values = Array[ExtResource("11_agju2")]([SubResource("Resource_6xmi1")])
 metadata/_edit_lock_ = true
 
+[node name="TriggerOnBigFish" parent="." instance=ExtResource("14_baket")]
+flags = Array[ExtResource("5_xk1uw")]([SubResource("Resource_k6uxd")])
+
+[node name="Food4AndBigFish" parent="." instance=ExtResource("6_mqacy")]
+triggers = Array[NodePath]([NodePath("../TriggerOnFood4"), NodePath("../TriggerOnBigFish")])
+oneshot = true
+
 [node name="TransformToggleIO2" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("12_t3i3k")]
 target_io = NodePath("../IO2")
 trigger = NodePath("../TriggerOnInteractIO1")
@@ -154,7 +174,12 @@ metadata/_edit_lock_ = true
 
 [node name="TransformToggleIO6" parent="." node_paths=PackedStringArray("target_io", "trigger") instance=ExtResource("12_t3i3k")]
 target_io = NodePath("../IO6")
-trigger = NodePath("../TriggerOnFood4")
+trigger = NodePath("../Food4AndBigFish")
+
+[node name="TransformFadeProp" parent="." node_paths=PackedStringArray("target", "trigger") instance=ExtResource("15_qutwo")]
+target = NodePath("../Arrow")
+fade = 0
+trigger = NodePath("../Food4AndBigFish")
 
 [node name="StaticBackground" type="Node2D" parent="."]
 z_index = -50
@@ -197,7 +222,6 @@ centered = false
 [node name="IO1" parent="." instance=ExtResource("11_i0q5o")]
 position = Vector2(212, 708)
 radius = 103
-oneshot = false
 metadata/_edit_lock_ = true
 
 [node name="IO2" parent="." instance=ExtResource("11_i0q5o")]
@@ -245,6 +269,7 @@ trigger = NodePath("../TriggerOnInteractIO3")
 position = Vector2(176, 479)
 radius = 124
 value_effects = Array[ExtResource("10_mr8ra")]([SubResource("Resource_qonkk")])
+flag_effects = Array[ExtResource("18_squj7")]([SubResource("Resource_wqaw0")])
 enabled = false
 metadata/_edit_lock_ = true
 
@@ -300,3 +325,8 @@ navigation_polygon = SubResource("NavigationPolygon_sf56k")
 
 [node name="Sura" parent="." instance=ExtResource("19_4i3cf")]
 position = Vector2(1813, 449)
+
+[node name="Arrow" parent="." instance=ExtResource("19_3lkv2")]
+z_as_relative = false
+position = Vector2(1758, 789)
+opacity = 0.0
