@@ -16,4 +16,3 @@ func _process(delta):
 	time += time_offset
 	time = time / lerpf(min_amp_down, max_amp_down, 1-amplitude)
 	rotation = fmod(time, 2 * PI) * -1 if not clockwise else 1
-#	rotation += fmod(PI * delta * (-1 if not clockwise else 1) / lerpf(min_amp_down, max_amp_down, 1-amplitude), 2 * PI)

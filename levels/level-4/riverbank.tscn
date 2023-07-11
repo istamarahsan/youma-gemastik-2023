@@ -1,18 +1,22 @@
-[gd_scene load_steps=17 format=3 uid="uid://dj3y7uk2ausgm"]
+[gd_scene load_steps=21 format=3 uid="uid://dj3y7uk2ausgm"]
 
 [ext_resource type="Texture2D" uid="uid://bms4y7aqc81lw" path="res://assets/maps/4RiverBank/River Bank L6.png" id="1_bvx0w"]
 [ext_resource type="Script" path="res://levels/level-4/riverbank.gd" id="1_fua2c"]
-[ext_resource type="Texture2D" uid="uid://hhksd4ku8fao" path="res://assets/maps/4RiverBank/River Bank L5.png" id="2_4wbof"]
 [ext_resource type="Texture2D" uid="uid://c840376itxml3" path="res://assets/maps/4RiverBank/River Bank L4.png" id="3_40tqm"]
 [ext_resource type="Texture2D" uid="uid://dmtkk7hdoom4o" path="res://assets/maps/4RiverBank/River Bank L3.png" id="4_phqw6"]
+[ext_resource type="Texture2D" uid="uid://kbwvtw0th3kf" path="res://assets/maps/4RiverBank/River Bank L5 Sun 2.png" id="4_r1dcm"]
+[ext_resource type="Texture2D" uid="uid://bxjry21xkqmjh" path="res://assets/maps/4RiverBank/River Bank L5 Sun 3.png" id="4_ufl1t"]
+[ext_resource type="Texture2D" uid="uid://dljes7sriy63l" path="res://assets/maps/4RiverBank/River Bank L5 Rope.png" id="4_yd2fx"]
+[ext_resource type="Script" path="res://levels/level-1/sun_rotate.gd" id="5_2hej7"]
 [ext_resource type="Texture2D" uid="uid://6uag1cpbqpx6" path="res://assets/maps/4RiverBank/River Bank L2.png" id="5_b43al"]
+[ext_resource type="Texture2D" uid="uid://cjg4c2lsxgx6m" path="res://assets/maps/4RiverBank/River Bank L5 Sun 1.png" id="5_yoc01"]
 [ext_resource type="Texture2D" uid="uid://bhcp64xwm6l8k" path="res://assets/maps/4RiverBank/River Bank L1.png" id="6_3kdpg"]
 [ext_resource type="Texture2D" uid="uid://c431ykiiobg1" path="res://assets/maps/4RiverBank/River Bank L1 (Overlay).png" id="7_tvtli"]
 [ext_resource type="Shader" path="res://shaders/overlay_screen.gdshader" id="8_urkj8"]
 [ext_resource type="Script" path="res://levels/props/bob.gd" id="9_dve35"]
-[ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://levels/components/player-avatar/placeholder_avatar.tscn" id="12_504bm"]
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="13_beo5v"]
 [ext_resource type="PackedScene" uid="uid://dt385jgnnpvbw" path="res://levels/level-4/time_attack_spawner.tscn" id="13_kb7ji"]
+[ext_resource type="PackedScene" uid="uid://cdo0vs8v01f00" path="res://levels/components/player-avatar/sura_avatar.tscn" id="17_tctuh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5d4sj"]
 shader = ExtResource("8_urkj8")
@@ -28,7 +32,7 @@ size = Vector2(48, 353)
 
 [node name="Riverbank" type="Node2D" node_paths=PackedStringArray("player_avatar", "state_hook")]
 script = ExtResource("1_fua2c")
-player_avatar = NodePath("PlayerAvatar")
+player_avatar = NodePath("Sura")
 state_hook = NodePath("LevelStateHook")
 metadata/_edit_lock_ = true
 
@@ -53,30 +57,65 @@ z_index = -100
 z_as_relative = false
 texture = ExtResource("1_bvx0w")
 centered = false
+metadata/_edit_lock_ = true
 
-[node name="RiverBankL5" type="Sprite2D" parent="BG"]
+[node name="RiverBankL5Rope" type="Sprite2D" parent="BG"]
 z_index = -99
 z_as_relative = false
-texture = ExtResource("2_4wbof")
-centered = false
+position = Vector2(414, 55)
+texture = ExtResource("4_yd2fx")
+metadata/_edit_lock_ = true
+
+[node name="RiverBankL5Sun3" type="Sprite2D" parent="BG"]
+z_index = -99
+z_as_relative = false
+position = Vector2(414, 273)
+texture = ExtResource("4_ufl1t")
+metadata/_edit_lock_ = true
+
+[node name="RiverBankL5Sun2" type="Sprite2D" parent="BG"]
+z_index = -99
+z_as_relative = false
+position = Vector2(414, 273)
+texture = ExtResource("4_r1dcm")
+script = ExtResource("5_2hej7")
+clockwise = false
+editor_rotate = false
+time_offset = 8.3
+amplitude = 0.15
+metadata/_edit_lock_ = true
+
+[node name="RiverBankL5Sun1" type="Sprite2D" parent="BG"]
+z_index = -99
+z_as_relative = false
+position = Vector2(414, 273)
+texture = ExtResource("5_yoc01")
+script = ExtResource("5_2hej7")
+clockwise = false
+editor_rotate = false
+amplitude = 0.7
+metadata/_edit_lock_ = true
 
 [node name="RiverBankL4" type="Sprite2D" parent="BG"]
 z_index = -98
 z_as_relative = false
 texture = ExtResource("3_40tqm")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="RiverBankL3" type="Sprite2D" parent="BG"]
 z_index = -97
 z_as_relative = false
 texture = ExtResource("4_phqw6")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="RiverBankL2" type="Sprite2D" parent="BG"]
 z_index = -96
 z_as_relative = false
 texture = ExtResource("5_b43al")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="RiverBankL1" type="Sprite2D" parent="BG" node_paths=PackedStringArray("sprite")]
 z_index = -95
@@ -88,6 +127,7 @@ script = ExtResource("9_dve35")
 sprite = NodePath(".")
 max_offset = 5.0
 amplitude = 0.2
+metadata/_edit_lock_ = true
 
 [node name="River" type="Sprite2D" parent="." node_paths=PackedStringArray("sprite")]
 z_index = 1
@@ -101,9 +141,6 @@ sprite = NodePath(".")
 max_offset = 5.0
 amplitude = 0.2
 metadata/_edit_lock_ = true
-
-[node name="PlayerAvatar" parent="." instance=ExtResource("12_504bm")]
-position = Vector2(1023, 970)
 
 [node name="LevelStateHook" type="Node" parent="."]
 script = ExtResource("13_beo5v")
@@ -133,3 +170,6 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoundsBin2"]
 shape = SubResource("RectangleShape2D_tf3ad")
 metadata/_edit_lock_ = true
+
+[node name="Sura" parent="." instance=ExtResource("17_tctuh")]
+position = Vector2(1184, 992)

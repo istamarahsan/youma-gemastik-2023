@@ -16,7 +16,7 @@ sprite = NodePath("FishSprite")
 io = NodePath("InteractionObject")
 
 [node name="InteractionObject" parent="." instance=ExtResource("1_6xtpg")]
-radius = 38
+radius = 47
 is_moving_target = true
 
 [node name="IoSfx" parent="." node_paths=PackedStringArray("io") instance=ExtResource("3_id6x8")]
