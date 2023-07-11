@@ -10,8 +10,13 @@ enum State {
 signal done
 
 @export_range(0.5, 10, 0.1) var time_seconds: float
+@export var start_closed: bool = false
 var time_elapsed: float = 0
 var state: State = State.Idle
+
+func _ready():
+	if start_closed:
+		material.set_shader_parameter("opacity", 1)
 
 func _process(delta):
 	if state == State.Idle:

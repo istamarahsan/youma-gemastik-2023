@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dv4u0fgw10vd1"]
 
-[ext_resource type="Script" path="res://cutscene/scrolling_text.gd" id="1_pf1yn"]
-[ext_resource type="Resource" uid="uid://py31ijx6vlsl" path="res://cutscene/cutscene_scroll_dummy.tres" id="2_ybm65"]
-[ext_resource type="PackedScene" uid="uid://dpsjxiqccr8ec" path="res://cutscene/cutscene_line.tscn" id="3_odx6t"]
+[ext_resource type="Script" path="res://cutscene/old/scrolling_text.gd" id="1_pf1yn"]
+[ext_resource type="Resource" uid="uid://py31ijx6vlsl" path="res://cutscene/old/cutscene_scroll_dummy.tres" id="2_ybm65"]
+[ext_resource type="PackedScene" uid="uid://dpsjxiqccr8ec" path="res://cutscene/old/cutscene_line.tscn" id="3_odx6t"]
 [ext_resource type="Theme" uid="uid://44i6ats70703" path="res://assets/youma_theme.tres" id="4_dy6mk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkss5"]

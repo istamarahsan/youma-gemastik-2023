@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://45k6h4vducf0"]
+
+[ext_resource type="Script" path="res://cutscene/dialogue_cutscene.gd" id="1_2qdmw"]
+[ext_resource type="PackedScene" uid="uid://ccojv7prvlc8y" path="res://cutscene/subtitle_slideshow.tscn" id="2_f4n7r"]
+
+[node name="DialogueCutscene" type="Node2D"]
+script = ExtResource("1_2qdmw")
+
+[node name="SubtitleSlideshow" parent="." instance=ExtResource("2_f4n7r")]

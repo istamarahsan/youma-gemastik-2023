@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="NarrativeCutsceneData" load_steps=13 format=3 uid="uid://py31ijx6vlsl"]
 
-[ext_resource type="Script" path="res://cutscene/narrative_cutscene_line.gd" id="1_bxxah"]
-[ext_resource type="Script" path="res://cutscene/narrative_cutscene_data.gd" id="1_ygt38"]
+[ext_resource type="Script" path="res://cutscene/old/narrative_cutscene_line.gd" id="1_bxxah"]
+[ext_resource type="Script" path="res://cutscene/old/narrative_cutscene_data.gd" id="1_ygt38"]
 
 [sub_resource type="Resource" id="Resource_aynx8"]
 script = ExtResource("1_bxxah")

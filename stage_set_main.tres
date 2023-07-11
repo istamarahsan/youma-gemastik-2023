@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="GameStageSet" load_steps=5 format=3 uid="uid://b40mguy7ahpdq"]
+[gd_resource type="Resource" script_class="GameStageSet" load_steps=6 format=3 uid="uid://b40mguy7ahpdq"]
 
 [ext_resource type="Script" path="res://game_stage_set.gd" id="1_215kd"]
 [ext_resource type="PackedScene" uid="uid://hbpsunwiwwah" path="res://levels/level-1/level_1.tscn" id="2_7plcn"]
+[ext_resource type="PackedScene" uid="uid://45k6h4vducf0" path="res://cutscene/dialogue_cutscene.tscn" id="3_4a71g"]
 [ext_resource type="PackedScene" uid="uid://c6soo36kpbmc6" path="res://levels/level-2/level_2.tscn" id="3_k6fcg"]
 [ext_resource type="PackedScene" uid="uid://doqfki6lxrqht" path="res://levels/level-3/level_3.tscn" id="4_26sv2"]
 
 [resource]
 script = ExtResource("1_215kd")
-stages = Array[PackedScene]([ExtResource("2_7plcn"), ExtResource("3_k6fcg"), ExtResource("4_26sv2")])
+stages = Array[PackedScene]([ExtResource("2_7plcn"), ExtResource("3_4a71g"), ExtResource("3_k6fcg"), ExtResource("4_26sv2")])

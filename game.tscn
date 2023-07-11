@@ -5,12 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://dgtwkefcxn0qs" path="res://transition_cover.tscn" id="5_n1f1a"]
 [ext_resource type="Shader" path="res://shaders/transition_cover.gdshader" id="6_ykqvb"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lg13c"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_601ls"]
 resource_local_to_scene = true
 shader = ExtResource("6_ykqvb")
 shader_parameter/opacity = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sm1tv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vui0m"]
 resource_local_to_scene = true
 shader = ExtResource("6_ykqvb")
 shader_parameter/opacity = 0.0
@@ -22,9 +22,9 @@ stage_transition_cover = NodePath("StageCover")
 pause_transition_cover = NodePath("PauseCover")
 
 [node name="StageCover" parent="." instance=ExtResource("5_n1f1a")]
-material = SubResource("ShaderMaterial_lg13c")
+material = SubResource("ShaderMaterial_601ls")
 time_seconds = 2.0
 
 [node name="PauseCover" parent="." instance=ExtResource("5_n1f1a")]
-material = SubResource("ShaderMaterial_sm1tv")
+material = SubResource("ShaderMaterial_vui0m")
 time_seconds = 0.5
