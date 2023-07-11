@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7mlh2d7fm88r"]
+
+[ext_resource type="Texture2D" uid="uid://brklm3qe2modc" path="res://assets/ui/Pause Menu/Pause Menu Guide.png" id="1_cwayh"]
+[ext_resource type="Script" path="res://ui/pause-menu/pause_menu_buttons.gd" id="1_ramrg"]
+[ext_resource type="PackedScene" uid="uid://cd3xxlh8ak4e7" path="res://ui/pause-menu/pause_menu_board.tscn" id="2_uqqgy"]
+[ext_resource type="Texture2D" uid="uid://bjea3wal8hdbg" path="res://assets/ui/Pause Menu/Rope.png" id="3_p2eyb"]
+
+[node name="PauseMenuButtons" type="Control"]
+layout_mode = 3
+anchor_right = 0.239
+anchor_bottom = 1.0
+offset_right = -0.880005
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ramrg")
+
+[node name="PauseMenuGuide" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-732, 0)
+texture = ExtResource("1_cwayh")
+centered = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 211.5
+offset_right = 246.5
+offset_bottom = 949.0
+grow_horizontal = 2
+texture = ExtResource("3_p2eyb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_top = 207.0
+offset_right = 458.0
+offset_bottom = 850.0
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Lanjut" parent="VBoxContainer" instance=ExtResource("2_uqqgy")]
+layout_mode = 2
+text = "Lanjut"
+metadata/_edit_lock_ = true
+
+[node name="Settings" parent="VBoxContainer" instance=ExtResource("2_uqqgy")]
+layout_mode = 2
+text = "Setelan"
+metadata/_edit_lock_ = true
+
+[node name="Quit" parent="VBoxContainer" instance=ExtResource("2_uqqgy")]
+layout_mode = 2
+text = "Keluar"
+metadata/_edit_lock_ = true
+
+[connection signal="button_up" from="VBoxContainer/Lanjut" to="." method="_on_continue_button_up"]
+[connection signal="button_up" from="VBoxContainer/Settings" to="." method="_on_settings_button_up"]
+[connection signal="button_up" from="VBoxContainer/Quit" to="." method="_on_quit_button_up"]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd3xxlh8ak4e7"]
+
+[ext_resource type="Script" path="res://ui/main-menu/main_menu_board.gd" id="1_3wonk"]
+[ext_resource type="Texture2D" uid="uid://duffr5358w8bw" path="res://assets/ui/Pause Menu/Board (Empty).png" id="1_mkr4y"]
+[ext_resource type="Theme" uid="uid://44i6ats70703" path="res://assets/youma_theme.tres" id="3_rmbua"]
+
+[node name="Board" type="TextureButton"]
+anchors_preset = -1
+anchor_right = 0.239
+anchor_bottom = 0.179
+offset_right = -0.880005
+offset_bottom = -0.320007
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_mkr4y")
+texture_pressed = ExtResource("1_mkr4y")
+texture_hover = ExtResource("1_mkr4y")
+texture_disabled = ExtResource("1_mkr4y")
+texture_focused = ExtResource("1_mkr4y")
+script = ExtResource("1_3wonk")
+text = "Text"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_rmbua")
+theme_override_font_sizes/font_size = 40
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1

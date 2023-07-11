@@ -1,9 +1,55 @@
-[gd_scene format=3 uid="uid://b62jkvffpempr"]
+[gd_scene load_steps=6 format=3 uid="uid://b62jkvffpempr"]
+
+[ext_resource type="Script" path="res://ui/pause-menu/pause_menu.gd" id="1_cse0g"]
+[ext_resource type="PackedScene" uid="uid://c7mlh2d7fm88r" path="res://ui/pause-menu/pause_menu_buttons.tscn" id="2_kqkbq"]
+[ext_resource type="Texture2D" uid="uid://cbve31hief2gv" path="res://assets/ui/Pause Menu/Curtain (Left).png" id="3_6c6nu"]
+[ext_resource type="Texture2D" uid="uid://t3kco8kum3l5" path="res://assets/ui/Pause Menu/Curtain (Right).png" id="4_y88jj"]
+[ext_resource type="Texture2D" uid="uid://b01vb4lpj8gsr" path="res://assets/maps/0Frame/Frame.png" id="5_gvq7u"]
 
 [node name="PauseMenu" type="Control"]
+z_as_relative = false
 layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_cse0g")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 5
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("5_gvq7u")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="CurtainLeft" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_6c6nu")
+metadata/_edit_lock_ = true
+
+[node name="CurtainRight" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_y88jj")
+metadata/_edit_lock_ = true
+
+[node name="PauseMenuButtons" parent="." instance=ExtResource("2_kqkbq")]
+layout_mode = 1
+anchor_left = 0.381
+anchor_right = 0.62
+offset_left = 0.47998
+offset_right = -0.400024
+
+[connection signal="lanjut" from="PauseMenuButtons" to="." method="_on_pause_menu_buttons_lanjut"]
+[connection signal="quit" from="PauseMenuButtons" to="." method="_on_pause_menu_buttons_quit"]
+[connection signal="settings" from="PauseMenuButtons" to="." method="_on_pause_menu_buttons_settings"]
