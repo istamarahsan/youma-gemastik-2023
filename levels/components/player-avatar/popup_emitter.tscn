@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://di0e3jwg8dauv"]
+[gd_scene load_steps=5 format=3 uid="uid://di0e3jwg8dauv"]
 
 [ext_resource type="Texture2D" uid="uid://g3r2q7lwl0bc" path="res://assets/props/Bait.png" id="1_c37lg"]
 [ext_resource type="Script" path="res://levels/components/player-avatar/inventory_popup_emitter.gd" id="2_peoes"]
+[ext_resource type="Theme" uid="uid://44i6ats70703" path="res://assets/youma_theme.tres" id="3_sh7f7"]
 
 [sub_resource type="Gradient" id="Gradient_vdbw6"]
 interpolation_mode = 2
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Popups" type="CPUParticles2D"]
-position = Vector2(45, -37)
 emitting = false
 amount = 1
 lifetime = 0.5
@@ -23,3 +23,12 @@ initial_velocity_max = 100.0
 color_ramp = SubResource("Gradient_vdbw6")
 script = ExtResource("2_peoes")
 bait = ExtResource("1_c37lg")
+
+[node name="wdymicantdoitwithparticles" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 40.0
+offset_bottom = 28.0
+theme = ExtResource("3_sh7f7")
+theme_override_font_sizes/font_size = 30
+text = "ss"
+horizontal_alignment = 1

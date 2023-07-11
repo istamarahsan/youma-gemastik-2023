@@ -31,6 +31,9 @@ func _ready():
 				var gained: bool = bait_delta > 0
 				if gained:
 					player_avatar.show_bait()
+			if val_delta.has("food"):
+				var food = state_hook.get_state().get_value("food")
+				player_avatar.show_food(food)
 			)
 
 func _on_click(name: String):

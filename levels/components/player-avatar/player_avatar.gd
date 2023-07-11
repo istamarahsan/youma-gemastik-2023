@@ -38,6 +38,10 @@ func show_bait():
 	if inventory_emitter != null:
 		inventory_emitter.show_bait()
 
+func show_food(quantity: int):
+	if inventory_emitter != null:
+		inventory_emitter.show_count(quantity)
+
 func can_navigate_to(destination: Vector2) -> bool:
 	var prev = nav.target_position
 	nav.target_position = destination

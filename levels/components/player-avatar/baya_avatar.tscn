@@ -16,3 +16,4 @@ texture = ExtResource("2_nddq5")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="Popups" parent="." instance=ExtResource("3_jp32a")]
+position = Vector2(56, -39)

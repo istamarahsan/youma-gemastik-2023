@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://daurln12f3efl"]
+[gd_scene load_steps=28 format=3 uid="uid://daurln12f3efl"]
 
 [ext_resource type="Script" path="res://levels/map.gd" id="1_e5sq0"]
 [ext_resource type="PackedScene" uid="uid://cptnlsqj27q70" path="res://levels/components/triggers/on-state/trigger_on_state.tscn" id="3_beiic"]
@@ -26,19 +26,13 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(1113, 68, 85, 48, 84, 2
 
 [sub_resource type="Resource" id="Resource_fox2l"]
 script = ExtResource("10_a31mg")
-value = 4
+value = 5
 type = 0
 name = "food"
 
-[sub_resource type="Resource" id="Resource_hqiap"]
-script = ExtResource("10_a31mg")
-value = 1
-type = 0
-name = "fish"
-
 [sub_resource type="Resource" id="Resource_2k8tk"]
 script = ExtResource("8_4xo6t")
-name = "fish"
+name = "food"
 effect = 1
 
 [sub_resource type="Resource" id="Resource_8cm4f"]
@@ -94,7 +88,7 @@ io = NodePath("../IO3")
 io = NodePath("../IO4")
 
 [node name="CompletionTrigger" parent="." instance=ExtResource("3_beiic")]
-values = Array[ExtResource("10_a31mg")]([SubResource("Resource_fox2l"), SubResource("Resource_hqiap")])
+values = Array[ExtResource("10_a31mg")]([SubResource("Resource_fox2l")])
 
 [node name="CompletionAnnouncer" parent="." node_paths=PackedStringArray("trigger") instance=ExtResource("5_c7u27")]
 trigger = NodePath("../CompletionTrigger")
