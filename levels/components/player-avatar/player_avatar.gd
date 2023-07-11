@@ -18,7 +18,8 @@ func _physics_process(delta):
 		travel_to(target.global_position)
 
 func show_bait():
-	inventory_emitter.show_bait()
+	if inventory_emitter != null:
+		inventory_emitter.show_bait()
 
 func can_navigate_to(destination: Vector2) -> bool:
 	var prev = nav.target_position

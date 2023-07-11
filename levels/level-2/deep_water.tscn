@@ -157,6 +157,8 @@ target_io = NodePath("../IO6")
 trigger = NodePath("../TriggerOnFood4")
 
 [node name="StaticBackground" type="Node2D" parent="."]
+z_index = -50
+z_as_relative = false
 
 [node name="SeaFloorL5" type="Sprite2D" parent="StaticBackground"]
 texture = ExtResource("2_a2iqq")
