@@ -15,16 +15,16 @@
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="15_0femd"]
 [ext_resource type="PackedScene" uid="uid://dqf2u285cydmu" path="res://levels/props/stone.tscn" id="17_u2j8i"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_jo3b0"]
+vertices = PackedVector2Array(1505, 1032, 772, 911, 951, 813, 1448, 844, 1743, 451, 1792, 310, 1878, 248, 1867, 551, 1767, 626, 1612, 693, 1631, 473, 1663, 777, 1536, 819, 1499, 525, 1428, 321, 1305, 139, 1257, 435, 1113, 68, 376, 397, 84, 212, 85, 48, 1043, 534, 601, 825, 437, 736)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(9, 10, 4, 8, 11), PackedInt32Array(0, 3, 12), PackedInt32Array(11, 0, 12, 9), PackedInt32Array(10, 9, 13, 14), PackedInt32Array(15, 14, 13, 16, 17), PackedInt32Array(18, 19, 20, 17, 16, 21), PackedInt32Array(18, 21, 22, 23)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1113, 68, 85, 48, 84, 212, 376, 397, 437, 736, 601, 825, 1043, 534, 1257, 435, 1499, 525, 1612, 693, 1536, 819, 1448, 844, 951, 813, 772, 911, 1505, 1032, 1663, 777, 1767, 626, 1867, 551, 1878, 248, 1792, 310, 1743, 451, 1631, 473, 1428, 321, 1305, 139)])
+
 [sub_resource type="Resource" id="Resource_fox2l"]
 script = ExtResource("4_yhurv")
 value = 2
 type = 0
 name = "sus"
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_rjfcd"]
-vertices = PackedVector2Array(1505, 1032, 772, 911, 951, 813, 1448, 844, 1743, 451, 1792, 310, 1878, 248, 1867, 551, 1767, 626, 1117, 391, 420, 652, 376, 397, 1113, 68, 1305, 139, 1612, 693, 1631, 473, 1663, 777, 1536, 819, 1499, 525, 1428, 321, 1401, 464, 1312, 418, 84, 212, 85, 48)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12, 13), PackedInt32Array(14, 15, 4, 8, 16), PackedInt32Array(0, 3, 17), PackedInt32Array(16, 0, 17, 14), PackedInt32Array(15, 14, 18, 19), PackedInt32Array(19, 18, 20), PackedInt32Array(19, 20, 21, 13), PackedInt32Array(22, 23, 12, 11), PackedInt32Array(21, 9, 13)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1113, 68, 85, 48, 84, 212, 376, 397, 420, 652, 1117, 391, 1312, 418, 1401, 464, 1499, 525, 1612, 693, 1536, 819, 1448, 844, 951, 813, 772, 911, 1505, 1032, 1663, 777, 1767, 626, 1867, 551, 1878, 248, 1792, 310, 1743, 451, 1631, 473, 1428, 321, 1305, 139)])
 
 [sub_resource type="Resource" id="Resource_kx005"]
 script = ExtResource("12_spr1b")
@@ -40,6 +40,10 @@ effect = 1
 script = ExtResource("1_hgox2")
 player_avatar = NodePath("PlayerAvatar")
 state_hook = NodePath("LevelStateHook")
+metadata/_edit_lock_ = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_jo3b0")
 metadata/_edit_lock_ = true
 
 [node name="TriggerOnIO1" parent="." node_paths=PackedStringArray("io") instance=ExtResource("2_nyvrk")]
@@ -82,10 +86,6 @@ centered = false
 [node name="DeepWaterL1" type="Sprite2D" parent="StaticForeground"]
 texture = ExtResource("10_oe142")
 centered = false
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_rjfcd")
-metadata/_edit_lock_ = true
 
 [node name="IO1" parent="." instance=ExtResource("11_lidfh")]
 position = Vector2(541, 221)

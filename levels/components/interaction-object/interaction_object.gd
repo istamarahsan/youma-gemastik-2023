@@ -11,6 +11,7 @@ enum State {
 signal pressed
 signal interacted
 signal state_entered(state: State)
+signal failed
 
 @export_category("Effects")
 @export var value_effects: Array[IoValueEffect] = []
@@ -35,19 +36,23 @@ func set_enabled(yes: bool):
 func show_idle():
 	state = State.idle
 	_show_idle()
-	state_entered.emit(State.idle)
+	state_entered.emit(state)
 
 func show_active():
 	state = State.active
 	_show_active()
-	state_entered.emit(State.active)
+	state_entered.emit(state)
 
 func show_interactions():
 	state = State.showing
 	if oneshot:
 		set_enabled(false)
 	_show_interactions()
-	state_entered.emit(State.showing)
+	state_entered.emit(state)
+
+func show_failed_then_return_idle():
+	failed.emit()
+	show_idle()
 
 func _set_enabled(yes: bool):
 	pass

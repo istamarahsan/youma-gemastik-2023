@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnvlcm83j2882"]
+[gd_scene load_steps=6 format=3 uid="uid://dnvlcm83j2882"]
 
 [ext_resource type="Script" path="res://levels/components/interaction-object/io_sfx.gd" id="1_nyckj"]
 [ext_resource type="AudioStream" uid="uid://cbwyps10880wo" path="res://assets/placeholder/phoenix-compendium/ui_menu_focus.wav" id="2_cdwpj"]
 [ext_resource type="AudioStream" uid="uid://bkltp0vvulae5" path="res://assets/placeholder/phoenix-compendium/ui_menu_ok.wav" id="3_al85u"]
 [ext_resource type="Script" path="res://audio/audio_manager_hook.gd" id="3_vuw18"]
+[ext_resource type="AudioStream" uid="uid://hrmba6ptu2ao" path="res://assets/placeholder/phoenix-compendium/ui_menu_cancel.wav" id="5_swo20"]
 
 [node name="IoSfx" type="Node"]
 script = ExtResource("1_nyckj")
@@ -16,4 +17,8 @@ script = ExtResource("3_vuw18")
 [node name="Confirm" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_al85u")
 bus = &"SFX"
+script = ExtResource("3_vuw18")
+
+[node name="Failed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_swo20")
 script = ExtResource("3_vuw18")
