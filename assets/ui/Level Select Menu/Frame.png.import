@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs1dyfp732uv3"
-path="res://.godot/imported/Pause Menu Guide.png-63aa23cefd9d48c91566438a96b662bb.ctex"
+uid="uid://b52wpkpli1l5q"
+path="res://.godot/imported/Frame.png-6f03401f0e73879a8fd783c214a8c192.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/Pause Menu Guide.png"
-dest_files=["res://.godot/imported/Pause Menu Guide.png-63aa23cefd9d48c91566438a96b662bb.ctex"]
+source_file="res://assets/ui/Level Select Menu/Frame.png"
+dest_files=["res://.godot/imported/Frame.png-6f03401f0e73879a8fd783c214a8c192.ctex"]
 
 [params]
 

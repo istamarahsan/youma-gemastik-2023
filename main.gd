@@ -66,7 +66,7 @@ func _on_main_menu_credits():
 func _on_main_menu_quit():
 	if state != UpperState.MainMenu:
 		return
-	pass
+	get_tree().quit()
 
 func _on_game_quit_to_main_menu():
 	if state != UpperState.Game:

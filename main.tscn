@@ -7,7 +7,7 @@
 [ext_resource type="Shader" path="res://shaders/transition_cover.gdshader" id="3_jnkvc"]
 [ext_resource type="PackedScene" uid="uid://gsbacgd3cfab" path="res://ui/settings/settings.tscn" id="4_m2d4q"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hjwnp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0q5it"]
 resource_local_to_scene = true
 shader = ExtResource("3_jnkvc")
 shader_parameter/opacity = 0.0
@@ -20,5 +20,5 @@ settings_scene = ExtResource("4_m2d4q")
 transition_cover = NodePath("TransitionCover")
 
 [node name="TransitionCover" parent="." instance=ExtResource("3_h485l")]
-material = SubResource("ShaderMaterial_hjwnp")
+material = SubResource("ShaderMaterial_0q5it")
 time_seconds = 0.5

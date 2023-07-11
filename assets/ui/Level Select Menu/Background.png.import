@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2h4spihr1blo"
-path="res://.godot/imported/Curtain (Right).png-045fd65e4bac2db0ee518c7defecb14c.ctex"
+uid="uid://u13tr52c88u5"
+path="res://.godot/imported/Background.png-74cc5b4e81901a8c81ad69dad5772e91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/Curtain (Right).png"
-dest_files=["res://.godot/imported/Curtain (Right).png-045fd65e4bac2db0ee518c7defecb14c.ctex"]
+source_file="res://assets/ui/Level Select Menu/Background.png"
+dest_files=["res://.godot/imported/Background.png-74cc5b4e81901a8c81ad69dad5772e91.ctex"]
 
 [params]
 

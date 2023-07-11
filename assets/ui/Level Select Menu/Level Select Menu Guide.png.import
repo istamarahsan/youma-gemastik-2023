@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ul717v3v3m1h"
-path="res://.godot/imported/Rope.png-efc50978538e4a963cb7c069a409ed43.ctex"
+uid="uid://dfto0f4327ik"
+path="res://.godot/imported/Level Select Menu Guide.png-f7b486a03eee231f47c4f1b3368d38c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/Rope.png"
-dest_files=["res://.godot/imported/Rope.png-efc50978538e4a963cb7c069a409ed43.ctex"]
+source_file="res://assets/ui/Level Select Menu/Level Select Menu Guide.png"
+dest_files=["res://.godot/imported/Level Select Menu Guide.png-f7b486a03eee231f47c4f1b3368d38c6.ctex"]
 
 [params]
 

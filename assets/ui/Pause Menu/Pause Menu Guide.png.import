@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bomararrbba3p"
-path="res://.godot/imported/Curtain (Left).png-9cdf7279bc9c22a57691b757dda88147.ctex"
+uid="uid://brklm3qe2modc"
+path="res://.godot/imported/Pause Menu Guide.png-224b2ebc0933c8f3e05d22ed16e7e71e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/Curtain (Left).png"
-dest_files=["res://.godot/imported/Curtain (Left).png-9cdf7279bc9c22a57691b757dda88147.ctex"]
+source_file="res://assets/ui/Pause Menu/Pause Menu Guide.png"
+dest_files=["res://.godot/imported/Pause Menu Guide.png-224b2ebc0933c8f3e05d22ed16e7e71e.ctex"]
 
 [params]
 
