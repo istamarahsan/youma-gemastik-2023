@@ -5,9 +5,9 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7phwk"]
 size = Vector2(50, 50)
 
-[node name="PlayerAvatar" type="Node2D" node_paths=PackedStringArray("sprite", "nav")]
+[node name="PlayerAvatar" type="Node2D" node_paths=PackedStringArray("nav")]
 script = ExtResource("1_7gvsn")
-sprite = NodePath("Sprite2D")
+sprite_path = NodePath("Sprite2D")
 nav = NodePath("NavigationAgent2D")
 metadata/_edit_lock_ = true
 

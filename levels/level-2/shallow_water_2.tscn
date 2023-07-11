@@ -5,13 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://cptnlsqj27q70" path="res://levels/components/triggers/on-state/trigger_on_state.tscn" id="3_af7el"]
 [ext_resource type="Script" path="res://levels/components/state_value_constraint.gd" id="4_yhurv"]
 [ext_resource type="PackedScene" uid="uid://bfpf153epxhnw" path="res://levels/components/completion_announcer.tscn" id="5_negr8"]
-[ext_resource type="PackedScene" uid="uid://bmxug32uvmx3p" path="res://levels/components/player-avatar/placeholder_avatar.tscn" id="6_dn4vv"]
 [ext_resource type="Texture2D" uid="uid://fk6yxxoq7bsp" path="res://assets/maps/2Shallow Water/Shallow Water L4.png" id="7_2d3jm"]
 [ext_resource type="Texture2D" uid="uid://dycbxd3rns1xp" path="res://assets/maps/2Shallow Water/Shallow Water L3.png" id="8_hrccc"]
 [ext_resource type="Texture2D" uid="uid://dgxsi364uiqme" path="res://assets/maps/2Shallow Water/Shallow Water L2.png" id="9_0qoot"]
 [ext_resource type="Texture2D" uid="uid://cw5ixvljvog6f" path="res://assets/maps/2Shallow Water/Shallow Water L1.png" id="10_oe142"]
 [ext_resource type="PackedScene" uid="uid://hbk5evvrhfs7" path="res://levels/components/interaction-object/physics_area_interaction_object.tscn" id="11_lidfh"]
 [ext_resource type="Script" path="res://levels/components/interaction-object/value_effect.gd" id="12_spr1b"]
+[ext_resource type="PackedScene" uid="uid://cdo0vs8v01f00" path="res://levels/components/player-avatar/sura_avatar.tscn" id="14_6cif8"]
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="15_0femd"]
 [ext_resource type="PackedScene" uid="uid://dqf2u285cydmu" path="res://levels/props/stone.tscn" id="17_u2j8i"]
 
@@ -38,7 +38,7 @@ effect = 1
 
 [node name="ShallowWater" type="Node2D" node_paths=PackedStringArray("player_avatar", "state_hook")]
 script = ExtResource("1_hgox2")
-player_avatar = NodePath("PlayerAvatar")
+player_avatar = NodePath("Sura")
 state_hook = NodePath("LevelStateHook")
 metadata/_edit_lock_ = true
 
@@ -57,9 +57,6 @@ values = Array[ExtResource("4_yhurv")]([SubResource("Resource_fox2l")])
 
 [node name="CompletionAnnouncer" parent="." node_paths=PackedStringArray("trigger") instance=ExtResource("5_negr8")]
 trigger = NodePath("../CompletionTrigger")
-
-[node name="PlayerAvatar" parent="." instance=ExtResource("6_dn4vv")]
-position = Vector2(1836, 318)
 
 [node name="StaticBackground" type="Sprite2D" parent="."]
 z_index = -10
@@ -105,3 +102,7 @@ script = ExtResource("15_0femd")
 [node name="StonePlaced" parent="." instance=ExtResource("17_u2j8i")]
 position = Vector2(764, 786)
 rotation = -0.770111
+
+[node name="Sura" parent="." instance=ExtResource("14_6cif8")]
+position = Vector2(116, 105)
+start_flipped = true

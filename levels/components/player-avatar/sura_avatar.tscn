@@ -1,16 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdo0vs8v01f00"]
+[gd_scene load_steps=4 format=3 uid="uid://cdo0vs8v01f00"]
 
 [ext_resource type="Script" path="res://levels/components/player-avatar/player_avatar.gd" id="1_sxst7"]
 [ext_resource type="Texture2D" uid="uid://bh4crkw3ynxgv" path="res://assets/Hiu.png" id="2_3utck"]
 [ext_resource type="PackedScene" uid="uid://di0e3jwg8dauv" path="res://levels/components/player-avatar/popup_emitter.tscn" id="3_r7jjr"]
-[ext_resource type="Texture2D" uid="uid://g3r2q7lwl0bc" path="res://assets/props/Bait.png" id="4_e6s05"]
 
-[node name="Sura" type="Node2D" node_paths=PackedStringArray("sprite", "nav", "inventory_emitter")]
+[node name="Sura" type="Node2D" node_paths=PackedStringArray("nav", "inventory_emitter")]
 z_as_relative = false
 script = ExtResource("1_sxst7")
-sprite = NodePath("SuraSprite")
+sprite_path = NodePath("SuraSprite")
 nav = NodePath("NavigationAgent2D")
-inventory_emitter = NodePath("")
+inventory_emitter = NodePath("Popups")
 
 [node name="SuraSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_3utck")
@@ -18,11 +17,3 @@ texture = ExtResource("2_3utck")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="Popups" parent="." instance=ExtResource("3_r7jjr")]
-position = Vector2(45, -37)
-lifetime = 0.5
-direction = Vector2(0, -1)
-spread = 0.0
-gravity = Vector2(0, -100)
-initial_velocity_min = 100.0
-initial_velocity_max = 100.0
-bait = ExtResource("4_e6s05")
