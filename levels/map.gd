@@ -27,7 +27,6 @@ func _ready():
 	state_hook.state_updated_delta.connect(
 		func(_state, val_delta, _flag_delta):
 			if val_delta.has("bait"):
-				print_debug(name)
 				var bait_delta: int = val_delta["bait"]
 				var gained: bool = bait_delta > 0
 				if gained:
