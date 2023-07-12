@@ -46,7 +46,6 @@ func _handle_action(land: SpecialMapInterationObject, action: Choice):
 		if _is_map_complete():
 			completion_announcer.completed.emit()
 	else:
-		_no()
 		_reset_state()
 
 func _is_state_valid() -> bool:

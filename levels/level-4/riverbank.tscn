@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dj3y7uk2ausgm"]
+[gd_scene load_steps=24 format=3 uid="uid://dj3y7uk2ausgm"]
 
 [ext_resource type="Texture2D" uid="uid://bms4y7aqc81lw" path="res://assets/maps/4RiverBank/River Bank L6.png" id="1_bvx0w"]
 [ext_resource type="Script" path="res://levels/level-4/riverbank.gd" id="1_fua2c"]
@@ -17,6 +17,9 @@
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="13_beo5v"]
 [ext_resource type="PackedScene" uid="uid://dt385jgnnpvbw" path="res://levels/level-4/time_attack_spawner.tscn" id="13_kb7ji"]
 [ext_resource type="PackedScene" uid="uid://cdo0vs8v01f00" path="res://levels/components/player-avatar/sura_avatar.tscn" id="17_tctuh"]
+[ext_resource type="PackedScene" uid="uid://bfpf153epxhnw" path="res://levels/components/completion_announcer.tscn" id="18_8osvx"]
+[ext_resource type="Theme" uid="uid://44i6ats70703" path="res://assets/youma_theme.tres" id="19_hvx5v"]
+[ext_resource type="Script" path="res://levels/level-4/TimeRemainingLabel.gd" id="20_d5qu2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5d4sj"]
 shader = ExtResource("8_urkj8")
@@ -44,7 +47,7 @@ spawn_interval_seconds = 5.0
 metadata/_edit_lock_ = true
 
 [node name="Spawner2" parent="." instance=ExtResource("13_kb7ji")]
-position = Vector2(1979, 1017)
+position = Vector2(1979, 950)
 active = true
 speed = 0.4
 metadata/_edit_lock_ = true
@@ -175,3 +178,25 @@ metadata/_edit_lock_ = true
 
 [node name="Sura" parent="." instance=ExtResource("17_tctuh")]
 position = Vector2(1184, 992)
+
+[node name="CompletionAnnouncer" parent="." instance=ExtResource("18_8osvx")]
+
+[node name="CompletionTimer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="TimeRemainingLabel" type="Label" parent="." node_paths=PackedStringArray("timer")]
+offset_left = 1695.0
+offset_top = 56.0
+offset_right = 1821.0
+offset_bottom = 128.0
+theme = ExtResource("19_hvx5v")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("20_d5qu2")
+timer = NodePath("../CompletionTimer")
+
+[connection signal="timeout" from="CompletionTimer" to="." method="_on_completion_t_imer_timeout"]

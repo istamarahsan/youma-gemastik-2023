@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvpvhcovs18l0"]
+[gd_scene load_steps=6 format=3 uid="uid://cvpvhcovs18l0"]
 
 [ext_resource type="PackedScene" uid="uid://dj3y7uk2ausgm" path="res://levels/level-4/riverbank.tscn" id="1_8yxbl"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_qwk07"]
+[ext_resource type="Texture2D" uid="uid://c32m4qpb166x7" path="res://assets/maps/0Frame/Frame Behind.png" id="2_s6ca6"]
+[ext_resource type="Texture2D" uid="uid://b01vb4lpj8gsr" path="res://assets/maps/0Frame/Frame.png" id="3_l64bh"]
 [ext_resource type="Script" path="res://levels/level_state.gd" id="3_y6pj4"]
 
 [node name="Level4" type="Node2D" node_paths=PackedStringArray("offstage_marker", "state", "start")]
@@ -9,6 +11,18 @@ script = ExtResource("1_qwk07")
 offstage_marker = NodePath("Offstage")
 state = NodePath("LevelState")
 start = NodePath("Riverbank")
+
+[node name="FrameBehind" type="Sprite2D" parent="."]
+z_index = 99
+z_as_relative = false
+texture = ExtResource("2_s6ca6")
+centered = false
+
+[node name="Frame" type="Sprite2D" parent="."]
+z_index = 100
+z_as_relative = false
+texture = ExtResource("3_l64bh")
+centered = false
 
 [node name="Riverbank" parent="." instance=ExtResource("1_8yxbl")]
 

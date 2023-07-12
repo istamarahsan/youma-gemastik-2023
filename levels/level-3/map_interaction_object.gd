@@ -11,6 +11,7 @@ var enabled: bool:
 		if _enabled and value == false:
 			fading = true
 		if not _enabled and value == true:
+			fading = false
 			material.set_shader_parameter("degree", 0)
 		_enabled = value
 	get:

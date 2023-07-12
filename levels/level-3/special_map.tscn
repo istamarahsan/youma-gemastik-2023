@@ -35,7 +35,7 @@ land = NodePath("Land3")
 correct_choice = 1
 metadata/_editor_prop_ptr_land = NodePath("Land3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j1lfw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tfcv5"]
 resource_local_to_scene = true
 shader = ExtResource("9_movqu")
 shader_parameter/degree = 0.0
@@ -44,12 +44,12 @@ shader_parameter/degree = 0.0
 radius = 83.0
 height = 678.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y5ubi"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a3fyr"]
 resource_local_to_scene = true
 shader = ExtResource("9_movqu")
 shader_parameter/degree = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0uuwd"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jb7mn"]
 resource_local_to_scene = true
 shader = ExtResource("9_movqu")
 shader_parameter/degree = 0.0
@@ -72,13 +72,13 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Land1" type="Sprite2D" parent="." node_paths=PackedStringArray("area2D", "action_menu")]
-material = SubResource("ShaderMaterial_j1lfw")
+material = SubResource("ShaderMaterial_tfcv5")
 position = Vector2(1261, 220)
 texture = ExtResource("6_xv33b")
 script = ExtResource("6_jbi6i")
 area2D = NodePath("../Land1TouchClickArea")
 action_menu = NodePath("MapActionSelectMenu")
-grayout_time = 0.7
+grayout_time = 1.0
 metadata/_edit_lock_ = true
 
 [node name="MapActionSelectMenu" parent="Land1" instance=ExtResource("8_d16d1")]
@@ -102,7 +102,7 @@ shape = SubResource("CapsuleShape2D_ha5qn")
 metadata/_edit_lock_ = true
 
 [node name="Land2" type="Sprite2D" parent="." node_paths=PackedStringArray("area2D", "action_menu")]
-material = SubResource("ShaderMaterial_y5ubi")
+material = SubResource("ShaderMaterial_a3fyr")
 position = Vector2(1270, 684)
 texture = ExtResource("7_pjsrc")
 script = ExtResource("6_jbi6i")
@@ -128,7 +128,7 @@ polygon = PackedVector2Array(997, 477, 918, 547, 922, 688, 844, 729, 822, 826, 9
 metadata/_edit_lock_ = true
 
 [node name="Land3" type="Sprite2D" parent="." node_paths=PackedStringArray("area2D", "action_menu")]
-material = SubResource("ShaderMaterial_0uuwd")
+material = SubResource("ShaderMaterial_jb7mn")
 position = Vector2(562, 474)
 texture = ExtResource("8_8tqln")
 script = ExtResource("6_jbi6i")

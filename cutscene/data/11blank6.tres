@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Cutscene" load_steps=6 format=3 uid="uid://cccd80xkf77rg"]
+[gd_resource type="Resource" script_class="Cutscene" load_steps=6 format=3 uid="uid://bj3mhu8ykx5df"]
 
 [ext_resource type="Script" path="res://cutscene/cutscene_line.gd" id="1_0mmei"]
 [ext_resource type="Script" path="res://cutscene/cutscene.gd" id="1_njiwa"]

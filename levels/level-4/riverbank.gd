@@ -13,3 +13,6 @@ func _ready():
 					creature.position = spawners[node.name].position
 					_register_io(creature.io)
 					)
+
+func _on_completion_t_imer_timeout():
+	$CompletionAnnouncer.completed.emit()

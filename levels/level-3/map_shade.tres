@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://y0dvwqsfcc2v"]
+
+[ext_resource type="Shader" path="res://levels/level-3/special_map_object.gdshader" id="1_74qto"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_74qto")
+shader_parameter/degree = 0.0
