@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dj3y7uk2ausgm"]
+[gd_scene load_steps=25 format=3 uid="uid://dj3y7uk2ausgm"]
 
 [ext_resource type="Texture2D" uid="uid://bms4y7aqc81lw" path="res://assets/maps/4RiverBank/River Bank L6.png" id="1_bvx0w"]
 [ext_resource type="Script" path="res://levels/level-4/riverbank.gd" id="1_fua2c"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bfpf153epxhnw" path="res://levels/components/completion_announcer.tscn" id="18_8osvx"]
 [ext_resource type="Theme" uid="uid://44i6ats70703" path="res://assets/youma_theme.tres" id="19_hvx5v"]
 [ext_resource type="Script" path="res://levels/level-4/TimeRemainingLabel.gd" id="20_d5qu2"]
+[ext_resource type="Texture2D" uid="uid://k0xd4mv0ihaa" path="res://assets/ui/Timer.png" id="21_peuwu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5d4sj"]
 shader = ExtResource("8_urkj8")
@@ -186,14 +187,19 @@ wait_time = 30.0
 one_shot = true
 autostart = true
 
+[node name="TimerBoard" type="Sprite2D" parent="."]
+texture = ExtResource("21_peuwu")
+centered = false
+
 [node name="TimeRemainingLabel" type="Label" parent="." node_paths=PackedStringArray("timer")]
-offset_left = 1695.0
-offset_top = 56.0
-offset_right = 1821.0
-offset_bottom = 128.0
+offset_left = 1590.0
+offset_top = 117.0
+offset_right = 1716.0
+offset_bottom = 189.0
+rotation = 0.0890118
 theme = ExtResource("19_hvx5v")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
+text = "00"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("20_d5qu2")
