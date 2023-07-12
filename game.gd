@@ -16,6 +16,8 @@ const pause_menu_scene: PackedScene = preload("res://ui/pause-menu/pause_menu.ts
 @export var stage_transition_cover: TransitionCover
 @export var pause_transition_cover: TransitionCover
 
+@onready var rope_button: Control = $Rope
+
 var active_stage: Stage
 var stage_num: int = 0
 var state: State = State.LoadingStage
@@ -51,6 +53,10 @@ func _load_stage():
 		return
 	var stage_loader = stage_set.stages[stage_num] as StageLoader
 	active_stage = stage_loader.load_stage()
+	if active_stage is Level:
+		rope_button.visible = true
+	else:
+		rope_button.visible = false
 	add_child(active_stage)
 	active_stage.exited.connect(_on_stage_exited)
 	active_stage.completed.connect(_on_stage_completed)
@@ -61,6 +67,7 @@ func _to_pause_menu():
 	state = State.Pausing
 	pause_transition_cover.close()
 	await pause_transition_cover.done
+	rope_button.visible = false
 	if active_stage != null:
 		active_stage.visible = false
 	var pause_menu = pause_menu_scene.instantiate() as PauseMenu
@@ -80,6 +87,7 @@ func _on_pause_menu_lanjut(menu: PauseMenu):
 	state = State.Pausing
 	pause_transition_cover.close()
 	await pause_transition_cover.done
+	rope_button.visible = true
 	menu.visible = false
 	active_stage.visible = true
 	pause_transition_cover.open()
@@ -94,3 +102,6 @@ func _on_pause_menu_quit(menu: PauseMenu):
 
 func _on_levels_completed():
 	quit_to_main_menu.emit()
+
+func _on_rope_button_up():
+	_to_pause_menu()

@@ -76,7 +76,9 @@ func _on_click(name: String):
 		traveling = false
 		return
 	if active_interaction_object_name != null and interaction_objects_by_name.has(active_interaction_object_name):
-		interaction_objects_by_name[active_interaction_object_name].show_idle()
+		var io = interaction_objects_by_name.get(active_interaction_object_name, null)
+		if io != null and is_instance_valid(io):
+			io.show_idle()
 	active_interaction_object_name = name
 	interaction_objects_by_name[active_interaction_object_name].show_active()
 

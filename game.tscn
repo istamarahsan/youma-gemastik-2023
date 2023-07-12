@@ -1,16 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://d00nirxfwmfs0"]
+[gd_scene load_steps=10 format=3 uid="uid://d00nirxfwmfs0"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_yodcq"]
 [ext_resource type="Resource" uid="uid://b40mguy7ahpdq" path="res://stage_set_main.tres" id="2_gnvhb"]
+[ext_resource type="AudioStream" uid="uid://mh6ww64l6l2i" path="res://assets/gameplay.wav" id="5_lq8vp"]
 [ext_resource type="PackedScene" uid="uid://dgtwkefcxn0qs" path="res://transition_cover.tscn" id="5_n1f1a"]
+[ext_resource type="Script" path="res://audio/audio_manager_hook.gd" id="6_35mud"]
 [ext_resource type="Shader" path="res://shaders/transition_cover.gdshader" id="6_ykqvb"]
+[ext_resource type="Texture2D" uid="uid://bjea3wal8hdbg" path="res://assets/ui/Pause Menu/Rope.png" id="7_8xgkw"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rnr88"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2tgtd"]
 resource_local_to_scene = true
 shader = ExtResource("6_ykqvb")
 shader_parameter/opacity = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4cikh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2avc"]
 resource_local_to_scene = true
 shader = ExtResource("6_ykqvb")
 shader_parameter/opacity = 0.0
@@ -22,9 +25,31 @@ stage_transition_cover = NodePath("StageCover")
 pause_transition_cover = NodePath("PauseCover")
 
 [node name="StageCover" parent="." instance=ExtResource("5_n1f1a")]
-material = SubResource("ShaderMaterial_rnr88")
+material = SubResource("ShaderMaterial_2tgtd")
 time_seconds = 2.0
 
 [node name="PauseCover" parent="." instance=ExtResource("5_n1f1a")]
-material = SubResource("ShaderMaterial_4cikh")
+material = SubResource("ShaderMaterial_h2avc")
 time_seconds = 0.5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lq8vp")
+autoplay = true
+bus = &"Music"
+script = ExtResource("6_35mud")
+channel = 1
+
+[node name="Rope" type="TextureButton" parent="."]
+z_index = 4000
+z_as_relative = false
+offset_left = 1426.0
+offset_top = -748.0
+offset_right = 1461.0
+offset_bottom = 201.0
+texture_normal = ExtResource("7_8xgkw")
+texture_pressed = ExtResource("7_8xgkw")
+texture_hover = ExtResource("7_8xgkw")
+texture_disabled = ExtResource("7_8xgkw")
+texture_focused = ExtResource("7_8xgkw")
+
+[connection signal="button_up" from="Rope" to="." method="_on_rope_button_up"]
