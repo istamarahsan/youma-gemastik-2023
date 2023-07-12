@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctfjjxkmx4ro2"]
+
+[ext_resource type="Theme" uid="uid://44i6ats70703" path="res://assets/youma_theme.tres" id="1_bk3m0"]
+[ext_resource type="Script" path="res://levels/in_level_subscript.gd" id="2_ehi0u"]
+
+[node name="Sub" type="Label"]
+modulate = Color(1, 1, 1, 0.784314)
+z_index = 800
+z_as_relative = false
+offset_left = 369.0
+offset_top = 890.0
+offset_right = 1549.0
+offset_bottom = 983.0
+theme = ExtResource("1_bk3m0")
+theme_override_colors/font_color = Color(1, 1, 1, 0.705882)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+script = ExtResource("2_ehi0u")
+lifetime = 2.5
+fade = 0.5
+start_delay = 1.0
+
+[node name="DelayTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="IntervalTimer" type="Timer" parent="."]
+
+[node name="LifetimeTimer" type="Timer" parent="."]

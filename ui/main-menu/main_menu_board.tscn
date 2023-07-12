@@ -14,6 +14,7 @@ texture_disabled = ExtResource("1_60doo")
 texture_focused = ExtResource("1_60doo")
 stretch_mode = 4
 script = ExtResource("2_k73yq")
+text = "Text"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

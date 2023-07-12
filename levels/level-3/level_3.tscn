@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://doqfki6lxrqht"]
+[gd_scene load_steps=6 format=3 uid="uid://doqfki6lxrqht"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_33nxs"]
+[ext_resource type="PackedScene" uid="uid://ctfjjxkmx4ro2" path="res://levels/in_level_sub.tscn" id="2_30kuk"]
 [ext_resource type="Script" path="res://levels/level_state.gd" id="2_fx6y4"]
 [ext_resource type="PackedScene" uid="uid://bgcldpxasfmfj" path="res://levels/level-3/special_map.tscn" id="3_xm8x3"]
 [ext_resource type="Texture2D" uid="uid://txf4xgmdo5jr" path="res://assets/maps/Map/Map Frame.png" id="4_66lm3"]
@@ -10,6 +11,12 @@ script = ExtResource("1_33nxs")
 offstage_marker = NodePath("Offstage")
 state = NodePath("LevelState")
 start = NodePath("SpecialMap")
+
+[node name="Sub" parent="." instance=ExtResource("2_30kuk")]
+offset_top = 949.0
+offset_bottom = 1042.0
+max_opacity = 1.0
+lines = Array[String](["\"Daerah buruan akan dibagi menjadi dua, lautan dan daratan.\"", "\"Aku, Sura, berkuasa sepenuhnya di dalam air dan harus mencari mangsa di dalam air.\" ", "\"Sebagai batas antara daratan dan air, kita tentukan batasnya, yaitu tempat yang dicapai oleh air laut pada waktu pasang surut!\""])
 
 [node name="Offstage" type="Node2D" parent="."]
 position = Vector2(2411, -189)

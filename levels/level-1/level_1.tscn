@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://hbpsunwiwwah"]
+[gd_scene load_steps=9 format=3 uid="uid://hbpsunwiwwah"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_3228o"]
+[ext_resource type="PackedScene" uid="uid://ctfjjxkmx4ro2" path="res://levels/in_level_sub.tscn" id="2_m1vvj"]
 [ext_resource type="PackedScene" uid="uid://eeo6nnifrnkt" path="res://levels/level-1/seashore.tscn" id="2_mfrhg"]
 [ext_resource type="PackedScene" uid="uid://daurln12f3efl" path="res://levels/level-1/shallow_water_1.tscn" id="3_te1yl"]
 [ext_resource type="Script" path="res://levels/level_state.gd" id="4_u6n7k"]
 [ext_resource type="Texture2D" uid="uid://c32m4qpb166x7" path="res://assets/maps/0Frame/Frame Behind.png" id="5_7kicj"]
+[ext_resource type="Texture2D" uid="uid://cnf7xbyety3t8" path="res://assets/ui/Dialogue Box.png" id="5_u2g4o"]
 [ext_resource type="Texture2D" uid="uid://b01vb4lpj8gsr" path="res://assets/maps/0Frame/Frame.png" id="6_7vvih"]
 
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("offstage_marker", "state", "start")]
@@ -12,6 +14,9 @@ script = ExtResource("1_3228o")
 offstage_marker = NodePath("OffstageMarker")
 state = NodePath("LevelState")
 start = NodePath("Seashore")
+
+[node name="Sub" parent="." instance=ExtResource("2_m1vvj")]
+lines = Array[String](["Baya merupakan seekor buaya yang luar biasa. Kecepatan dalam memburu mangsanya tiada tandingan.", "Dalam satu hari, satu daerah bisa kosong akan ikan dan burung.", "Hari itu, Baya merasa lebih lapar dari biasanya."])
 
 [node name="Seashore" parent="." instance=ExtResource("2_mfrhg")]
 
@@ -21,18 +26,26 @@ position = Vector2(2649, 6)
 
 [node name="OffstageMarker" type="Node2D" parent="."]
 position = Vector2(2649, 6)
+metadata/_edit_lock_ = true
 
 [node name="LevelState" type="Node" parent="."]
 script = ExtResource("4_u6n7k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(967, 1150)
+texture = ExtResource("5_u2g4o")
 
 [node name="FrameBehind" type="Sprite2D" parent="."]
 z_index = 99
 z_as_relative = false
 texture = ExtResource("5_7kicj")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="Frame" type="Sprite2D" parent="."]
 z_index = 100
 z_as_relative = false
 texture = ExtResource("6_7vvih")
 centered = false
+metadata/_edit_lock_ = true

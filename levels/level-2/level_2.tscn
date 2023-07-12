@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6soo36kpbmc6"]
+[gd_scene load_steps=8 format=3 uid="uid://c6soo36kpbmc6"]
 
 [ext_resource type="Script" path="res://levels/level_state.gd" id="1_8iuob"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_kq3b3"]
+[ext_resource type="PackedScene" uid="uid://ctfjjxkmx4ro2" path="res://levels/in_level_sub.tscn" id="2_qh4dx"]
 [ext_resource type="PackedScene" uid="uid://c0i5g18h7ijcj" path="res://levels/level-2/deep_water.tscn" id="3_jbq46"]
 [ext_resource type="Texture2D" uid="uid://c32m4qpb166x7" path="res://assets/maps/0Frame/Frame Behind.png" id="4_catla"]
 [ext_resource type="Texture2D" uid="uid://b01vb4lpj8gsr" path="res://assets/maps/0Frame/Frame.png" id="5_nqhja"]
@@ -12,6 +13,9 @@ script = ExtResource("1_kq3b3")
 offstage_marker = NodePath("OffstageMarker")
 state = NodePath("LevelState")
 start = NodePath("DeepWater")
+
+[node name="Sub" parent="." instance=ExtResource("2_qh4dx")]
+lines = Array[String](["Sura, seekor hiu yang cerdik, merasa janggal akan daerah buruannya.", "Ekosistem terasa lebih sepi dari biasanya.", "Sura curiga."])
 
 [node name="OffstageMarker" type="Node2D" parent="."]
 position = Vector2(2649, 6)
