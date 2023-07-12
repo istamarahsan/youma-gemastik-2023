@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://c08xeo4k3wefv"]
+[gd_scene load_steps=5 format=3 uid="uid://c08xeo4k3wefv"]
 
 [ext_resource type="Script" path="res://levels/components/player-avatar/player_avatar.gd" id="1_oaomu"]
 [ext_resource type="Texture2D" uid="uid://bee71nxgqps5y" path="res://assets/Buaya.png" id="2_nddq5"]
 [ext_resource type="PackedScene" uid="uid://di0e3jwg8dauv" path="res://levels/components/player-avatar/popup_emitter.tscn" id="3_jp32a"]
+[ext_resource type="Texture2D" uid="uid://bh4tawjpx1gqp" path="res://assets/Item yg dihold.png" id="4_wv682"]
 
-[node name="Baya" type="Node2D" node_paths=PackedStringArray("nav", "inventory_emitter")]
+[node name="Baya" type="Node2D" node_paths=PackedStringArray("nav", "inventory_emitter", "inventory_indicator")]
 script = ExtResource("1_oaomu")
 sprite_path = NodePath("BayaSprite")
 nav = NodePath("NavigationAgent2D")
 inventory_emitter = NodePath("Popups")
+inventory_indicator = NodePath("Item Indicator")
 
 [node name="BayaSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_nddq5")
@@ -17,3 +19,9 @@ texture = ExtResource("2_nddq5")
 
 [node name="Popups" parent="." instance=ExtResource("3_jp32a")]
 position = Vector2(56, -39)
+
+[node name="Item Indicator" type="Sprite2D" parent="."]
+z_as_relative = false
+position = Vector2(62, -36)
+scale = Vector2(2, 2)
+texture = ExtResource("4_wv682")

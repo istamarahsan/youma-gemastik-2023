@@ -18,6 +18,7 @@ signal arrived
 @export var sprite_path: NodePath
 @export var nav: NavigationAgent2D
 @export var inventory_emitter: InventoryPopupEmitter
+@export var inventory_indicator: Node2D
 
 @onready var sprite = get_node(sprite_path)
 
@@ -27,6 +28,7 @@ func _ready():
 	if Engine.is_editor_hint():
 		return
 	nav.navigation_finished.connect(_on_navigation_agent_2d_navigation_finished)
+	inventory_indicator.visible = false
 
 func _physics_process(delta):
 	if Engine.is_editor_hint():
@@ -37,6 +39,12 @@ func _physics_process(delta):
 func show_bait():
 	if inventory_emitter != null:
 		inventory_emitter.show_bait()
+	
+func show_held():
+	inventory_indicator.visible = true
+
+func unshow_held():
+	inventory_indicator.visible = false
 
 func show_text(str: String):
 	if inventory_emitter != null:

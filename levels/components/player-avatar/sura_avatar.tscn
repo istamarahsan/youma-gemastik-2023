@@ -1,20 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdo0vs8v01f00"]
+[gd_scene load_steps=5 format=3 uid="uid://cdo0vs8v01f00"]
 
 [ext_resource type="Script" path="res://levels/components/player-avatar/player_avatar.gd" id="1_sxst7"]
 [ext_resource type="Texture2D" uid="uid://bh4crkw3ynxgv" path="res://assets/Hiu.png" id="2_3utck"]
 [ext_resource type="PackedScene" uid="uid://di0e3jwg8dauv" path="res://levels/components/player-avatar/popup_emitter.tscn" id="3_r7jjr"]
+[ext_resource type="Texture2D" uid="uid://bh4tawjpx1gqp" path="res://assets/Item yg dihold.png" id="4_rxh6l"]
 
-[node name="Sura" type="Node2D" node_paths=PackedStringArray("nav", "inventory_emitter")]
+[node name="Sura" type="Node2D" node_paths=PackedStringArray("nav", "inventory_emitter", "inventory_indicator")]
 z_as_relative = false
 script = ExtResource("1_sxst7")
 sprite_path = NodePath("SuraSprite")
 nav = NodePath("NavigationAgent2D")
 inventory_emitter = NodePath("Popups")
+inventory_indicator = NodePath("Item Indicator")
+metadata/_edit_lock_ = true
 
 [node name="SuraSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_3utck")
+metadata/_edit_lock_ = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="Popups" parent="." instance=ExtResource("3_r7jjr")]
 position = Vector2(56, -55)
+
+[node name="Item Indicator" type="Sprite2D" parent="."]
+z_as_relative = false
+position = Vector2(53, -42)
+scale = Vector2(2, 2)
+texture = ExtResource("4_rxh6l")

@@ -26,14 +26,20 @@ func _ready():
 			_register_io(io)
 	state_hook.state_updated_delta.connect(
 		func(_state, val_delta, _flag_delta):
-			if val_delta.has("bait"):
-				var bait_delta: int = val_delta["bait"]
-				var gained: bool = bait_delta > 0
-				if gained:
-					player_avatar.show_bait()
+#			if val_delta.has("bait"):
+#				var bait_delta: int = val_delta["bait"]
+#				var gained: bool = bait_delta > 0
+#				if gained:
+#					player_avatar.show_bait()
+			if state_hook.get_state().get_value("bait") > 0:
+				player_avatar.show_held()
+			else:
+				player_avatar.unshow_held()
+			
 			if val_delta.has("food"):
 				var food = state_hook.get_state().get_value("food")
 				player_avatar.show_food(food)
+			
 			if val_delta.has("sus"):
 				player_avatar.show_text("?")
 			)
