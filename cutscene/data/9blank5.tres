@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Cutscene" load_steps=7 format=3 uid="uid://bqacctmo5a7m2"]
+
+[ext_resource type="Script" path="res://cutscene/cutscene.gd" id="1_7ks6w"]
+[ext_resource type="Script" path="res://cutscene/cutscene_line.gd" id="1_s61gs"]
+
+[sub_resource type="Resource" id="Resource_w6xfn"]
+script = ExtResource("1_s61gs")
+character = ""
+line = "Melihat daerah buruannya, Baya merasa puas."
+
+[sub_resource type="Resource" id="Resource_8hwti"]
+script = ExtResource("1_s61gs")
+character = ""
+line = "\"Baik, aku setuju dengan gagasanmu!\""
+
+[sub_resource type="Resource" id="Resource_vp84k"]
+script = ExtResource("1_s61gs")
+character = ""
+line = "Dengan adanya pembagian daerah, pertarungan antar Sura dan Baya juga berakhir."
+
+[sub_resource type="Resource" id="Resource_efgvo"]
+script = ExtResource("1_s61gs")
+character = ""
+line = "Mereka sepakat untuk menghormati wilayah masing-masing."
+
+[resource]
+script = ExtResource("1_7ks6w")
+lines = Array[ExtResource("1_s61gs")]([SubResource("Resource_w6xfn"), SubResource("Resource_8hwti"), SubResource("Resource_vp84k"), SubResource("Resource_efgvo")])

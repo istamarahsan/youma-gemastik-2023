@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Cutscene" load_steps=6 format=3 uid="uid://dubrdpj8cj21c"]
+
+[ext_resource type="Script" path="res://cutscene/cutscene_line.gd" id="1_ia2wf"]
+[ext_resource type="Script" path="res://cutscene/cutscene.gd" id="1_rinhp"]
+
+[sub_resource type="Resource" id="Resource_1gvbr"]
+script = ExtResource("1_ia2wf")
+character = ""
+line = "Rupanya mereka sama-sama tangguh."
+
+[sub_resource type="Resource" id="Resource_xnple"]
+script = ExtResource("1_ia2wf")
+character = ""
+line = "Sura yang cerdik selalu menghindar dari serangan. Baya yang kuat selalu bertahan."
+
+[sub_resource type="Resource" id="Resource_qcq62"]
+script = ExtResource("1_ia2wf")
+character = ""
+line = "Sudah berkali-kali mereka bertarung, namun belum ada yang menang, maupun kalah."
+
+[resource]
+script = ExtResource("1_rinhp")
+lines = Array[ExtResource("1_ia2wf")]([SubResource("Resource_1gvbr"), SubResource("Resource_xnple"), SubResource("Resource_qcq62")])

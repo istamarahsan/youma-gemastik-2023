@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Cutscene" load_steps=6 format=3 uid="uid://wjos70afljvt"]
+
+[ext_resource type="Texture2D" uid="uid://cjqdc06xk2fqn" path="res://assets/cutscene/10.png" id="1_c0hm6"]
+[ext_resource type="Script" path="res://cutscene/cutscene.gd" id="1_ivcrt"]
+[ext_resource type="Script" path="res://cutscene/cutscene_line.gd" id="2_vcpgd"]
+
+[sub_resource type="Resource" id="Resource_w2lua"]
+script = ExtResource("2_vcpgd")
+character = ""
+line = "Benar. Betul sekali."
+
+[sub_resource type="Resource" id="Resource_hf1ll"]
+script = ExtResource("2_vcpgd")
+character = ""
+line = "Itulah Surabaya."
+
+[resource]
+script = ExtResource("1_ivcrt")
+bg = ExtResource("1_c0hm6")
+lines = Array[ExtResource("2_vcpgd")]([SubResource("Resource_w2lua"), SubResource("Resource_hf1ll")])

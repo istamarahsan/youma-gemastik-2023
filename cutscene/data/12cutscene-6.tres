@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="Cutscene" load_steps=9 format=3 uid="uid://cqew65d64opwi"]
+
+[ext_resource type="Script" path="res://cutscene/cutscene.gd" id="1_0jjkm"]
+[ext_resource type="Texture2D" uid="uid://cqekeylugf3vh" path="res://assets/cutscene/6.png" id="1_img07"]
+[ext_resource type="Script" path="res://cutscene/cutscene_line.gd" id="2_i41yu"]
+
+[sub_resource type="Resource" id="Resource_sdkrr"]
+script = ExtResource("2_i41yu")
+character = ""
+line = "Melihat Sura melanggar janjinya, Baya menjadi murka."
+
+[sub_resource type="Resource" id="Resource_k2n6g"]
+script = ExtResource("2_i41yu")
+character = ""
+line = "\"Sura, kenapa kamu di sini? Bukannya kita sudah sepakat untuk menghormati wilayah masing-masing?\""
+
+[sub_resource type="Resource" id="Resource_43ivo"]
+script = ExtResource("2_i41yu")
+character = ""
+line = "Sura yang merasa tidak bersalah, menjawab penuh percaya diri."
+
+[sub_resource type="Resource" id="Resource_rbcgl"]
+script = ExtResource("2_i41yu")
+character = ""
+line = "\"Kamu salah paham, Baya. Sungai ini masih termasuk daerah buruanku.\""
+
+[sub_resource type="Resource" id="Resource_aue6h"]
+script = ExtResource("2_i41yu")
+character = ""
+line = "\"Bukankah sungai ini berair? Yang melanggar kesepakatan justru kamu, Baya.\""
+
+[resource]
+script = ExtResource("1_0jjkm")
+bg = ExtResource("1_img07")
+lines = Array[ExtResource("2_i41yu")]([SubResource("Resource_sdkrr"), SubResource("Resource_k2n6g"), SubResource("Resource_43ivo"), SubResource("Resource_rbcgl"), SubResource("Resource_aue6h")])
