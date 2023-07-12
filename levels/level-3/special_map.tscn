@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bgcldpxasfmfj"]
+[gd_scene load_steps=24 format=3 uid="uid://bgcldpxasfmfj"]
 
 [ext_resource type="Script" path="res://levels/level-3/special_map.gd" id="1_ylxfk"]
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="2_g6qxi"]
@@ -12,6 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://glots66q8cwp" path="res://levels/level-3/map_action_select_menu.tscn" id="8_d16d1"]
 [ext_resource type="Shader" path="res://levels/level-3/special_map_object.gdshader" id="9_movqu"]
 [ext_resource type="Theme" uid="uid://44i6ats70703" path="res://assets/youma_theme.tres" id="11_g27gg"]
+[ext_resource type="AudioStream" uid="uid://cbwyps10880wo" path="res://assets/placeholder/phoenix-compendium/ui_menu_focus.wav" id="13_lob31"]
+[ext_resource type="Script" path="res://audio/audio_manager_hook.gd" id="14_qv5qx"]
+[ext_resource type="AudioStream" uid="uid://hrmba6ptu2ao" path="res://assets/placeholder/phoenix-compendium/ui_menu_cancel.wav" id="14_u0l5d"]
+[ext_resource type="AudioStream" uid="uid://bkltp0vvulae5" path="res://assets/placeholder/phoenix-compendium/ui_menu_ok.wav" id="15_owjvw"]
 
 [sub_resource type="Resource" id="Resource_tchgn"]
 script = ExtResource("2_ll7w6")
@@ -163,5 +167,17 @@ vertical_alignment = 1
 
 [node name="NOTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_lob31")
+script = ExtResource("14_qv5qx")
+
+[node name="Reset" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_u0l5d")
+script = ExtResource("14_qv5qx")
+
+[node name="Finalize" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_owjvw")
+script = ExtResource("14_qv5qx")
 
 [connection signal="timeout" from="NOTimer" to="." method="_on_no_timer_timeout"]

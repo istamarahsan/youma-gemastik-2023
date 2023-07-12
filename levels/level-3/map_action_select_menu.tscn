@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://glots66q8cwp"]
+[gd_scene load_steps=5 format=3 uid="uid://glots66q8cwp"]
 
 [ext_resource type="Script" path="res://levels/level-3/map_action_select_menu.gd" id="1_51jvs"]
 [ext_resource type="Theme" uid="uid://44i6ats70703" path="res://assets/youma_theme.tres" id="1_jv376"]
+[ext_resource type="Texture2D" uid="uid://bh4crkw3ynxgv" path="res://assets/Hiu.png" id="3_fx47b"]
+[ext_resource type="Texture2D" uid="uid://bee71nxgqps5y" path="res://assets/Buaya.png" id="4_gl33f"]
 
 [node name="MapActionSelectMenu" type="Control"]
 layout_mode = 3
@@ -32,12 +34,20 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
+[node name="SuraTexture" type="TextureRect" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_fx47b")
+stretch_mode = 3
+flip_h = true
+
 [node name="Sura" type="Button" parent="HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_jv376")
 theme_override_font_sizes/font_size = 50
-text = "Sura"
+text = "
+"
+flat = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -47,12 +57,17 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
+[node name="BayaTexture" type="TextureRect" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("4_gl33f")
+stretch_mode = 3
+
 [node name="Baya" type="Button" parent="HBoxContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_jv376")
 theme_override_font_sizes/font_size = 50
-text = "Baya"
+flat = true
 
 [connection signal="button_up" from="HBoxContainer/MarginContainer/Sura" to="." method="_on_sura_button_up"]
 [connection signal="button_up" from="HBoxContainer/MarginContainer2/Baya" to="." method="_on_baya_button_up"]

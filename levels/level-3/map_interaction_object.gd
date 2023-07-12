@@ -20,6 +20,7 @@ var _enabled: bool = true
 var fading: bool = false
 var time_elapsed: float = 0.0
 
+signal pressed
 signal sura_chosen
 signal baya_chosen
 
@@ -34,7 +35,7 @@ func _ready():
 	area2D.input_event.connect(
 		func(_viewport, event, _shape): 
 			if InputExtensions.input_is_left_click_or_touch(event):
-				_on_input()
+				pressed.emit()
 			)
 	action_menu.baya.connect(_on_action_baya)
 	action_menu.sura.connect(_on_action_sura)
@@ -50,12 +51,12 @@ func _process(delta):
 	var degree = lerpf(0, 1, time_elapsed / grayout_time)
 	material.set_shader_parameter("degree", degree)
 
-func _on_input():
+func show_options():
 	if not enabled or showing_menu:
 		return
 	showing_menu = true
 	action_menu.display()
-	
+
 func _on_action_baya():
 	showing_menu = false
 	action_menu.close()

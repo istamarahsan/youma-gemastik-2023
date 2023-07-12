@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://clvj4vxno411f"]
+
+[ext_resource type="Shader" path="res://shaders/special_map_btn.gdshader" id="1_q21om"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_q21om")
+shader_parameter/color = Color(0.827451, 0.72549, 0, 1)
+shader_parameter/outline_width = 0.005
+shader_parameter/radius = 0.4
+shader_parameter/rotation_speed = 20.0

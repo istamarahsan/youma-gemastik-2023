@@ -11,6 +11,9 @@ enum Choice {
 
 @onready var no: Label = $NO
 @onready var no_timer: Timer = $NOTimer
+@onready var select_sfx: AudioStreamPlayer = $Select
+@onready var reset_sfx: AudioStreamPlayer = $Reset
+@onready var finalize_sfx: AudioStreamPlayer = $Finalize
 
 var answer_key: Dictionary = {}
 var choices: Dictionary = {}
@@ -23,6 +26,11 @@ func _ready():
 		if land == null:
 			continue
 		answer_key[land.name] = step.correct_choice
+		land.pressed.connect(func():
+			if land.enabled:
+				select_sfx.play()
+				land.show_options()
+			)
 		land.baya_chosen.connect(func():
 			_handle_action(land, Choice.Baya)
 			)
@@ -34,6 +42,7 @@ func _handle_action(land: SpecialMapInterationObject, action: Choice):
 	choices[land.name] = action
 	if _is_state_valid():
 		land.enabled = false
+		finalize_sfx.play()
 		if _is_map_complete():
 			completion_announcer.completed.emit()
 	else:
@@ -54,6 +63,7 @@ func _reset_state():
 	for step in steps:
 		var land = get_node_or_null(step.land) as SpecialMapInterationObject
 		land.enabled = true
+	reset_sfx.play()
 	
 func _no():
 	no.visible = true
