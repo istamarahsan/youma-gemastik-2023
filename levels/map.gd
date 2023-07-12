@@ -34,7 +34,10 @@ func _ready():
 			if val_delta.has("food"):
 				var food = state_hook.get_state().get_value("food")
 				player_avatar.show_food(food)
+			if val_delta.has("sus"):
+				player_avatar.show_text("?")
 			)
+			
 
 func _on_click(name: String):
 	if traveling:

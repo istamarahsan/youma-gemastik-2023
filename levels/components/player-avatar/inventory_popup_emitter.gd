@@ -12,14 +12,17 @@ func show_bait():
 	one_shot = true
 	restart()
 
-func show_count(quantity: int):
+func show_text(str: String):
 	label.position = Vector2(-100, 0)
 	label.modulate = "white"
-	label.text = str(quantity)
+	label.text = str
 	label.modulate.a = 1.0
 	label.visible = true
 	var tween = get_tree().create_tween()
 	tween.tween_property(label, "position", Vector2(-100, -50), 0.5)
 	tween.tween_property(label, "modulate", Color(label.modulate.r, label.modulate.g, label.modulate.b, 0.0), 1)
 	tween.tween_callback(func(): label.visible = false)
+
+func show_count(quantity: int):
+	show_text(str(quantity))
 	

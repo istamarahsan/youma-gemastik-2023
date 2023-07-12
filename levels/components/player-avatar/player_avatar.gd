@@ -38,6 +38,10 @@ func show_bait():
 	if inventory_emitter != null:
 		inventory_emitter.show_bait()
 
+func show_text(str: String):
+	if inventory_emitter != null:
+		inventory_emitter.show_text(str)
+
 func show_food(quantity: int):
 	if inventory_emitter != null:
 		inventory_emitter.show_count(quantity)
