@@ -9,11 +9,6 @@
 [ext_resource type="Resource" uid="uid://eavdteot3fjs" path="res://cutscene/data/3blank-1.tres" id="6_oo30y"]
 [ext_resource type="Shader" path="res://shaders/transition_cover.gdshader" id="6_ykqvb"]
 
-[sub_resource type="Resource" id="Resource_bmtkd"]
-script = ExtResource("4_uv5xy")
-cutscene = ExtResource("6_oo30y")
-type = 0
-
 [sub_resource type="Resource" id="Resource_pg5ot"]
 script = ExtResource("4_uv5xy")
 cutscene = ExtResource("3_vdlnj")
@@ -24,9 +19,14 @@ script = ExtResource("4_uv5xy")
 cutscene = ExtResource("5_rlssd")
 type = 1
 
+[sub_resource type="Resource" id="Resource_bmtkd"]
+script = ExtResource("4_uv5xy")
+cutscene = ExtResource("6_oo30y")
+type = 0
+
 [sub_resource type="Resource" id="Resource_g7aqp"]
 script = ExtResource("2_40aht")
-stages = Array[Resource("res://stage-loader/stage_loader.gd")]([SubResource("Resource_bmtkd"), SubResource("Resource_pg5ot"), SubResource("Resource_50afm")])
+stages = Array[Resource("res://stage-loader/stage_loader.gd")]([SubResource("Resource_pg5ot"), SubResource("Resource_50afm"), SubResource("Resource_bmtkd")])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6t18v"]
 resource_local_to_scene = true

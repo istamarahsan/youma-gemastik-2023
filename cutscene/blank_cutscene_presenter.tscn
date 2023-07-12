@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm5x5njqo8dbf"]
+[gd_scene load_steps=7 format=3 uid="uid://cm5x5njqo8dbf"]
 
 [ext_resource type="Script" path="res://cutscene/blank_cutscene_presenter.gd" id="1_1uo18"]
 [ext_resource type="Theme" uid="uid://44i6ats70703" path="res://assets/youma_theme.tres" id="2_i6kaa"]
+[ext_resource type="Texture2D" uid="uid://cnf7xbyety3t8" path="res://assets/ui/Dialogue Box.png" id="3_f4nxh"]
+[ext_resource type="Texture2D" uid="uid://ciubofowr7v4a" path="res://assets/ui/Dialogue Divider.png" id="4_03xje"]
 
 [sub_resource type="Gradient" id="Gradient_qvqke"]
 offsets = PackedFloat32Array(0)
@@ -18,8 +20,8 @@ offset_bottom = 1080.0
 script = ExtResource("1_1uo18")
 start_delay = 1.0
 interval = 1.0
-lifetime = 1.0
-fade = 1.0
+lifetime = 3.0
+fade = 0.5
 
 [node name="BG" type="TextureRect" parent="."]
 layout_mode = 1
@@ -30,24 +32,36 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_t3d8i")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="DialogueBack" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 200
-theme_override_constants/margin_right = 200
+offset_top = 794.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_f4nxh")
+expand_mode = 1
 
-[node name="BlankPresenterText" type="Label" parent="MarginContainer"]
+[node name="DialogueBar" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 495.0
+offset_top = 869.0
+offset_right = 1430.0
+offset_bottom = 897.0
+texture = ExtResource("4_03xje")
+
+[node name="BlankPresenterText" type="Label" parent="."]
 unique_name_in_owner = true
-layout_mode = 2
+offset_left = 496.0
+offset_top = 910.0
+offset_right = 1430.0
+offset_bottom = 1069.0
 theme = ExtResource("2_i6kaa")
-theme_override_font_sizes/font_size = 60
-text = "test"
-vertical_alignment = 1
+theme_override_constants/line_spacing = -2
+theme_override_font_sizes/font_size = 33
+text = "Ikan hiu makan tomat
+pen turu ngantuk bat"
+horizontal_alignment = 1
 autowrap_mode = 3
+metadata/_edit_lock_ = true
 
 [node name="Lifetime" type="Timer" parent="."]
 
