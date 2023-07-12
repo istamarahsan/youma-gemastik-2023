@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Cutscene" load_steps=6 format=3 uid="uid://c26kkld087w0y"]
+
+[ext_resource type="Script" path="res://cutscene/cutscene.gd" id="1_8e7t1"]
+[ext_resource type="Texture2D" uid="uid://b1o8x4glwbrwf" path="res://assets/cutscene/5.png" id="1_bhhox"]
+[ext_resource type="Script" path="res://cutscene/cutscene_line.gd" id="2_bvkm6"]
+
+[sub_resource type="Resource" id="Resource_784k3"]
+script = ExtResource("2_bvkm6")
+character = ""
+line = "Namun, suatu hari, Sura merasa lebih rakus dari biasanya."
+
+[sub_resource type="Resource" id="Resource_dstm7"]
+script = ExtResource("2_bvkm6")
+character = ""
+line = "Sang hiu tersebut mulai mencari mangsa di sungai secara diam-diam..."
+
+[resource]
+script = ExtResource("1_8e7t1")
+bg = ExtResource("1_bhhox")
+lines = Array[ExtResource("2_bvkm6")]([SubResource("Resource_784k3"), SubResource("Resource_dstm7")])

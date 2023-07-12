@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="Cutscene" load_steps=9 format=3 uid="uid://dna4ejuiultb3"]
+
+[ext_resource type="Script" path="res://cutscene/cutscene.gd" id="1_7nypx"]
+[ext_resource type="Texture2D" uid="uid://byitsharo0r4y" path="res://assets/cutscene/7.png" id="1_t0myl"]
+[ext_resource type="Script" path="res://cutscene/cutscene_line.gd" id="2_gpfd3"]
+
+[sub_resource type="Resource" id="Resource_a0j31"]
+script = ExtResource("2_gpfd3")
+character = ""
+line = "Baya yang merasa dibodohi tidak menerimanya."
+
+[sub_resource type="Resource" id="Resource_mk042"]
+script = ExtResource("2_gpfd3")
+character = ""
+line = "\"Kau sengaja mencari gara-gara, Sura? Meskipun kamu bilang begitu, kamu tidak menandai daerah sungai sebagai daerah buruanmu sewaktu kesepakatan.\""
+
+[sub_resource type="Resource" id="Resource_woscy"]
+script = ExtResource("2_gpfd3")
+character = ""
+line = "\"Ini berarti sungai merupakan daerah buruanku! Sungai itu juga di daratan! Aku tidak sebodoh yang kau kira!\""
+
+[sub_resource type="Resource" id="Resource_bob1n"]
+script = ExtResource("2_gpfd3")
+character = ""
+line = "Sura dan Baya tidak ada yang mau mengalah."
+
+[sub_resource type="Resource" id="Resource_pk6ru"]
+script = ExtResource("2_gpfd3")
+character = ""
+line = "Melihat tidak ada jalan tengah, maka pertempuran sengit antara mereka berdua terjadi lagi."
+
+[resource]
+script = ExtResource("1_7nypx")
+bg = ExtResource("1_t0myl")
+lines = Array[ExtResource("2_gpfd3")]([SubResource("Resource_a0j31"), SubResource("Resource_mk042"), SubResource("Resource_woscy"), SubResource("Resource_bob1n"), SubResource("Resource_pk6ru")])

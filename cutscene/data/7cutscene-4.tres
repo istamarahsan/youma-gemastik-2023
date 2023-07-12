@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Cutscene" load_steps=8 format=3 uid="uid://ckfi5lvjdkmao"]
+
+[ext_resource type="Script" path="res://cutscene/cutscene.gd" id="1_q75e3"]
+[ext_resource type="Texture2D" uid="uid://opbjq4womvvr" path="res://assets/cutscene/4.png" id="1_qom78"]
+[ext_resource type="Script" path="res://cutscene/cutscene_line.gd" id="2_q4byk"]
+
+[sub_resource type="Resource" id="Resource_4l12w"]
+script = ExtResource("2_q4byk")
+character = ""
+line = "Sampai suatu saat, Sura berkata kepada Baya."
+
+[sub_resource type="Resource" id="Resource_a6cgp"]
+script = ExtResource("2_q4byk")
+character = ""
+line = "\"Aku capek terus-menerus bertarung, Baya. Daripada kita habis tenaga sia-sia, bagaimana kalau kita membagi saja daerah buruan kita?\""
+
+[sub_resource type="Resource" id="Resource_e4o3q"]
+script = ExtResource("2_q4byk")
+character = ""
+line = "Baya juga berpikir hal yang sama."
+
+[sub_resource type="Resource" id="Resource_yfy7y"]
+script = ExtResource("2_q4byk")
+character = ""
+line = "\"Aku juga berpikir hal yang sama, Sura. Namun bagaimana caranya kita membagi?\""
+
+[resource]
+script = ExtResource("1_q75e3")
+bg = ExtResource("1_qom78")
+lines = Array[ExtResource("2_q4byk")]([SubResource("Resource_4l12w"), SubResource("Resource_a6cgp"), SubResource("Resource_e4o3q"), SubResource("Resource_yfy7y")])

@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Cutscene" load_steps=10 format=3 uid="uid://cpqsdncv3yss3"]
+
+[ext_resource type="Texture2D" uid="uid://bl4eosftfjv1l" path="res://assets/cutscene/8.png" id="1_bepo7"]
+[ext_resource type="Script" path="res://cutscene/cutscene.gd" id="1_wdf1e"]
+[ext_resource type="Script" path="res://cutscene/cutscene_line.gd" id="2_b0oxt"]
+
+[sub_resource type="Resource" id="Resource_2d4um"]
+script = ExtResource("2_b0oxt")
+character = ""
+line = "Pertarungan kali ini semakin seru dan dahsyat. Saling menerjang dan menerkam, saling menggigit dan memukul. "
+
+[sub_resource type="Resource" id="Resource_oqkr3"]
+script = ExtResource("2_b0oxt")
+character = ""
+line = "Dalam waktu sekejap, air disekitarnya menjadi merah oleh darah yang keluar dari luka-luka kedua binatang tersebut. "
+
+[sub_resource type="Resource" id="Resource_xp7sw"]
+script = ExtResource("2_b0oxt")
+character = ""
+line = "Mereka terus bertarung mati-matian tanpa istirahat sama sekali."
+
+[sub_resource type="Resource" id="Resource_5lhst"]
+script = ExtResource("2_b0oxt")
+character = ""
+line = "Sampai suatu saat, Baya digigit Sura di pangkal ekornya sebelah kanan. Ekornya terpaksa membengkok kekiri. "
+
+[sub_resource type="Resource" id="Resource_1g75x"]
+script = ExtResource("2_b0oxt")
+character = ""
+line = "Sampai suatu saat, Baya digigit Sura di pangkal ekornya sebelah kanan. Ekornya terpaksa membengkok kekiri. "
+
+[sub_resource type="Resource" id="Resource_ybjte"]
+script = ExtResource("2_b0oxt")
+character = ""
+line = "Sura yang merasa kesakitan akhirnya terpaksa kembali ke lautan. "
+
+[resource]
+script = ExtResource("1_wdf1e")
+bg = ExtResource("1_bepo7")
+lines = Array[ExtResource("2_b0oxt")]([SubResource("Resource_2d4um"), SubResource("Resource_oqkr3"), SubResource("Resource_xp7sw"), SubResource("Resource_5lhst"), SubResource("Resource_1g75x"), SubResource("Resource_ybjte")])

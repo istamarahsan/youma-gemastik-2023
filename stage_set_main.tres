@@ -1,11 +1,18 @@
-[gd_resource type="Resource" script_class="GameStageSet" load_steps=11 format=3 uid="uid://b40mguy7ahpdq"]
+[gd_resource type="Resource" script_class="GameStageSet" load_steps=14 format=3 uid="uid://b40mguy7ahpdq"]
 
 [ext_resource type="Script" path="res://game_stage_set.gd" id="1_215kd"]
+[ext_resource type="Resource" uid="uid://bmgj7to4vowp0" path="res://cutscene/data/1cutscene-1.tres" id="2_4a0iy"]
 [ext_resource type="PackedScene" uid="uid://hbpsunwiwwah" path="res://levels/level-1/level_1.tscn" id="2_7plcn"]
 [ext_resource type="PackedScene" uid="uid://c6soo36kpbmc6" path="res://levels/level-2/level_2.tscn" id="3_k6fcg"]
 [ext_resource type="Script" path="res://stage-loader/level_stage_loader.gd" id="3_lt7st"]
+[ext_resource type="Script" path="res://stage-loader/cutscene_stage_loader.gd" id="3_vm3hm"]
 [ext_resource type="PackedScene" uid="uid://doqfki6lxrqht" path="res://levels/level-3/level_3.tscn" id="4_26sv2"]
 [ext_resource type="PackedScene" uid="uid://cvpvhcovs18l0" path="res://levels/level-4/level_4.tscn" id="6_avkf3"]
+
+[sub_resource type="Resource" id="Resource_nvede"]
+script = ExtResource("3_vm3hm")
+cutscene = ExtResource("2_4a0iy")
+type = 1
 
 [sub_resource type="Resource" id="Resource_ftd82"]
 script = ExtResource("3_lt7st")
@@ -25,4 +32,4 @@ level_scene = ExtResource("6_avkf3")
 
 [resource]
 script = ExtResource("1_215kd")
-stages = Array[Resource("res://stage-loader/stage_loader.gd")]([SubResource("Resource_ftd82"), SubResource("Resource_x8m3w"), SubResource("Resource_y2mkm"), SubResource("Resource_hfaon")])
+stages = Array[Resource("res://stage-loader/stage_loader.gd")]([SubResource("Resource_nvede"), SubResource("Resource_ftd82"), SubResource("Resource_x8m3w"), SubResource("Resource_y2mkm"), SubResource("Resource_hfaon")])

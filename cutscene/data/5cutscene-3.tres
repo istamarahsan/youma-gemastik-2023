@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Cutscene" load_steps=7 format=3 uid="uid://c0dgxfiohadvi"]
+
+[ext_resource type="Texture2D" uid="uid://57ep4nvpe3by" path="res://assets/cutscene/3.png" id="1_fv667"]
+[ext_resource type="Script" path="res://cutscene/cutscene.gd" id="1_u4u1x"]
+[ext_resource type="Script" path="res://cutscene/cutscene_line.gd" id="2_5xv5n"]
+
+[sub_resource type="Resource" id="Resource_noqar"]
+script = ExtResource("2_5xv5n")
+character = ""
+line = "Investigasi Sura akhirnya berujung pada pertemuan pertamanya dengan Baya."
+
+[sub_resource type="Resource" id="Resource_rpikb"]
+script = ExtResource("2_5xv5n")
+character = ""
+line = "Merasa terancam akan keberadaan masing-masing, mereka akhirnya bertarung."
+
+[sub_resource type="Resource" id="Resource_dniob"]
+script = ExtResource("2_5xv5n")
+character = ""
+line = "Mereka bertarung berkali-kali, selama beberapa waktu."
+
+[resource]
+script = ExtResource("1_u4u1x")
+bg = ExtResource("1_fv667")
+lines = Array[ExtResource("2_5xv5n")]([SubResource("Resource_noqar"), SubResource("Resource_rpikb"), SubResource("Resource_dniob")])
