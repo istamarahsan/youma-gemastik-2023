@@ -5,14 +5,13 @@ class_name SpecialMapInterationObject
 @export var action_menu: MapActionSelectMenu
 @export_range(0.01, 5, 0.01) var grayout_time: float = 0.01
 
+@export var normal_texture: Texture2D
+@export var highlight_texture: Texture2D
+
 var showing_menu: bool = false
 var enabled: bool:
 	set(value):
-		if _enabled and value == false:
-			fading = true
-		if not _enabled and value == true:
-			fading = false
-			material.set_shader_parameter("degree", 0)
+		texture = normal_texture if value else highlight_texture
 		_enabled = value
 	get:
 		return _enabled
@@ -26,7 +25,7 @@ signal sura_chosen
 signal baya_chosen
 
 func _unhandled_input(event):
-	if InputExtensions.input_is_left_click_or_touch(event):
+	if action_menu != null and InputExtensions.input_is_left_click_or_touch(event):
 		showing_menu = false
 		action_menu.hide()
 
@@ -42,6 +41,7 @@ func _ready():
 	action_menu.sura.connect(_on_action_sura)
 
 func _process(delta):
+	return
 	if not fading:
 		return
 	if time_elapsed >= grayout_time:

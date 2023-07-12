@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://3lrjnca8n1jg"]
+
+[ext_resource type="Script" path="res://levels/hint_provider.gd" id="1_oks4r"]
+
+[node name="HintProvider" type="Node"]
+script = ExtResource("1_oks4r")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

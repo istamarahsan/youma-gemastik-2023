@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c0i5g18h7ijcj"]
+[gd_scene load_steps=42 format=3 uid="uid://c0i5g18h7ijcj"]
 
 [ext_resource type="Script" path="res://levels/map.gd" id="1_vlrby"]
 [ext_resource type="Texture2D" uid="uid://64lal6k8dwh0" path="res://assets/maps/3Deep Water/Deep Water L5.png" id="2_a2iqq"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://levels/components/interaction-object/flag_effect.gd" id="18_squj7"]
 [ext_resource type="PackedScene" uid="uid://dhnuyqp4c752v" path="res://levels/props/arrow_right.tscn" id="19_3lkv2"]
 [ext_resource type="PackedScene" uid="uid://cdo0vs8v01f00" path="res://levels/components/player-avatar/sura_avatar.tscn" id="19_4i3cf"]
+[ext_resource type="PackedScene" uid="uid://3lrjnca8n1jg" path="res://levels/hint_provider.tscn" id="23_bc58n"]
 
 [sub_resource type="Resource" id="Resource_6xmi1"]
 script = ExtResource("11_agju2")
@@ -221,7 +222,7 @@ centered = false
 
 [node name="IO1" parent="." instance=ExtResource("11_i0q5o")]
 position = Vector2(212, 708)
-radius = 103
+radius = 106
 metadata/_edit_lock_ = true
 
 [node name="IO2" parent="." instance=ExtResource("11_i0q5o")]
@@ -330,3 +331,5 @@ position = Vector2(1813, 449)
 z_as_relative = false
 position = Vector2(1758, 789)
 opacity = 0.0
+
+[node name="HintProvider" parent="." instance=ExtResource("23_bc58n")]

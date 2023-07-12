@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bgcldpxasfmfj"]
+[gd_scene load_steps=36 format=3 uid="uid://bgcldpxasfmfj"]
 
 [ext_resource type="Script" path="res://levels/level-3/special_map.gd" id="1_ylxfk"]
 [ext_resource type="Script" path="res://levels/level_state_hook.gd" id="2_g6qxi"]
@@ -11,11 +11,20 @@
 [ext_resource type="Texture2D" uid="uid://cdryisi1m1g75" path="res://assets/maps/Map/Land 3.png" id="8_8tqln"]
 [ext_resource type="PackedScene" uid="uid://glots66q8cwp" path="res://levels/level-3/map_action_select_menu.tscn" id="8_d16d1"]
 [ext_resource type="Shader" path="res://levels/level-3/special_map_object.gdshader" id="9_movqu"]
+[ext_resource type="Texture2D" uid="uid://btshur1ihso6w" path="res://assets/maps/Map/Land 1 (Highlight).png" id="9_rvdrv"]
 [ext_resource type="Theme" uid="uid://44i6ats70703" path="res://assets/youma_theme.tres" id="11_g27gg"]
+[ext_resource type="Texture2D" uid="uid://d2gavxw183h6j" path="res://assets/maps/Map/Land 2 (Highlight).png" id="12_atgfl"]
 [ext_resource type="AudioStream" uid="uid://cbwyps10880wo" path="res://assets/placeholder/phoenix-compendium/ui_menu_focus.wav" id="13_lob31"]
+[ext_resource type="Texture2D" uid="uid://pqtkamoa1qoj" path="res://assets/maps/Map/Land 3 (Highlight).png" id="14_68m5k"]
 [ext_resource type="Script" path="res://audio/audio_manager_hook.gd" id="14_qv5qx"]
 [ext_resource type="AudioStream" uid="uid://hrmba6ptu2ao" path="res://assets/placeholder/phoenix-compendium/ui_menu_cancel.wav" id="14_u0l5d"]
 [ext_resource type="AudioStream" uid="uid://bkltp0vvulae5" path="res://assets/placeholder/phoenix-compendium/ui_menu_ok.wav" id="15_owjvw"]
+[ext_resource type="Texture2D" uid="uid://bek6hr7c0f0fk" path="res://assets/maps/Map/Sea 3 (Highlight).png" id="18_6pw1w"]
+[ext_resource type="Texture2D" uid="uid://ccpbidne185ic" path="res://assets/maps/Map/Sea 2 (Highlight).png" id="18_kkxsx"]
+[ext_resource type="Texture2D" uid="uid://col424n6o2tlp" path="res://assets/maps/Map/Sea 1.png" id="20_vbgtt"]
+[ext_resource type="Texture2D" uid="uid://bkrfyohpd6xnf" path="res://assets/maps/Map/Sea 1 (Highlight).png" id="21_yg44u"]
+[ext_resource type="Texture2D" uid="uid://docwo51ksuli7" path="res://assets/maps/Map/Sea 2.png" id="22_uebp1"]
+[ext_resource type="Texture2D" uid="uid://b2cbyppomagjm" path="res://assets/maps/Map/Sea 3.png" id="23_mruk0"]
 
 [sub_resource type="Resource" id="Resource_tchgn"]
 script = ExtResource("2_ll7w6")
@@ -26,7 +35,7 @@ metadata/_editor_prop_ptr_land = NodePath("Land1")
 [sub_resource type="Resource" id="Resource_j2af8"]
 script = ExtResource("2_ll7w6")
 land = NodePath("Land2")
-correct_choice = 0
+correct_choice = 1
 metadata/_editor_prop_ptr_land = NodePath("Land2")
 
 [sub_resource type="Resource" id="Resource_glj7c"]
@@ -34,6 +43,21 @@ script = ExtResource("2_ll7w6")
 land = NodePath("Land3")
 correct_choice = 1
 metadata/_editor_prop_ptr_land = NodePath("Land3")
+
+[sub_resource type="Resource" id="Resource_1y41f"]
+script = ExtResource("2_ll7w6")
+land = NodePath("Sea1")
+correct_choice = 0
+
+[sub_resource type="Resource" id="Resource_82cvx"]
+script = ExtResource("2_ll7w6")
+land = NodePath("Sea2")
+correct_choice = 0
+
+[sub_resource type="Resource" id="Resource_j5kb7"]
+script = ExtResource("2_ll7w6")
+land = NodePath("Sea3")
+correct_choice = 0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tfcv5"]
 resource_local_to_scene = true
@@ -57,7 +81,7 @@ shader_parameter/degree = 0.0
 [node name="SpecialMap" type="Node2D" node_paths=PackedStringArray("completion_announcer", "state_hook")]
 script = ExtResource("1_ylxfk")
 completion_announcer = NodePath("CompletionAnnouncer")
-steps = Array[ExtResource("2_ll7w6")]([SubResource("Resource_tchgn"), SubResource("Resource_j2af8"), SubResource("Resource_glj7c")])
+steps = Array[ExtResource("2_ll7w6")]([SubResource("Resource_tchgn"), SubResource("Resource_j2af8"), SubResource("Resource_glj7c"), SubResource("Resource_1y41f"), SubResource("Resource_82cvx"), SubResource("Resource_j5kb7")])
 state_hook = NodePath("LevelStateHook")
 metadata/_edit_lock_ = true
 
@@ -67,6 +91,8 @@ script = ExtResource("2_g6qxi")
 [node name="CompletionAnnouncer" parent="." instance=ExtResource("3_0a00x")]
 
 [node name="BG" type="Sprite2D" parent="."]
+z_index = -20
+z_as_relative = false
 texture = ExtResource("3_7i2qh")
 centered = false
 metadata/_edit_lock_ = true
@@ -79,6 +105,8 @@ script = ExtResource("6_jbi6i")
 area2D = NodePath("../Land1TouchClickArea")
 action_menu = NodePath("MapActionSelectMenu")
 grayout_time = 1.0
+normal_texture = ExtResource("6_xv33b")
+highlight_texture = ExtResource("9_rvdrv")
 metadata/_edit_lock_ = true
 
 [node name="MapActionSelectMenu" parent="Land1" instance=ExtResource("8_d16d1")]
@@ -109,6 +137,8 @@ script = ExtResource("6_jbi6i")
 area2D = NodePath("../Land2TouchClickArea")
 action_menu = NodePath("MapActionSelectMenu2")
 grayout_time = 1.0
+normal_texture = ExtResource("7_pjsrc")
+highlight_texture = ExtResource("12_atgfl")
 metadata/_edit_lock_ = true
 
 [node name="MapActionSelectMenu2" parent="Land2" instance=ExtResource("8_d16d1")]
@@ -135,6 +165,8 @@ script = ExtResource("6_jbi6i")
 area2D = NodePath("../Land3TouchClickArea")
 action_menu = NodePath("MapActionSelectMenu3")
 grayout_time = 1.0
+normal_texture = ExtResource("8_8tqln")
+highlight_texture = ExtResource("14_68m5k")
 metadata/_edit_lock_ = true
 
 [node name="MapActionSelectMenu3" parent="Land3" instance=ExtResource("8_d16d1")]
@@ -153,6 +185,85 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Land3TouchClickArea"]
 polygon = PackedVector2Array(452, 89, 348, 381, 211, 327, 184, 410, 267, 550, 196, 668, 77, 735, 450, 827, 554, 789, 736, 809, 787, 676, 875, 644, 839, 524, 964, 432, 906, 301, 828, 152, 630, 161)
+metadata/_edit_lock_ = true
+
+[node name="Sea1" type="Sprite2D" parent="." node_paths=PackedStringArray("area2D", "action_menu")]
+z_index = -10
+z_as_relative = false
+position = Vector2(0, 518)
+texture = ExtResource("20_vbgtt")
+centered = false
+script = ExtResource("6_jbi6i")
+area2D = NodePath("../Sea1TouchClickArea")
+action_menu = NodePath("MapActionSelectMenu")
+normal_texture = ExtResource("20_vbgtt")
+highlight_texture = ExtResource("21_yg44u")
+metadata/_edit_lock_ = true
+
+[node name="MapActionSelectMenu" parent="Sea1" instance=ExtResource("8_d16d1")]
+offset_left = 430.0
+offset_top = 396.0
+offset_right = 430.32
+offset_bottom = 395.84
+
+[node name="Sea1TouchClickArea" type="Area2D" parent="."]
+position = Vector2(901, 954)
+monitoring = false
+monitorable = false
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sea1TouchClickArea"]
+polygon = PackedVector2Array(-890, -169, -903, -64, -905, 128, 1017, 128, 1012, 93, 659, 43, 274, -119, 3, -60)
+
+[node name="Sea2" type="Sprite2D" parent="." node_paths=PackedStringArray("area2D", "action_menu")]
+z_index = -5
+z_as_relative = false
+position = Vector2(1333, 579)
+texture = ExtResource("22_uebp1")
+script = ExtResource("6_jbi6i")
+area2D = NodePath("../Sea2TouchClickArea")
+action_menu = NodePath("MapActionSelectMenu")
+normal_texture = ExtResource("22_uebp1")
+highlight_texture = ExtResource("18_kkxsx")
+
+[node name="MapActionSelectMenu" parent="Sea2" instance=ExtResource("8_d16d1")]
+offset_left = 55.0
+offset_top = -285.0
+offset_right = 55.32
+offset_bottom = -285.16
+
+[node name="Sea2TouchClickArea" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sea2TouchClickArea"]
+polygon = PackedVector2Array(1939, 81, 1637, 159, 1625, 324, 1028, 343, 1036, 459, 1230, 494, 1554, 452, 1700, 496, 1774, 590, 1753, 746, 1734, 842, 1845, 935, 1960, 833)
+
+[node name="Sea3" type="Sprite2D" parent="." node_paths=PackedStringArray("area2D", "action_menu")]
+z_index = -5
+z_as_relative = false
+position = Vector2(1091, 269)
+texture = ExtResource("23_mruk0")
+script = ExtResource("6_jbi6i")
+area2D = NodePath("../Sea3TouchClickArea")
+action_menu = NodePath("MapActionSelectMenu")
+normal_texture = ExtResource("23_mruk0")
+highlight_texture = ExtResource("18_6pw1w")
+metadata/_edit_lock_ = true
+
+[node name="MapActionSelectMenu" parent="Sea3" instance=ExtResource("8_d16d1")]
+offset_left = -325.0
+offset_top = -258.0
+offset_right = -324.68
+offset_bottom = -258.16
+
+[node name="Sea3TouchClickArea" type="Area2D" parent="."]
+position = Vector2(1682, 301)
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sea3TouchClickArea"]
+polygon = PackedVector2Array(-1372, -296, -1210, -239, -973, -196, -55, -169, 265, -245, 252, -339, -1391, -317)
 metadata/_edit_lock_ = true
 
 [node name="NO" type="Label" parent="."]
