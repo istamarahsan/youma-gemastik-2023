@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ccojv7prvlc8y"]
 
-[ext_resource type="Script" path="res://cutscene/subtitle_slideshow.gd" id="1_w7ta8"]
+[ext_resource type="Script" path="res://cutscene/old/subtitle_slideshow.gd" id="1_w7ta8"]
 [ext_resource type="Texture2D" uid="uid://bobtcobabe7l0" path="res://assets/cutscene/sura-baya-fight.png" id="1_yxyef"]
 [ext_resource type="PackedScene" uid="uid://dgtwkefcxn0qs" path="res://transition_cover.tscn" id="2_w1c1i"]
 [ext_resource type="Shader" path="res://shaders/transition_cover.gdshader" id="3_1p66u"]

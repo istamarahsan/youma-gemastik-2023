@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Cutscene" load_steps=6 format=3 uid="uid://bmgj7to4vowp0"]
+
+[ext_resource type="Texture2D" uid="uid://djmmovgftc33m" path="res://assets/cutscene/1.png" id="1_i2pyv"]
+[ext_resource type="Script" path="res://cutscene/cutscene_line.gd" id="2_i4tix"]
+[ext_resource type="Script" path="res://cutscene/cutscene.gd" id="3_djpm3"]
+
+[sub_resource type="Resource" id="Resource_w3loe"]
+script = ExtResource("2_i4tix")
+character = ""
+line = "Dahulu kala di lautan luas Nusantara, seringlah terjadi perkelahian antar binatang-binatang buas."
+
+[sub_resource type="Resource" id="Resource_f3l4a"]
+script = ExtResource("2_i4tix")
+character = ""
+line = "Para binatang ini merebut sumber makanan yang sama, yaitu ikan dan burung kecil."
+
+[resource]
+script = ExtResource("3_djpm3")
+bg = ExtResource("1_i2pyv")
+lines = Array[ExtResource("2_i4tix")]([SubResource("Resource_w3loe"), SubResource("Resource_f3l4a")])

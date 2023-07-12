@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm5x5njqo8dbf"]
+
+[ext_resource type="Script" path="res://cutscene/blank_cutscene_presenter.gd" id="1_1uo18"]
+[ext_resource type="Theme" uid="uid://44i6ats70703" path="res://assets/youma_theme.tres" id="2_i6kaa"]
+
+[sub_resource type="Gradient" id="Gradient_qvqke"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.144063, 0.144063, 0.144063, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_t3d8i"]
+gradient = SubResource("Gradient_qvqke")
+
+[node name="Presenter" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_1uo18")
+start_delay = 1.0
+interval = 1.0
+lifetime = 1.0
+fade = 1.0
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_t3d8i")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="BlankPresenterText" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_i6kaa")
+theme_override_font_sizes/font_size = 60
+text = "test"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Lifetime" type="Timer" parent="."]
+
+[node name="Interval" type="Timer" parent="."]
+
+[node name="Delay" type="Timer" parent="."]

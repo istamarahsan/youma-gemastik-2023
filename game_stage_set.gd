@@ -1,4 +1,4 @@
 extends Resource
 class_name GameStageSet
 
-@export var stages: Array[PackedScene]
+@export var stages: Array[StageLoader]

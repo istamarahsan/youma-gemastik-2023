@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsifwkdj44jkl"
-path="res://.godot/imported/map-nusantara.png-2fe242890d86a841cae546401796e447.ctex"
+uid="uid://bl4eosftfjv1l"
+path="res://.godot/imported/8.png-455baae0fd5b1fab5ba7dd1077b9892f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cutscene/map-nusantara.png"
-dest_files=["res://.godot/imported/map-nusantara.png-2fe242890d86a841cae546401796e447.ctex"]
+source_file="res://assets/cutscene/8.png"
+dest_files=["res://.godot/imported/8.png-455baae0fd5b1fab5ba7dd1077b9892f.ctex"]
 
 [params]
 

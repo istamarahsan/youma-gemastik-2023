@@ -49,8 +49,8 @@ func _load_stage():
 	if stage_num >= stage_set.stages.size():
 		_on_levels_completed()
 		return
-	var stage_scene = stage_set.stages[stage_num]
-	active_stage = stage_scene.instantiate() as Stage
+	var stage_loader = stage_set.stages[stage_num] as StageLoader
+	active_stage = stage_loader.load_stage()
 	add_child(active_stage)
 	active_stage.exited.connect(_on_stage_exited)
 	active_stage.completed.connect(_on_stage_completed)

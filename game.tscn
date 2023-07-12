@@ -1,30 +1,53 @@
-[gd_scene load_steps=7 format=3 uid="uid://d00nirxfwmfs0"]
+[gd_scene load_steps=15 format=3 uid="uid://d00nirxfwmfs0"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_yodcq"]
-[ext_resource type="Resource" uid="uid://b40mguy7ahpdq" path="res://stage_set_main.tres" id="2_8ou3x"]
+[ext_resource type="Script" path="res://game_stage_set.gd" id="2_40aht"]
+[ext_resource type="Resource" uid="uid://bmgj7to4vowp0" path="res://cutscene/data/1cutscene-1.tres" id="3_vdlnj"]
+[ext_resource type="Script" path="res://stage-loader/cutscene_stage_loader.gd" id="4_uv5xy"]
 [ext_resource type="PackedScene" uid="uid://dgtwkefcxn0qs" path="res://transition_cover.tscn" id="5_n1f1a"]
+[ext_resource type="Resource" uid="uid://fwy32gw8kyhc" path="res://cutscene/data/2cutscene-2.tres" id="5_rlssd"]
+[ext_resource type="Resource" uid="uid://eavdteot3fjs" path="res://cutscene/data/3blank-1.tres" id="6_oo30y"]
 [ext_resource type="Shader" path="res://shaders/transition_cover.gdshader" id="6_ykqvb"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_601ls"]
+[sub_resource type="Resource" id="Resource_bmtkd"]
+script = ExtResource("4_uv5xy")
+cutscene = ExtResource("6_oo30y")
+type = 0
+
+[sub_resource type="Resource" id="Resource_pg5ot"]
+script = ExtResource("4_uv5xy")
+cutscene = ExtResource("3_vdlnj")
+type = 1
+
+[sub_resource type="Resource" id="Resource_50afm"]
+script = ExtResource("4_uv5xy")
+cutscene = ExtResource("5_rlssd")
+type = 1
+
+[sub_resource type="Resource" id="Resource_g7aqp"]
+script = ExtResource("2_40aht")
+stages = Array[Resource("res://stage-loader/stage_loader.gd")]([SubResource("Resource_bmtkd"), SubResource("Resource_pg5ot"), SubResource("Resource_50afm")])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6t18v"]
 resource_local_to_scene = true
 shader = ExtResource("6_ykqvb")
 shader_parameter/opacity = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vui0m"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2qjo5"]
 resource_local_to_scene = true
 shader = ExtResource("6_ykqvb")
 shader_parameter/opacity = 0.0
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("stage_transition_cover", "pause_transition_cover")]
 script = ExtResource("1_yodcq")
-stage_set = ExtResource("2_8ou3x")
+stage_set = SubResource("Resource_g7aqp")
 stage_transition_cover = NodePath("StageCover")
 pause_transition_cover = NodePath("PauseCover")
 
 [node name="StageCover" parent="." instance=ExtResource("5_n1f1a")]
-material = SubResource("ShaderMaterial_601ls")
+material = SubResource("ShaderMaterial_6t18v")
 time_seconds = 2.0
 
 [node name="PauseCover" parent="." instance=ExtResource("5_n1f1a")]
-material = SubResource("ShaderMaterial_vui0m")
+material = SubResource("ShaderMaterial_2qjo5")
 time_seconds = 0.5

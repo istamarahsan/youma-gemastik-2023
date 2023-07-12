@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=3 uid="uid://45k6h4vducf0"]
+
+[ext_resource type="Script" path="res://cutscene/background_cutscene_presenter.gd" id="1_ku2yl"]
+[ext_resource type="Texture2D" uid="uid://cqekeylugf3vh" path="res://assets/cutscene/6.png" id="2_ba88i"]
+[ext_resource type="Texture2D" uid="uid://cnf7xbyety3t8" path="res://assets/ui/Dialogue Box.png" id="3_4kv2e"]
+[ext_resource type="Texture2D" uid="uid://ciubofowr7v4a" path="res://assets/ui/Dialogue Divider.png" id="4_xyndj"]
+[ext_resource type="Theme" uid="uid://44i6ats70703" path="res://assets/youma_theme.tres" id="5_n3nbn"]
+
+[node name="DialogueCutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ku2yl")
+start_delay = 1.0
+interval = 1.0
+lifetime = 3.0
+fade = 0.5
+
+[node name="Lifetime" type="Timer" parent="."]
+
+[node name="Interval" type="Timer" parent="."]
+
+[node name="Delay" type="Timer" parent="."]
+
+[node name="Slide" type="TextureRect" parent="."]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ba88i")
+metadata/_edit_lock_ = true
+
+[node name="DialogueBack" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 794.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_4kv2e")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="DialogueBar" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 495.0
+offset_top = 869.0
+offset_right = 1430.0
+offset_bottom = 897.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_xyndj")
+metadata/_edit_lock_ = true
+
+[node name="Character" type="Label" parent="."]
+layout_mode = 0
+offset_left = 815.0
+offset_top = 799.0
+offset_right = 1113.0
+offset_bottom = 871.0
+theme = ExtResource("5_n3nbn")
+theme_override_font_sizes/font_size = 50
+text = "Baya"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Dialogue" type="Label" parent="."]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 910.0
+offset_right = 1430.0
+offset_bottom = 1069.0
+theme = ExtResource("5_n3nbn")
+theme_override_constants/line_spacing = -2
+theme_override_font_sizes/font_size = 33
+text = "Ikan hiu makan tomat
+pen turu ngantuk bat"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true

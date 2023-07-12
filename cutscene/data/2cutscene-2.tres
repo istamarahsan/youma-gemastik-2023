@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Cutscene" load_steps=5 format=3 uid="uid://fwy32gw8kyhc"]
+
+[ext_resource type="Script" path="res://cutscene/cutscene.gd" id="1_t38si"]
+[ext_resource type="Texture2D" uid="uid://1emws82cgf3m" path="res://assets/cutscene/2.png" id="1_xf6fh"]
+[ext_resource type="Script" path="res://cutscene/cutscene_line.gd" id="2_xgfvr"]
+
+[sub_resource type="Resource" id="Resource_onump"]
+script = ExtResource("2_xgfvr")
+character = ""
+line = "Dalam situasi penuh kompetitif ini, yang kuat akan mendominasi, dan yang cerdik akan mengelabui."
+
+[resource]
+script = ExtResource("1_t38si")
+bg = ExtResource("1_xf6fh")
+lines = Array[ExtResource("2_xgfvr")]([SubResource("Resource_onump")])
