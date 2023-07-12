@@ -16,7 +16,6 @@ const level_select_scene: PackedScene = preload("res://ui/level-select-teaser/le
 @export var transition_cover: TransitionCover
 
 var main_menu: MainMenu
-var settings: SettingsMenu
 var game: Game
 var level_select: LevelSelect
 var state: UpperState
@@ -29,8 +28,6 @@ func _ready():
 
 func _hook_up_main_menu(node: MainMenu):
 	node.play.connect(_on_main_menu_play)
-	node.settings.connect(_on_main_menu_settings)
-	node.credits.connect(_on_main_menu_credits)
 	node.quit.connect(_on_main_menu_quit)
 
 func _hook_up_game(node: Game):
@@ -62,20 +59,6 @@ func _on_main_menu_play():
 	_hook_up_level_select(level_select)
 	add_child(level_select)
 	transition_cover.open()
-	
-func _on_main_menu_settings():
-	if state != UpperState.MainMenu:
-		return
-	state = UpperState.Settings
-	settings = settings_scene.instantiate() as SettingsMenu
-	add_child(settings)
-	main_menu.queue_free()
-	await settings.back
-	state = UpperState.MainMenu
-	settings.queue_free()
-	main_menu = main_menu_scene.instantiate() as MainMenu
-	_hook_up_main_menu(main_menu)
-	add_child(main_menu)
 
 func _on_main_menu_credits():
 	if state != UpperState.MainMenu:

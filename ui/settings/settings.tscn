@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://gsbacgd3cfab"]
 
-[ext_resource type="Script" path="res://ui/settings/settings.gd" id="1_maa11"]
+[ext_resource type="Script" path="res://ui/settings/audio_settings.gd" id="1_maa11"]
 [ext_resource type="Theme" uid="uid://44i6ats70703" path="res://assets/youma_theme.tres" id="1_p6h1r"]
 
 [node name="Settings" type="Control"]

@@ -2,9 +2,16 @@ extends Node
 
 signal scale_changed
 
+var _master_scale: float = 1
 var _sfx_scale: float = 1
 var _music_scale: float = 1
 
+@export_range(0, 1, 0.01) var master_scale: float:
+	get:
+		return _master_scale
+	set(value):
+		_master_scale = clampf(value, 0, 1)
+		scale_changed.emit()
 @export_range(0, 1, 0.01) var sfx_scale: float:
 	get:
 		return _sfx_scale

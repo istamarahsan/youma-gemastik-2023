@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca72gt2dvlxcn"]
+
+[ext_resource type="Script" path="res://ui/settings/audio_settings.gd" id="1_03meb"]
+[ext_resource type="Texture2D" uid="uid://wlblh7afkmf7" path="res://assets/ui/Main Menu/Option/Main Menu Option Board.png" id="2_2th1c"]
+[ext_resource type="Theme" uid="uid://brdvv0b0an2bj" path="res://ui/main-menu/settings/main_menu_settings.tres" id="3_hc462"]
+
+[node name="AudioSettings" type="Control" node_paths=PackedStringArray("master_slider", "sfx_slider", "music_slider")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 1080.0
+script = ExtResource("1_03meb")
+master_slider = NodePath("MarginContainer/VBoxContainer/Master")
+sfx_slider = NodePath("MarginContainer/VBoxContainer/SFX")
+music_slider = NodePath("MarginContainer/VBoxContainer/Music")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 1080.0
+texture = ExtResource("2_2th1c")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 1080.0
+theme_override_constants/margin_left = 85
+theme_override_constants/margin_top = 548
+theme_override_constants/margin_right = 85
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 87
+
+[node name="Master" type="HSlider" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hc462")
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="Music" type="HSlider" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hc462")
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="SFX" type="HSlider" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hc462")
+max_value = 1.0
+step = 0.1
+value = 1.0

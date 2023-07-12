@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://du0nsv73aj6ow"]
+[gd_scene load_steps=7 format=3 uid="uid://du0nsv73aj6ow"]
 
 [ext_resource type="Script" path="res://ui/main-menu/main_menu.gd" id="1_jfm1r"]
 [ext_resource type="Texture2D" uid="uid://c3o0m4cu7yrgj" path="res://assets/ui/Main Menu/Main Menu BG.png" id="3_v3sjc"]
+[ext_resource type="PackedScene" uid="uid://ca72gt2dvlxcn" path="res://ui/main-menu/settings/settings_main_menu_panel.tscn" id="4_ff7ix"]
 [ext_resource type="PackedScene" uid="uid://0ciqrwpnnrp5" path="res://ui/main-menu/main_menu_buttons.tscn" id="4_jeiwq"]
+[ext_resource type="Texture2D" uid="uid://digoheaev1f5h" path="res://assets/props/Arrow (Left).png" id="5_kinby"]
+[ext_resource type="Texture2D" uid="uid://1rnnjo77u7jc" path="res://assets/ui/Main Menu/Main Menu Credit  Board.png" id="6_km3qv"]
 
 [node name="MainMenu" type="Control"]
 custom_minimum_size = Vector2(1920, 1080)
@@ -21,14 +24,69 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_v3sjc")
 
+[node name="AudioSettings" parent="." instance=ExtResource("4_ff7ix")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -540.0
+offset_right = 320.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Credits" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CreditsBoard" type="TextureRect" parent="Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_km3qv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 173.0
+offset_bottom = 238.0
+texture_normal = ExtResource("5_kinby")
+texture_pressed = ExtResource("5_kinby")
+texture_hover = ExtResource("5_kinby")
+texture_disabled = ExtResource("5_kinby")
+texture_focused = ExtResource("5_kinby")
+stretch_mode = 5
+
 [node name="MainMenuButtons" parent="." instance=ExtResource("4_jeiwq")]
 layout_mode = 1
-anchor_left = 0.135
-anchor_right = 0.334
-offset_left = 0.799988
-offset_right = -0.280029
-offset_bottom = 0.119873
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
 
+[connection signal="button_up" from="BackButton" to="." method="_on_back_button_button_up"]
 [connection signal="credits" from="MainMenuButtons" to="." method="_on_main_menu_button_credits"]
 [connection signal="play" from="MainMenuButtons" to="." method="_on_main_menu_button_play"]
 [connection signal="quit" from="MainMenuButtons" to="." method="_on_main_menu_button_quit"]

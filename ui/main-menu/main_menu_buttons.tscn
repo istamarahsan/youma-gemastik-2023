@@ -1,51 +1,54 @@
-[gd_scene load_steps=4 format=3 uid="uid://0ciqrwpnnrp5"]
+[gd_scene load_steps=3 format=3 uid="uid://0ciqrwpnnrp5"]
 
-[ext_resource type="PackedScene" uid="uid://csctt5cou8qe0" path="res://ui/main-menu/main_menu_board.tscn" id="1_52nw8"]
 [ext_resource type="Script" path="res://ui/main-menu/main_menu_buttons.gd" id="1_gnxtc"]
-[ext_resource type="Texture2D" uid="uid://cf8d8ilsawmdo" path="res://assets/ui/Main Menu/Main Menu Rope.png" id="2_0rvys"]
+[ext_resource type="Texture2D" uid="uid://cjy56fk2dh3ip" path="res://assets/ui/Main Menu/Main Menu Buttons.png" id="4_se3rg"]
 
-[node name="MainMenuButton" type="Control"]
-layout_mode = 3
-anchor_right = 0.198
-anchor_bottom = 0.911
-offset_right = 0.839966
-offset_bottom = 0.119934
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MainMenuButton" type="TextureRect"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_se3rg")
+expand_mode = 1
+stretch_mode = 4
 script = ExtResource("1_gnxtc")
 
-[node name="Rope" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 170.0
-offset_right = 210.0
-offset_bottom = 981.0
-texture = ExtResource("2_0rvys")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_top = 201.0
-offset_right = 381.0
-offset_bottom = 861.0
-theme_override_constants/separation = 23
-
-[node name="Play" parent="VBoxContainer" instance=ExtResource("1_52nw8")]
-layout_mode = 2
-text = "Mulai"
+[node name="Play" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 20)
+offset_left = 194.0
+offset_top = 646.0
+offset_right = 534.0
+offset_bottom = 739.0
+rotation = -0.0579275
+flat = true
 metadata/_edit_lock_ = true
 
-[node name="Settings" parent="VBoxContainer" instance=ExtResource("1_52nw8")]
-layout_mode = 2
-text = "Setelan"
+[node name="Settings" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 20)
+offset_left = 656.0
+offset_top = 648.0
+offset_right = 996.0
+offset_bottom = 741.0
+rotation = 0.0214995
+flat = true
 
-[node name="Credits" parent="VBoxContainer" instance=ExtResource("1_52nw8")]
-layout_mode = 2
-text = "Kredit"
+[node name="Credits" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 20)
+offset_left = 203.0
+offset_top = 832.0
+offset_right = 543.0
+offset_bottom = 925.0
+rotation = 0.0439829
+flat = true
 
-[node name="Quit" parent="VBoxContainer" instance=ExtResource("1_52nw8")]
-layout_mode = 2
-text = "Keluar"
+[node name="Quit" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 20)
+offset_left = 656.0
+offset_top = 840.0
+offset_right = 996.0
+offset_bottom = 933.0
+rotation = -0.0230793
+flat = true
 
-[connection signal="button_up" from="VBoxContainer/Play" to="." method="_on_play_button_up"]
-[connection signal="button_up" from="VBoxContainer/Settings" to="." method="_on_settings_button_up"]
-[connection signal="button_up" from="VBoxContainer/Credits" to="." method="_on_credits_button_up"]
-[connection signal="button_up" from="VBoxContainer/Quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="Play" to="." method="_on_play_button_up"]
+[connection signal="button_up" from="Settings" to="." method="_on_settings_button_up"]
+[connection signal="button_up" from="Credits" to="." method="_on_credits_button_up"]
+[connection signal="button_up" from="Quit" to="." method="_on_quit_button_up"]

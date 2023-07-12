@@ -12,7 +12,7 @@ func _ready():
 	_adjust_scale()
 
 func _adjust_scale():
-	volume_db = lerpf(-60.0, 0.0, _get_scale())
+	volume_db = lerpf(-60.0, 0.0, AudioManagerSingleton.master_scale * _get_scale())
 
 func _get_scale() -> float:
 	match channel:

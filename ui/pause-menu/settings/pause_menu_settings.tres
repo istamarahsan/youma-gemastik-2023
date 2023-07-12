@@ -1,0 +1,43 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://o0s7puik72xu"]
+
+[ext_resource type="Texture2D" uid="uid://ddoh4pyvtsn1u" path="res://assets/ui/Pause Menu/Option/Pause Menu Sound Thingy.png" id="1_sjthu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vi363"]
+bg_color = Color(0.372549, 0.215686, 0.129412, 1)
+border_width_left = 4
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 90
+corner_radius_bottom_left = 90
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8s8s3"]
+bg_color = Color(0.372549, 0.215686, 0.129412, 1)
+border_width_left = 4
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 90
+corner_radius_bottom_left = 90
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ushy5"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.219608, 0.113725, 0.054902, 1)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[resource]
+HSlider/icons/grabber = ExtResource("1_sjthu")
+HSlider/icons/grabber_disabled = ExtResource("1_sjthu")
+HSlider/icons/grabber_highlight = ExtResource("1_sjthu")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_vi363")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_8s8s3")
+HSlider/styles/slider = SubResource("StyleBoxFlat_ushy5")
