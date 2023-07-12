@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b62jkvffpempr"]
+[gd_scene load_steps=8 format=3 uid="uid://b62jkvffpempr"]
 
 [ext_resource type="Script" path="res://ui/pause-menu/pause_menu.gd" id="1_cse0g"]
 [ext_resource type="PackedScene" uid="uid://c7mlh2d7fm88r" path="res://ui/pause-menu/pause_menu_buttons.tscn" id="2_kqkbq"]
 [ext_resource type="Texture2D" uid="uid://cbve31hief2gv" path="res://assets/ui/Pause Menu/Curtain (Left).png" id="3_6c6nu"]
 [ext_resource type="Texture2D" uid="uid://t3kco8kum3l5" path="res://assets/ui/Pause Menu/Curtain (Right).png" id="4_y88jj"]
 [ext_resource type="Texture2D" uid="uid://b01vb4lpj8gsr" path="res://assets/maps/0Frame/Frame.png" id="5_gvq7u"]
+[ext_resource type="PackedScene" uid="uid://bt5p8axdxyori" path="res://ui/pause-menu/settings/settings_pause_menu.tscn" id="6_efh6u"]
+[ext_resource type="Texture2D" uid="uid://digoheaev1f5h" path="res://assets/props/Arrow (Left).png" id="7_r67w5"]
 
 [node name="PauseMenu" type="Control"]
 z_as_relative = false
@@ -50,6 +52,34 @@ anchor_right = 0.62
 offset_left = 0.47998
 offset_right = -0.400024
 
+[node name="AudioSettings" parent="." instance=ExtResource("6_efh6u")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -540.0
+offset_right = 320.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" type="TextureButton" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 65.0
+offset_right = 238.0
+offset_bottom = 238.0
+texture_normal = ExtResource("7_r67w5")
+texture_pressed = ExtResource("7_r67w5")
+texture_hover = ExtResource("7_r67w5")
+texture_disabled = ExtResource("7_r67w5")
+texture_focused = ExtResource("7_r67w5")
+
 [connection signal="lanjut" from="PauseMenuButtons" to="." method="_on_pause_menu_buttons_lanjut"]
 [connection signal="quit" from="PauseMenuButtons" to="." method="_on_pause_menu_buttons_quit"]
 [connection signal="settings" from="PauseMenuButtons" to="." method="_on_pause_menu_buttons_settings"]
+[connection signal="button_up" from="BackButton" to="." method="_on_back_button_button_up"]
