@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bee71nxgqps5y" path="res://assets/Buaya.png" id="4_gl33f"]
 
 [node name="MapActionSelectMenu" type="Control"]
+z_index = 50
+z_as_relative = false
 layout_mode = 3
 anchor_right = 0.354
 anchor_bottom = 0.202

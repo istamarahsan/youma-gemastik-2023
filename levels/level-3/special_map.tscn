@@ -98,9 +98,11 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Land1" type="Sprite2D" parent="." node_paths=PackedStringArray("area2D", "action_menu")]
+z_index = -2
+z_as_relative = false
 material = SubResource("ShaderMaterial_tfcv5")
-position = Vector2(1261, 220)
 texture = ExtResource("6_xv33b")
+centered = false
 script = ExtResource("6_jbi6i")
 area2D = NodePath("../Land1TouchClickArea")
 action_menu = NodePath("MapActionSelectMenu")
@@ -110,13 +112,16 @@ highlight_texture = ExtResource("9_rvdrv")
 metadata/_edit_lock_ = true
 
 [node name="MapActionSelectMenu" parent="Land1" instance=ExtResource("8_d16d1")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -171.0
-offset_top = -55.0
-offset_right = -774.0
-offset_bottom = -311.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1019.0
+offset_top = 112.0
+offset_right = 1464.0
+offset_bottom = 305.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Land1TouchClickArea" type="Area2D" parent="."]
 monitoring = false
@@ -131,8 +136,8 @@ metadata/_edit_lock_ = true
 
 [node name="Land2" type="Sprite2D" parent="." node_paths=PackedStringArray("area2D", "action_menu")]
 material = SubResource("ShaderMaterial_a3fyr")
-position = Vector2(1270, 684)
 texture = ExtResource("7_pjsrc")
+centered = false
 script = ExtResource("6_jbi6i")
 area2D = NodePath("../Land2TouchClickArea")
 action_menu = NodePath("MapActionSelectMenu2")
@@ -142,13 +147,16 @@ highlight_texture = ExtResource("12_atgfl")
 metadata/_edit_lock_ = true
 
 [node name="MapActionSelectMenu2" parent="Land2" instance=ExtResource("8_d16d1")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -199.0
-offset_top = -76.0
-offset_right = -991.0
-offset_bottom = -736.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1115.0
+offset_top = 600.0
+offset_right = 1520.0
+offset_bottom = 755.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Land2TouchClickArea" type="Area2D" parent="."]
 metadata/_edit_lock_ = true
@@ -159,8 +167,8 @@ metadata/_edit_lock_ = true
 
 [node name="Land3" type="Sprite2D" parent="." node_paths=PackedStringArray("area2D", "action_menu")]
 material = SubResource("ShaderMaterial_jb7mn")
-position = Vector2(562, 474)
 texture = ExtResource("8_8tqln")
+centered = false
 script = ExtResource("6_jbi6i")
 area2D = NodePath("../Land3TouchClickArea")
 action_menu = NodePath("MapActionSelectMenu3")
@@ -170,13 +178,15 @@ highlight_texture = ExtResource("14_68m5k")
 metadata/_edit_lock_ = true
 
 [node name="MapActionSelectMenu3" parent="Land3" instance=ExtResource("8_d16d1")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -197.0
-offset_top = -22.0
-offset_right = -884.0
-offset_bottom = -852.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 348.0
+offset_top = 409.0
+offset_right = 867.0
+offset_bottom = 551.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Land3TouchClickArea" type="Area2D" parent="."]
 monitoring = false
@@ -190,7 +200,6 @@ metadata/_edit_lock_ = true
 [node name="Sea1" type="Sprite2D" parent="." node_paths=PackedStringArray("area2D", "action_menu")]
 z_index = -10
 z_as_relative = false
-position = Vector2(0, 518)
 texture = ExtResource("20_vbgtt")
 centered = false
 script = ExtResource("6_jbi6i")
@@ -201,10 +210,15 @@ highlight_texture = ExtResource("21_yg44u")
 metadata/_edit_lock_ = true
 
 [node name="MapActionSelectMenu" parent="Sea1" instance=ExtResource("8_d16d1")]
-offset_left = 430.0
-offset_top = 396.0
-offset_right = 430.32
-offset_bottom = 395.84
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 178.0
+offset_top = 879.0
+offset_right = 735.0
+offset_bottom = 1041.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Sea1TouchClickArea" type="Area2D" parent="."]
 position = Vector2(901, 954)
@@ -214,12 +228,13 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sea1TouchClickArea"]
 polygon = PackedVector2Array(-890, -169, -903, -64, -905, 128, 1017, 128, 1012, 93, 659, 43, 274, -119, 3, -60)
+metadata/_edit_lock_ = true
 
 [node name="Sea2" type="Sprite2D" parent="." node_paths=PackedStringArray("area2D", "action_menu")]
 z_index = -5
 z_as_relative = false
-position = Vector2(1333, 579)
 texture = ExtResource("22_uebp1")
+centered = false
 script = ExtResource("6_jbi6i")
 area2D = NodePath("../Sea2TouchClickArea")
 action_menu = NodePath("MapActionSelectMenu")
@@ -227,10 +242,15 @@ normal_texture = ExtResource("22_uebp1")
 highlight_texture = ExtResource("18_kkxsx")
 
 [node name="MapActionSelectMenu" parent="Sea2" instance=ExtResource("8_d16d1")]
-offset_left = 55.0
-offset_top = -285.0
-offset_right = 55.32
-offset_bottom = -285.16
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1283.0
+offset_top = 315.0
+offset_right = 1842.0
+offset_bottom = 481.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Sea2TouchClickArea" type="Area2D" parent="."]
 monitoring = false
@@ -242,8 +262,8 @@ polygon = PackedVector2Array(1939, 81, 1637, 159, 1625, 324, 1028, 343, 1036, 45
 [node name="Sea3" type="Sprite2D" parent="." node_paths=PackedStringArray("area2D", "action_menu")]
 z_index = -5
 z_as_relative = false
-position = Vector2(1091, 269)
 texture = ExtResource("23_mruk0")
+centered = false
 script = ExtResource("6_jbi6i")
 area2D = NodePath("../Sea3TouchClickArea")
 action_menu = NodePath("MapActionSelectMenu")
@@ -252,10 +272,16 @@ highlight_texture = ExtResource("18_6pw1w")
 metadata/_edit_lock_ = true
 
 [node name="MapActionSelectMenu" parent="Sea3" instance=ExtResource("8_d16d1")]
-offset_left = -325.0
-offset_top = -258.0
-offset_right = -324.68
-offset_bottom = -258.16
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 918.0
+offset_top = -24.0
+offset_right = 1598.0
+offset_bottom = 194.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Sea3TouchClickArea" type="Area2D" parent="."]
 position = Vector2(1682, 301)
